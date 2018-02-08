@@ -15,7 +15,7 @@ import { SelectLanguagePage } from './../pages/select-language/select-language';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = SelectLanguagePage;
 
   pages: Array<{title: string, component: any}>;
 
