@@ -1,0 +1,66 @@
+<ion-header>
+    
+</ion-header>
+  
+  <ion-content padding>
+      <ion-img width="100%" height="188" src="assets/imgs/uno1.png"></ion-img>
+    <ion-grid>
+      <ion-row></ion-row>
+      <ion-row>
+        
+        <ion-col>
+            <form [formGroup]="reg">
+          <ion-list>
+            <ion-item>
+              <ion-label floating>Ism</ion-label>
+              <ion-input formControlName="Name" type="text"></ion-input>
+            </ion-item>
+            <ion-item >
+              <ion-label floating>Familiya</ion-label>
+              <ion-input formControlName="Surname" type="text"></ion-input>
+            </ion-item>
+          </ion-list>
+          
+            <ion-item>
+              <ion-select [(ngModel)]="idFuculty" placeholder="Fakultet"  interface="popover"
+              formControlName="faculty" (ionChange)=onChangeFuculty()>
+                <ion-option value="1">Kompyuter injinering</ion-option>
+                <ion-option value="2">Telekommunikatsiya</ion-option>
+              </ion-select>
+            </ion-item>
+              <ion-item>
+                <ion-select [(ngModel)]="idCours" placeholder="Bosqich"  interface="popover" formControlName="cours"
+                [disabled]="!reg.controls.faculty.valid" (ionChange)=onChangeFuculty()>
+                  <ion-option value="1">1-kurs</ion-option>
+                  <ion-option value="2">2-kurs</ion-option>
+                  <ion-option value="3">3-kurs</ion-option>
+                  <ion-option value="4">4-kurs</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-select [(ngModel)]="amount" placeholder="Guruh"  interface="popover" formControlName="group" 
+                [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid">
+                  <ion-option *ngFor="let r of selGroup" [value]="idGroup[r]">
+                    {{idGroup[r]}}</ion-option>
+                </ion-select>
+              </ion-item>
+          </form>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <button ion-button (click)="goToHomePage()"
+          [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid || !reg.controls.group.valid
+          || !reg.controls.Name.valid || !reg.controls.Surname.valid">
+            Kirish
+          </button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+     
+    
+    
+  </ion-content>
+  

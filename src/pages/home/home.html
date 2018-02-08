@@ -1,14 +1,79 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+<ion-header >
+  <ion-navbar color="secondary">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-7>
+            <img src="assets/imgs/logo_uno.png" width="150" height="50">
+        </ion-col>    
+        <ion-col col-2>
+            <img src="assets/imgs/logo_tatu.png" width="100%" height="100%">
+        </ion-col>   
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  {{'hello' | translate}}
-  Salom TEST
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-grid>
+    <ion-col>
+      <ion-row>
+        <ion-slides autoplay="3000" loop="true" speed="1000" pager="true">
+          <ion-slide >
+            <img src="assets/imgs/tatusf1.jpg">
+          </ion-slide>
+          <ion-slide >
+            <img src="assets/imgs/tatusf2.jpg">
+          </ion-slide>
+          <ion-slide >
+            <img src="assets/imgs/tatusf3.jpg">
+          </ion-slide>
+        </ion-slides>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/news.png">
+              <ion-label>Yangiliklar</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/time_tab.png">
+              <ion-label>Dars jadvali</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/quiz.png">
+              <ion-label>So"rovnoma</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/TATU.png">
+              <ion-label>TATU SF</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/info.png">
+              <ion-label>Ma'lumotlar</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+              <img width="100%" height="100%" src="assets/imgs/contact.png">
+              <ion-label>Bog'lanish</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
 </ion-content>

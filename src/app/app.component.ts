@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { SelectLanguagePage } from './../pages/select-language/select-language';
 
 @Component({
   templateUrl: 'app.html'

@@ -13,11 +13,16 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { SelectLanguagePage } from './../pages/select-language/select-language';
+import { RegistrPage } from './../pages/registr/registr';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    SelectLanguagePage,
+    RegistrPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    SelectLanguagePage,
+    RegistrPage
   ],
   providers: [
     StatusBar,
