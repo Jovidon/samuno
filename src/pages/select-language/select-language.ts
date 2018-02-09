@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegistrPage } from './../registr/registr'
+import { Language } from './../../model/language-model';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageProvider } from './../../providers/language/language';
 
 
 
@@ -11,7 +14,14 @@ import { RegistrPage } from './../registr/registr'
 })
 export class SelectLanguagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  languages : Array <Language>;
+  languageSelected : any = null ; 
+  constructor(public navCtrl: NavController,
+     public navParams : NavParams,
+     private translate : TranslateService,
+     private languageProvider : LanguageProvider ) {
+       this.languages = this.languageProvider.getSupportedLanguages();
+       this.languageSelected = this.translate.getDefaultLang();
   }
 
   ionViewDidLoad() {
@@ -19,6 +29,14 @@ export class SelectLanguagePage {
   }
   goToRegistrPage(){
     this.navCtrl.push(RegistrPage);
+  }
+
+  setLanguage(){
+    if(this.languageSelected) {
+        this.translate.setDefaultLang(this.languageSelected);
+        this.translate.use(this.languageSelected);
+    }
+
   }
 
 }

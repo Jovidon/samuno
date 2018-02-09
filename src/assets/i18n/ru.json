@@ -1,3 +1,47 @@
 {
-    "hello": "Привет"
-}
+    "btnUzblang" : "Узбекский язык",
+    "btnRuslang" : "Русский язык",
+    "btnSignIn": "Войти",
+    "btnNews": "Новости",
+    "btnTimeTable" : "Расписание",
+    "btnQuery": "Вопросник",
+    "btnTuit": "СФ ТУИТ",
+    "btnInfo": "Информации",
+    "btnContact": "Связаться",
+    "btnHeadpage": "Главная страница",
+    "btnInfo1": "Информации",
+    "btnSettings": "Настройки",
+    "btnCopyright": "Создатели",
+    "btnMore": "Подробно",
+    "btnMon": "Понидельник",
+    "btnTus": "Вторник",
+    "btnWed": "Среда",
+    "btnThus": "Четверг",
+    "btnFri": "Пятница",
+    "btnSun": "Субота",
+    "btnHeaderStaff" : "Администрация",
+    "btnFacult" : "Факультеты",
+    "btnCafed" : "Кафедры",
+    "btnTuitInfo": "О СФ ТУИТ ",
+    "btnSend": "Отправить",
+    
+    
+    
+    "labelLang" : "Выберите язык",
+    "labelContacts" : "Связаться с нами",
+    "labelSignIn" : "Вход в систему",
+    "labelNews" : "Новости",
+    "labelTimetable" : "Расписание",
+    "labelTUIT" : "СФ ТУИТ",
+    "labelQues" : "Вопросник",
+    "labelStatistics" : "Statistika",
+    
+    
+    "inputName" : "Имя",
+    "inputFirstName" : "Фамилия",
+    
+    
+    "selectFacul" : "Факультет",
+    "selectKourse" : "Курс",
+    "selectGroup" : "Группа"
+    }

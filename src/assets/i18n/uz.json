@@ -1,3 +1,47 @@
 {
-    "hello" : "Salom"
-}
+    "btnUzblang" : "O'zbek tili",
+    "btnRuslang" : "Русский язык",
+    "btnSignIn": "Kirish",
+    "btnNews": "Yangiliklar",
+    "btnTimeTable" : "Dars jadvali",
+    "btnQuery": "So'rovnoma",
+    "btnTuit": "TATU SF",
+    "btnInfo": "Ma'lumotlar",
+    "btnContact": "Bog'lanish",
+    "btnHeadpage": "Bosh menu",
+    "btnInfo1": "Ma'lumot",
+    "btnSettings": "Sozlamalar",
+    "btnCopyright": "Ijodiy guruh",
+    "btnMore": "Batafsil",
+    "btnMon": "Dushanba",
+    "btnTus": "Seysahnba",
+    "btnWed": "Chorshanba",
+    "btnThus": "Payshanba",
+    "btnFri": "Juma",
+    "btnSun": "Shanba",
+    "btnHeaderStaff" : "Boshqarish",
+    "btnFacult" : "Fakultetlar",
+    "btnCafed" : "Kafedralar",
+    "btnTuitInfo": "TATU SF haqida",
+    "btnSend": "Yuborish",
+    
+    
+    
+    "labelLang" : "Tilni tanlash",
+    "labelContacts" : "Bog'lanish",
+    "labelSignIn" : "Tizimga kirish",
+    "labelNews" : "Yangiliklar",
+    "labelTimetable" : "Dars jadvali",
+    "labelTUIT" : "TATU SF",
+    "labelQues" : "So'rovnoma",
+    "labelStatistics" : "Statistika",
+    
+    
+    "inputName" : "Ism",
+    "inputFirstName" : "Familiya",
+    
+    
+    "selectFacul" : "Fakultet",
+    "selectKourse" : "Bosqich",
+    "selectGroup" : "Guruh"
+    }
