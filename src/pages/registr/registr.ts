@@ -38,7 +38,7 @@ export class RegistrPage {
     }
   }
   goToHomePage(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
