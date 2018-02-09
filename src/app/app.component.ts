@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SelectLanguagePage } from './../pages/select-language/select-language';
+import { SettingsPage } from './../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,15 +18,16 @@ export class MyApp {
 
   rootPage: any = SelectLanguagePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'BOSH MENU', component: HomePage, icon: "home" },
+      { title: 'SOZLAMALAR', component: SettingsPage, icon: 'settings'}
+    
     ];
 
   }
