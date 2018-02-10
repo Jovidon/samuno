@@ -10,13 +10,19 @@ import { ListPage } from '../pages/list/list';
 import { SelectLanguagePage } from './../pages/select-language/select-language';
 import { SettingsPage } from './../pages/settings/settings';
 
+import { LanguageRepository } from './../enteties/language';
+import { TimeTable } from './../enteties/time-table';
+
+import { createConnection } from 'typeorm'
+import { getRepository, Repository } from 'typeorm';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SelectLanguagePage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any, icon: string }>;
 
@@ -33,12 +39,40 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+    this.platform.ready().then(async () => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.translate.setDefaultLang('uz');
+
+     /*
+      await createConnection({
+        type: 'cordova',
+        database: 'test',
+        location: 'default',
+        logging: ['error', 'query', 'schema'],
+        synchronize: true,
+        entities: [
+          LanguageRepository,
+          TimeTable
+        ]
+      });
+
+      let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
+      let lang = await languagerepo.findOneById(1);
+        if(lang){
+         
+          this.rootPage = HomePage;
+        }
+        else 
+        {
+          
+          this.rootPage = SelectLanguagePage;
+
+        }
+        this.translate.setDefaultLang(lang.code);
+          */
+          this.translate.setDefaultLang('uz');
     });
   }
 

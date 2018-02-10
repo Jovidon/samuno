@@ -17,7 +17,7 @@ export class SettingsPage {
   }
 
   goToSelectLanguagePage(){
-    this.navCtrl.push(SelectLanguagePage);
+    this.navCtrl.setRoot(SelectLanguagePage);
 
   }
 }

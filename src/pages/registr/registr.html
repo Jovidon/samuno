@@ -12,11 +12,11 @@
             <form [formGroup]="reg">
           <ion-list>
             <ion-item>
-              <ion-label floating>Ism</ion-label>
+              <ion-label floating>{{'inputName' | translate }}</ion-label>
               <ion-input formControlName="Name" type="text"></ion-input>
             </ion-item>
             <ion-item >
-              <ion-label floating>Familiya</ion-label>
+              <ion-label floating>{{'inputFirstName' | translate }}</ion-label>
               <ion-input formControlName="Surname" type="text"></ion-input>
             </ion-item>
           </ion-list>
@@ -50,7 +50,7 @@
       <ion-row>
         <ion-col></ion-col>
         <ion-col>
-          <button ion-button (click)="goToHomePage()"
+          <button ion-button (click)="Registr()"
           [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid || !reg.controls.group.valid
           || !reg.controls.Name.valid || !reg.controls.Surname.valid">
             Kirish

@@ -36,41 +36,41 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <div>
+          <div (click)="goToNewsPage()">
               <img width="100%" height="100%" src="assets/imgs/news.png">
-              <ion-label>Yangiliklar</ion-label>
+              <ion-label>{{'labelNews' | translate }}</ion-label>
           </div>
         </ion-col>
         <ion-col>
-          <div>
+          <div (click)="goToTimeTablePage()">
               <img width="100%" height="100%" src="assets/imgs/time_tab.png">
-              <ion-label>Dars jadvali</ion-label>
+              <ion-label>{{'labelTimetable' | translate }}</ion-label>
           </div>
         </ion-col>
         <ion-col>
-          <div>
+          <div (click)="goToInqueryPage()">
               <img width="100%" height="100%" src="assets/imgs/quiz.png">
-              <ion-label>So"rovnoma</ion-label>
+              <ion-label>{{'labelQues' | translate }}</ion-label>
           </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <div>
+          <div (click)="goToTuitSbPage()">
               <img width="100%" height="100%" src="assets/imgs/TATU.png">
-              <ion-label>TATU SF</ion-label>
+              <ion-label>{{'labelTUIT' | translate }}</ion-label>
           </div>
         </ion-col>
         <ion-col>
-          <div>
+          <div (click)="goToStatisticsPage()">
               <img width="100%" height="100%" src="assets/imgs/Info.png">
-              <ion-label>Ma'lumotlar</ion-label>
+              <ion-label>{{ 'labelStatistics' | translate}}</ion-label>
           </div>
         </ion-col>
         <ion-col>
-          <div>
+          <div (click)="goToContactsPage()">
               <img width="100%" height="100%" src="assets/imgs/contact.png">
-              <ion-label>Bog'lanish</ion-label>
+              <ion-label>{{'labelContacts' | translate }}</ion-label>
           </div>
         </ion-col>
       </ion-row>

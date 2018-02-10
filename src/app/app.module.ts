@@ -5,17 +5,26 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http'; 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SettingsPage } from './../pages/settings/settings';
+import { NewsPage } from './../pages/news/news';
+import { TimeTablePage } from './../pages/time-table/time-table';
+import { InqueryPage } from './../pages/inquery/inquery';
+import { TuitSbPage } from './../pages/tuit-sb/tuit-sb';
+import { StatisticsPage } from './../pages/statistics/statistics';
+import { ContactsPage } from './../pages/contacts/contacts';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SelectLanguagePage } from './../pages/select-language/select-language';
 import { RegistrPage } from './../pages/registr/registr';
+import { LanguageProvider } from '../providers/language/language';
+import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 @NgModule({
   declarations: [
@@ -24,11 +33,18 @@ import { RegistrPage } from './../pages/registr/registr';
     ListPage,
     SelectLanguagePage,
     RegistrPage,
-    SettingsPage
+    SettingsPage,
+    NewsPage,
+    TimeTablePage,
+    InqueryPage,
+    TuitSbPage,
+    StatisticsPage,
+    ContactsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
     loader: {
@@ -45,12 +61,20 @@ import { RegistrPage } from './../pages/registr/registr';
     ListPage,
     SelectLanguagePage,
     RegistrPage,
-    SettingsPage
+    SettingsPage,
+    NewsPage,
+    TimeTablePage,
+    InqueryPage,
+    TuitSbPage,
+    StatisticsPage,
+    ContactsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LanguageProvider,
+    RestApiProvider
   ]
 })
 export class AppModule {}

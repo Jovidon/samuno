@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HomePage } from './../home/home'
+import { RestApiProvider } from './../../providers/rest-api/rest-api';
+import { TimeTablePage } from './../time-table/time-table';
 
 @IonicPage()
 @Component({
@@ -15,7 +17,7 @@ export class RegistrPage {
   idGroup: number[]=[0];
   amount: number;
   selGroup: number[]=[0];
-  constructor(public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder, public getdata : RestApiProvider) {
     this.reg = formBuilder.group({
       faculty: ['',Validators.compose([Validators.required])],
       cours: ['',Validators.compose([Validators.required])],
@@ -39,6 +41,12 @@ export class RegistrPage {
   }
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  Registr(){
+    //this.getdata.submit(this.idFuculty,this.idCours,this.amount);
+    
+    this.navCtrl.push(HomePage);
   }
 
 }
