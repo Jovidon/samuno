@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TimeTable } from './../../enteties/time-table';
+import { getRepository, Repository } from 'typeorm';
 
-/**
- * Generated class for the TimeTablePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'time-table.html',
 })
 export class TimeTablePage {
-
+  timetable : any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //this.getTimeTable();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimeTablePage');
   }
+  
+  getTimeTable(){ 
+    let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
 
+    this.timetable = timetablerepo.find();
+
+
+  }
 }

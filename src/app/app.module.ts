@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http'; 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SelectLanguagePage } from './../pages/select-language/select-language';
 import { RegistrPage } from './../pages/registr/registr';
 import { LanguageProvider } from '../providers/language/language';
+import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { LanguageProvider } from '../providers/language/language';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
     loader: {
@@ -70,7 +73,8 @@ import { LanguageProvider } from '../providers/language/language';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LanguageProvider
+    LanguageProvider,
+    RestApiProvider
   ]
 })
 export class AppModule {}

@@ -28,13 +28,13 @@
     
     
     "labelLang" : "Выберите язык",
-    "labelContacts" : "Связаться с нами",
+    "labelContacts" : "Связаться",
     "labelSignIn" : "Вход в систему",
     "labelNews" : "Новости",
     "labelTimetable" : "Расписание",
     "labelTUIT" : "СФ ТУИТ",
     "labelQues" : "Вопросник",
-    "labelStatistics" : "Statistika",
+    "labelStatistics" : "Статистика",
     
     
     "inputName" : "Имя",
