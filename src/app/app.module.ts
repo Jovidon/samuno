@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -17,9 +18,13 @@ import { InqueryPage } from './../pages/inquery/inquery';
 import { TuitSbPage } from './../pages/tuit-sb/tuit-sb';
 import { StatisticsPage } from './../pages/statistics/statistics';
 import { ContactsPage } from './../pages/contacts/contacts';
+import { ApplicantStatisticsPage } from './../pages/applicant-statistics/applicant-statistics';
+import { TeacherStatisticsPage } from './../pages/teacher-statistics/teacher-statistics';
+import { StudentStatisticsPage } from './../pages/student-statistics/student-statistics';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 import { SelectLanguagePage } from './../pages/select-language/select-language';
 import { RegistrPage } from './../pages/registr/registr';
@@ -39,7 +44,11 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     InqueryPage,
     TuitSbPage,
     StatisticsPage,
-    ContactsPage
+    ContactsPage,
+    ApplicantStatisticsPage,
+    TeacherStatisticsPage,
+    StudentStatisticsPage
+    
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,11 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     InqueryPage,
     TuitSbPage,
     StatisticsPage,
-    ContactsPage
+    ContactsPage,
+    ApplicantStatisticsPage,
+    TeacherStatisticsPage,
+    StudentStatisticsPage
+
   ],
   providers: [
     StatusBar,

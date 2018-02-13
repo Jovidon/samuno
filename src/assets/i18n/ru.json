@@ -35,6 +35,14 @@
     "labelTUIT" : "СФ ТУИТ",
     "labelQues" : "Вопросник",
     "labelStatistics" : "Статистика",
+    "labelProfessorSt" : "Cтатистика профессоров",
+    "labelStudentSt" : "Статистика студентов",
+    "labelEnterance" : "Статистика входных баллов",
+    "labelProfessors" : "Профессоры",
+    "labelDoctors" : "Докторы наук",
+    "labelTeachers" : "Старшие учители",
+    "labelAssitent" : "Ассистенты",
+    "labelDots" :  "Доценты",
     
     
     "inputName" : "Имя",
@@ -43,5 +51,16 @@
     
     "selectFacul" : "Факультет",
     "selectKourse" : "Курс",
-    "selectGroup" : "Группа"
+    "selectGroup" : "Группа",
+    "selectDirection" : "Выберите факультет",
+    "selectLanguageofEdu" : "Выберите язык обучения ",
+    "computerEnginering" : "Компютер инжиниринг",
+    "programmingEnginering" : "Программа инжиниринг",
+    "Telecommunication" : "Телекомуникация",
+    "occupationEducation" : "Профессиональная обучения",
+    "cyberSecurity" : "Информационная безопасность",
+    
+    "cancelText" : "Отменить",
+    "okText" : "Подтвердить",
+    "rusLang" : "Русский язык"
     }
