@@ -35,6 +35,15 @@
     "labelTUIT" : "TATU SF",
     "labelQues" : "So'rovnoma",
     "labelStatistics" : "Statistika",
+    "labelProfessorSt" : "Professor o'qituvchilar statistika",
+    "labelStudentSt" : "Talabalar statistikasi",
+    "labelEnterance" : "Kirish ballari statistikasi",
+    "labelProfessors" : "Professorlar",
+    "labelDoctors" : "Doktorlar",
+    "labelTeachers" : "Katta o'qituvchilar",
+    "labelAssitent" : "Assistentlar",
+    "labelDots" :  "Fan nomzodlari",
+
     
     
     "inputName" : "Ism",
@@ -43,5 +52,17 @@
     
     "selectFacul" : "Fakultet",
     "selectKourse" : "Bosqich",
-    "selectGroup" : "Guruh"
+    "selectGroup" : "Guruh",
+    "selectDirection" : "Yo'nalishni tanlang",
+    "selectLanguageofEdu" : "Ta'lim tilini tanlang",
+    "computerEnginering" : "Kompyuter injiniring",
+    "programmingEnginering" : "Dasturiy injiniring",
+    "Telecommunication" : "Telekommunikatsiya",
+    "occupationEducation" : "Kasb ta'limi",
+    "cyberSecurity" : "Axborot xavfsizligi",
+
+    "cancelText" : "Bekor qilish",
+    "okText" : "Tanlash",
+    "rusLang" : "Rus tili"
+
     }

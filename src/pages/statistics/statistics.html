@@ -1,13 +1,40 @@
-
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>{{'labelStatistics' | translate }}</ion-title>
+    <ion-title>
+    {{'labelStatistics' | translate}}
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
+ 
+<ion-content>
 
+  <ion-card (click)="goToTeacherStPage()">
+    <ion-card-header >
+      {{'labelProfessorSt' | translate}}
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content padding>
-
+    <ion-card (click)="goToStudentStPage()">
+      <ion-card-header>
+        {{'labelStudentSt' | translate}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    
+ 
+    <ion-card (click)="goToApplicantStPage()">
+      <ion-card-header>
+        {{'labelEnterance' | translate}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
 </ion-content>
