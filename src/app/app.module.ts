@@ -62,6 +62,7 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     deps: [HttpClient]
     }
     })
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -87,7 +88,8 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LanguageProvider,
-    RestApiProvider
+    RestApiProvider,
+
   ]
 })
 export class AppModule {}

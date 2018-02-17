@@ -26,8 +26,8 @@ export class SelectLanguagePage {
      public navParams : NavParams,
      private translate : TranslateService,
      private languageProvider : LanguageProvider ) {
-       this.languages = this.languageProvider.getSupportedLanguages();
-       this.languageSelected = this.translate.getDefaultLang();
+      // this.languages = this.languageProvider.getSupportedLanguages();
+     //  this.languageSelected = this.translate.getDefaultLang();
   }
 
   ionViewDidLoad() {
@@ -60,7 +60,7 @@ export class SelectLanguagePage {
           this.translate.use(this.languageSelected);
       }
       if(!isOld)
-        this.navCtrl.setRoot(RegistrPage);
+        this.navCtrl.setRoot(RegistrPage); //RegistrPage
       else 
         this.navCtrl.setRoot(HomePage)
       

@@ -1,9 +1,9 @@
-<ion-header>
-    
+<ion-header no-border>
+  <img width="100%" height="188" src="assets/imgs/uno1.png">
 </ion-header>
   
   <ion-content padding>
-      <img width="100%" height="188" src="assets/imgs/uno1.png">
+     
     <ion-grid>
       <ion-row></ion-row>
       <ion-row>
@@ -13,11 +13,11 @@
           <ion-list>
             <ion-item>
               <ion-label floating>{{'inputName' | translate }}</ion-label>
-              <ion-input formControlName="Name" type="text"></ion-input>
+              <ion-input [(ngModel)]="name" formControlName="Name" type="text"></ion-input>
             </ion-item>
             <ion-item >
               <ion-label floating>{{'inputFirstName' | translate }}</ion-label>
-              <ion-input formControlName="Surname" type="text"></ion-input>
+              <ion-input   [(ngModel)]="surname" formControlName="Surname" type="text"></ion-input>
             </ion-item>
           </ion-list>
           
@@ -50,7 +50,7 @@
       <ion-row>
         <ion-col></ion-col>
         <ion-col>
-          <button ion-button (click)="Registr()"
+          <button ion-button round color="secondary" (click)="Registr()"
           [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid || !reg.controls.group.valid
           || !reg.controls.Name.valid || !reg.controls.Surname.valid">
             Kirish

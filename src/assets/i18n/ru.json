@@ -43,6 +43,9 @@
     "labelTeachers" : "Старшие учители",
     "labelAssitent" : "Ассистенты",
     "labelDots" :  "Доценты",
+    "labelGrand" : "Davlat granti",
+    "labelContract": "To'lov shartnoma",
+    "labelChangingTimeTable" : "Dars jadvalingizda o'zgarishlar mavjud!",
     
     
     "inputName" : "Имя",
