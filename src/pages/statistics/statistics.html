@@ -7,34 +7,35 @@
 </ion-header>
  
 <ion-content>
-
-  <ion-card (click)="goToTeacherStPage()">
-    <ion-card-header >
-      {{'labelProfessorSt' | translate}}
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #doughnutCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
-
-    <ion-card (click)="goToStudentStPage()">
-      <ion-card-header>
-        {{'labelStudentSt' | translate}}
-      </ion-card-header>
-      <ion-card-content>
-        <canvas #barCanvas></canvas>
-      </ion-card-content>
-    </ion-card>
- 
-    
- 
-    <ion-card (click)="goToApplicantStPage()">
-      <ion-card-header>
-        {{'labelEnterance' | translate}}
-      </ion-card-header>
-      <ion-card-content>
-        <canvas #lineCanvas></canvas>
-      </ion-card-content>
-    </ion-card>
- 
+   <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <div (click)="goToTeacherStPage()">
+            <img width="100%" height="100%" src="assets/imgs/Teach.png">
+            <ion-label>{{'labelProfessorSt' | translate}}</ion-label>
+          </div>
+        </ion-col>
+        <ion-col text-center>
+          <div (click)="goToStudentStPage()">
+            <img width="100%" height="100%" src="assets/imgs/Student.png">
+            <ion-label>{{'labelStudentSt' | translate}}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <div > 
+            <img width="100%" height="100%" src="assets/imgs/Abitur.png">
+            <ion-label>{{'labelQues' | translate }}</ion-label>
+          </div>
+        </ion-col>
+        <ion-col text-center>
+            <div (click)="goToApplicantStPage()">
+              <img width="100%" height="100%" src="assets/imgs/Tuitst.png">
+              <ion-label> {{'labelEnterance' | translate}}</ion-label>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  
 </ion-content>

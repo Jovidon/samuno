@@ -1,31 +1,24 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, ManyToOne} from "typeorm";
 
-@Entity('timetable')
-export class TimeTable { 
+@Entity('user')
+export class User { 
     
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    fan: string;
+    name: string;
     
     @Column()
-    teacher: string;
+    surname: string;
     
     @Column()
-    day: string;
+    idFaculty: number;
 
     @Column()
-    type: string;
-
-    @Column()
-    lessonId: string;
-
-
-
-
-
+    idGroup : number;
+    
 
 
 }

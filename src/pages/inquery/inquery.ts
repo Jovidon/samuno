@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the InqueryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { getRepository, Repository } from 'typeorm';
+import { User } from './../../enteties/user';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InqueryPage {
 
+  name : string ;
+  surname : string;
+  user : any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.getUser();
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InqueryPage');
+  }
+
+  async getUser(){
+
+    let userrepo = getRepository('user') as Repository <User>;
+    
+
+    this.user = await userrepo.find();
   }
 
 }

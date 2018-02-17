@@ -9,10 +9,160 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let time of timetable">
-    {{time.day}} {{time.fan}} {{time.teacher}} 
-    </ion-item>  
+
+ <!-- <ion-list>
+    <ion-card>
+      <ion-card-header>Dushanba</ion-card-header>
+      <ion-card-content>
+        <ion-item *ngFor="let time of mondayTable">
+          {{time.lessonId}}
+          {{time.lessonId}}
+          {{time.fan}}
+          {{time.teacher}}
+          {{time.day}}
+          {{time.type}}
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>Seshanba</ion-card-header>
+        <ion-card-content>
+          <ion-item *ngFor="let time of tuesdayTable">
+            {{time.lessonId}}
+            {{time.lessonId}}
+            {{time.fan}}
+            {{time.teacher}}
+            {{time.day}}
+            {{time.type}}
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>Chorshanba</ion-card-header>
+          <ion-card-content>
+            <ion-item *ngFor="let time of wednesdayTable">
+              {{time.lessonId}}
+              {{time.lessonId}}
+              {{time.fan}}
+              {{time.teacher}}
+              {{time.day}}
+              {{time.type}}
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>Payshanba</ion-card-header>
+            <ion-card-content>
+              <ion-item *ngFor="let time of thursdayTable">
+                {{time.lessonId}}
+                {{time.lessonId}}
+                {{time.fan}}
+                {{time.teacher}}
+                {{time.day}}
+                {{time.type}}
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+              <ion-card-header>Juma</ion-card-header>
+              <ion-card-content>
+                <ion-item *ngFor="let time of fridayTable">
+                  {{time.lessonId}}
+                  {{time.lessonId}}
+                  {{time.fan}}
+                  {{time.teacher}}
+                  {{time.day}}
+                  {{time.type}}
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Shanba</ion-card-header>
+                <ion-card-content>
+                  <ion-item *ngFor="let time of saturdayTable">
+                    {{time.lessonId}}
+                    {{time.lessonId}}
+                    {{time.fan}}
+                    {{time.teacher}}
+                    {{time.day}}
+                    {{time.type}}
+                  </ion-item>
+                </ion-card-content>
+              </ion-card>
   </ion-list>
+-->
+
+  <ion-list>
+    <ion-card *ngFor="let item of timetable">
+      <ion-item *ngIf="item.day==='Dushanba'">
+          <ion-card-header>{{item.day}}</ion-card-header>
+          <ion-card-content>
+              {{item.lessonId}}
+              {{item.fan}}
+              {{item.teacher}}
+          </ion-card-content>
+      </ion-item>
+    </ion-card>
+    <ion-card *ngFor="let item of timetable">
+      <ion-item *ngIf="item.day==='Seshanba'">
+          <ion-card-header>{{item.day}}</ion-card-header>
+          <ion-card-content>
+              {{item.lessonId}}
+              {{item.fan}}
+              {{item.teacher}}
+          </ion-card-content>
+      </ion-item>
+    </ion-card>
+    <ion-card *ngFor="let item of timetable">
+      <ion-item *ngIf="item.day==='Chorshanba'">
+        <ion-card-header>{{item.day}}</ion-card-header>
+        <ion-card-content>
+            {{item.lessonId}}
+            {{item.fan}}
+            {{item.teacher}}
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+    <ion-card *ngFor="let item of timetable">
+        <ion-item *ngIf="item.day==='Payshanba'">
+          <ion-card-header>{{item.day}}</ion-card-header>
+          <ion-card-content>
+              {{item.lessonId}}
+              {{item.fan}}
+              {{item.teacher}}
+          </ion-card-content>
+        </ion-item>
+      </ion-card>
+      <ion-card *ngFor="let item of timetable">
+          <ion-item *ngIf="item.day==='Juma'">
+            <ion-card-header>{{item.day}}</ion-card-header>
+            <ion-card-content>
+                {{item.lessonId}}
+                {{item.fan}}
+                {{item.teacher}}
+            </ion-card-content>
+          </ion-item>
+        </ion-card>
+        <ion-card *ngFor="let item of timetable">
+            <ion-item *ngIf="item.day==='Shanba'">
+              <ion-card-header>{{item.day}}</ion-card-header>
+              <ion-card-content>
+                  {{item.lessonId}}
+                  {{item.fan}}
+                  {{item.teacher}}
+              </ion-card-content>
+            </ion-item>
+          </ion-card>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of timetable">
+       {{item.day}}
+       {{item.lessonId}}
+       {{item.fan}}
+       {{item.teacher}}
+       {{item.type}}
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>
