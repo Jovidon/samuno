@@ -1,168 +1,239 @@
 
-<ion-header>
 
-  <ion-navbar color="secondary">
-    <ion-title>{{'labelTimetable' | translate}}</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
-
- <!-- <ion-list>
-    <ion-card>
-      <ion-card-header>Dushanba</ion-card-header>
-      <ion-card-content>
-        <ion-item *ngFor="let time of mondayTable">
-          {{time.lessonId}}
-          {{time.lessonId}}
-          {{time.fan}}
-          {{time.teacher}}
-          {{time.day}}
-          {{time.type}}
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-        <ion-card-header>Seshanba</ion-card-header>
-        <ion-card-content>
-          <ion-item *ngFor="let time of tuesdayTable">
-            {{time.lessonId}}
-            {{time.lessonId}}
-            {{time.fan}}
-            {{time.teacher}}
-            {{time.day}}
-            {{time.type}}
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-          <ion-card-header>Chorshanba</ion-card-header>
-          <ion-card-content>
-            <ion-item *ngFor="let time of wednesdayTable">
-              {{time.lessonId}}
-              {{time.lessonId}}
-              {{time.fan}}
-              {{time.teacher}}
-              {{time.day}}
-              {{time.type}}
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <ion-card-header>Payshanba</ion-card-header>
-            <ion-card-content>
-              <ion-item *ngFor="let time of thursdayTable">
-                {{time.lessonId}}
-                {{time.lessonId}}
-                {{time.fan}}
-                {{time.teacher}}
-                {{time.day}}
-                {{time.type}}
-              </ion-item>
-            </ion-card-content>
-          </ion-card>
-          <ion-card>
-              <ion-card-header>Juma</ion-card-header>
-              <ion-card-content>
-                <ion-item *ngFor="let time of fridayTable">
-                  {{time.lessonId}}
-                  {{time.lessonId}}
-                  {{time.fan}}
-                  {{time.teacher}}
-                  {{time.day}}
-                  {{time.type}}
-                </ion-item>
-              </ion-card-content>
-            </ion-card>
-            <ion-card>
-                <ion-card-header>Shanba</ion-card-header>
-                <ion-card-content>
-                  <ion-item *ngFor="let time of saturdayTable">
-                    {{time.lessonId}}
-                    {{time.lessonId}}
-                    {{time.fan}}
-                    {{time.teacher}}
-                    {{time.day}}
-                    {{time.type}}
-                  </ion-item>
-                </ion-card-content>
-              </ion-card>
-  </ion-list>
--->
-
-  <ion-list>
-    <ion-card *ngFor="let item of timetable">
-      <ion-item *ngIf="item.day==='Dushanba'">
-          <ion-card-header>{{item.day}}</ion-card-header>
-          <ion-card-content>
-              {{item.lessonId}}
-              {{item.fan}}
-              {{item.teacher}}
-          </ion-card-content>
-      </ion-item>
-    </ion-card>
-    <ion-card *ngFor="let item of timetable">
-      <ion-item *ngIf="item.day==='Seshanba'">
-          <ion-card-header>{{item.day}}</ion-card-header>
-          <ion-card-content>
-              {{item.lessonId}}
-              {{item.fan}}
-              {{item.teacher}}
-          </ion-card-content>
-      </ion-item>
-    </ion-card>
-    <ion-card *ngFor="let item of timetable">
-      <ion-item *ngIf="item.day==='Chorshanba'">
-        <ion-card-header>{{item.day}}</ion-card-header>
-        <ion-card-content>
-            {{item.lessonId}}
-            {{item.fan}}
-            {{item.teacher}}
-        </ion-card-content>
-      </ion-item>
-    </ion-card>
-    <ion-card *ngFor="let item of timetable">
-        <ion-item *ngIf="item.day==='Payshanba'">
-          <ion-card-header>{{item.day}}</ion-card-header>
-          <ion-card-content>
-              {{item.lessonId}}
-              {{item.fan}}
-              {{item.teacher}}
-          </ion-card-content>
-        </ion-item>
-      </ion-card>
-      <ion-card *ngFor="let item of timetable">
-          <ion-item *ngIf="item.day==='Juma'">
-            <ion-card-header>{{item.day}}</ion-card-header>
-            <ion-card-content>
-                {{item.lessonId}}
-                {{item.fan}}
-                {{item.teacher}}
-            </ion-card-content>
-          </ion-item>
-        </ion-card>
-        <ion-card *ngFor="let item of timetable">
-            <ion-item *ngIf="item.day==='Shanba'">
-              <ion-card-header>{{item.day}}</ion-card-header>
-              <ion-card-content>
-                  {{item.lessonId}}
-                  {{item.fan}}
-                  {{item.teacher}}
-              </ion-card-content>
-            </ion-item>
-          </ion-card>
-  </ion-list>
-  <ion-list>
-    <ion-item *ngFor="let item of timetable">
-       {{item.day}}
-       {{item.lessonId}}
-       {{item.fan}}
-       {{item.teacher}}
-       {{item.type}}
-    </ion-item>
-  </ion-list>
+    
+   
+<ion-slides pager="true" text-center>
+  <ion-slide>
+        <ion-row>
+                <br><br><br>
+            </ion-row>
+            <ion-row text-center> <br>{{'btnMon' | translate }}</ion-row>
 
 
+           
+    <table class="table table-striped table-bordered table-hover" id="mytable">
+      <thead>
+          <tr >
+              <th>#</th>
+              <th>{{'labelSubject' | translate}}</th>
+              <th>{{'labelTeacher' | translate}}</th>
+              <th>{{'labelRoom' | translate}}</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of monday"  >
+              <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+              <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+              <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+              <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+              <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+              <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+              <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+              <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+              <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+              <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+              <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+              <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+
+          </tr>
+         
+  </tbody>
+</table> 
+
+
+  </ion-slide>
+  <ion-slide>
+      <ion-row>
+          <br><br><br>
+      </ion-row>
+      <ion-row text-center>
+          <br>{{'btnTus' | translate }}
+      </ion-row>
+      
+
+      
+        
+      <table class="table table-striped table-bordered table-hover" id="mytable">
+            
+        <thead>
+            <tr >
+                <th>#</th>
+                <th>{{'labelSubject' | translate}}</th>
+                <th>{{'labelTeacher' | translate}}</th>
+                <th>{{'labelRoom' | translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tuesday"  >
+                <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+                <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+                <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+                <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+                <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+                <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+                <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+                <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+                <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+                <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+                <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+                <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+  
+            </tr>
+           
+    </tbody>
+  </table> 
+  
+
+    </ion-slide>
+    <ion-slide>
+            <ion-row>
+                    <br><br><br>
+                </ion-row>
+                <ion-row>
+                    <br> {{'btnWed' | translate }} 
+                </ion-row>
+
+        <table class="table table-striped table-bordered table-hover" id="mytable">
+          <thead>
+              <tr >
+                  <th>#</th>
+                  <th>{{'labelSubject' | translate}}</th>
+                  <th>{{'labelTeacher' | translate}}</th>
+                  <th>{{'labelRoom' | translate}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of wednesday"  >
+                  <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+                  <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+                  <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+                  <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+                  <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+                  <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+                  <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+                  <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+                  <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+                  <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+                  <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+                  <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+    
+              </tr>
+             
+      </tbody>
+    </table>
+      </ion-slide>
+      <ion-slide>
+            <ion-row>
+                    <br><br><br>
+                </ion-row>
+                <ion-row>
+                    <br>{{'btnThus' | translate }}
+                </ion-row>
+          <table class="table table-striped table-bordered table-hover" id="mytable">
+            <thead>
+                <tr >
+                    <th>#</th>
+                    <th>{{'labelSubject' | translate}}</th>
+                    <th>{{'labelTeacher' | translate}}</th>
+                    <th>{{'labelRoom' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of thursday"  >
+                    <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+                    <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+                    <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+                    <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+                    <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+                    <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+                    <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+                    <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+                    <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+                    <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+                    <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+                    <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+      
+                </tr>
+               
+        </tbody>
+      </table> 
+        </ion-slide>
+        <ion-slide>
+                <ion-row>
+                        <br><br><br>
+                    </ion-row>
+                    <ion-row>
+                        <br>{{'btnFri' | translate }}
+                    </ion-row>
+            <table class="table table-striped table-bordered table-hover" id="mytable">
+              <thead>
+                  <tr >
+                      <th>#</th>
+                      <th>{{'labelSubject' | translate}}</th>
+                      <th>{{'labelTeacher' | translate}}</th>
+                      <th>{{'labelRoom' | translate}}</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of friday"  >
+                      <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+                      <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+                      <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+                      <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+                      <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+                      <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+                      <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+                      <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+                      <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+                      <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+                      <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+                      <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+        
+                  </tr>
+                 
+          </tbody>
+        </table> 
+          </ion-slide>
+          <ion-slide>
+                <ion-row>
+                        <br><br><br>
+                    </ion-row>
+                    <ion-row>
+                            {{'btnSun' | translate }}
+                    </ion-row>
+              <table class="table table-striped table-bordered table-hover" id="mytable">
+                <thead>
+                    <tr >
+                        <th>#</th>
+                        <th>{{'labelSubject' | translate}}</th>
+                        <th>{{'labelTeacher' | translate}}</th>
+                        <th>{{'labelRoom' | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of saturday"  >
+                        <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
+                        <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
+                        <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
+                        <td *ngIf="item.type==='1'" class="lec">{{item.room}}</td>
+                        <td *ngIf="item.type==='2'" class="prac">{{item.lessonId}}</td>
+                        <td *ngIf="item.type==='2'" class="prac">{{item.fan}} </td>
+                        <td *ngIf="item.type==='2'" class="prac">{{item.teacher}}</td>
+                        <td *ngIf="item.type==='2'" class="prac">{{item.room}}</td>
+                        <td *ngIf="item.type==='3'" class="lab">{{item.lessonId}}</td>
+                        <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
+                        <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
+                        <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
+          
+                    </tr>
+                   
+            </tbody>
+          </table>
+            </ion-slide>
+</ion-slides>
 </ion-content>
+
+

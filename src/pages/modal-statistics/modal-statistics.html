@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{'labelEnterance' | translate}}</ion-title>
+    <ion-buttons end><button ion-button (click)="closeModal()"> <ion-icon name="close"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-grid>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+     <ion-row><br></ion-row>
+   </ion-grid>
+    <ion-card>
+        <ion-card-header>
+         {{'labelEnterance' | translate}}
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

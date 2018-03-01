@@ -14,7 +14,7 @@
     "btnCopyright": "Ijodiy guruh",
     "btnMore": "Batafsil",
     "btnMon": "Dushanba",
-    "btnTus": "Seysahnba",
+    "btnTus": "Seshanba",
     "btnWed": "Chorshanba",
     "btnThus": "Payshanba",
     "btnFri": "Juma",
@@ -46,6 +46,16 @@
     "labelGrand" : "Davlat granti",
     "labelContract": "To'lov shartnoma",
     "labelChangingTimeTable" : "Dars jadvalingizda o'zgarishlar mavjud!",
+    "labelSubject" : "Fan",
+    "labelRoom" : "Xona",
+    "labelTeacher" : "O'qituvchi",
+    "labelLec" : "Ma'ruza",
+    "labelPrac" : "Amaliyot", 
+    "labelLab" : "Laboratoriya",
+    "labelNoInternet" : "Yuklanmoqda...",
+    "labelWelcome" : "UNOga xush kelibsiz!",
+    "labelMainMenu" : "Bosh Menu",
+    "labelSettings" : "Sozlamalar",
 
     
     

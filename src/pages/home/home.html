@@ -6,21 +6,23 @@
           <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
+            
+           
         </ion-col>
-        <ion-col col-7>
+        <ion-col col-6>
+        </ion-col>
+        <ion-col col-3>
             <img src="assets/imgs/logo_uno.png" width="150" height="50">
-        </ion-col>    
-        <ion-col col-2>
-            <img src="assets/imgs/logo_tatu.png" width="100%" height="100%">
-        </ion-col>   
+        </ion-col>  
+        
       </ion-row>
     </ion-grid>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content  >
   <ion-grid>
-    <ion-col>
+    <ion-col col-12>
       <ion-row>
         <ion-slides autoplay="3000" loop="true" speed="1000" pager="true">
           <ion-slide >
@@ -35,19 +37,19 @@
         </ion-slides>
       </ion-row>
       <ion-row>
-        <ion-col text-center>
+        <ion-col col-4 text-center>
           <div (click)="goToNewsPage()">
               <img width="100%" height="100%" src="assets/imgs/news.png">
               <ion-label>{{'labelNews' | translate }}</ion-label>
           </div>
         </ion-col>
-        <ion-col text-center>
+        <ion-col col-4  text-center>
           <div (click)="goToTimeTablePage()">
               <img width="100%" height="100%" src="assets/imgs/time_tab.png">
               <ion-label>{{'labelTimetable' | translate }}</ion-label>
           </div>
         </ion-col>
-        <ion-col text-center>
+        <ion-col col-4  text-center>
           <div (click)="goToInqueryPage()">
               <img width="100%" height="100%" src="assets/imgs/quiz.png">
               <ion-label>{{'labelQues' | translate }}</ion-label>
@@ -55,19 +57,19 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col text-center>
+        <ion-col col-4  text-center>
           <div (click)="goToTuitSbPage()">
               <img width="100%" height="100%" src="assets/imgs/TATU.png">
               <ion-label>{{'labelTUIT' | translate }}</ion-label>
           </div>
         </ion-col>
-        <ion-col text-center>
+        <ion-col col-4  text-center>
           <div (click)="goToStatisticsPage()">
-              <img width="100%" height="100%" src="assets/imgs/Stat.png">
+              <img width="100%" height="100%" src="assets/imgs/Statnew.png">
               <ion-label>{{ 'labelStatistics' | translate}}</ion-label>
           </div>
         </ion-col>
-        <ion-col text-center> 
+        <ion-col col-4  text-center> 
           <div (click)="goToContactsPage()">
               <img width="100%" height="100%" src="assets/imgs/contact.png">
               <ion-label>{{'labelContacts' | translate }}</ion-label>

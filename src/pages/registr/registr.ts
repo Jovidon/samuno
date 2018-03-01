@@ -74,7 +74,7 @@ export class RegistrPage {
         time.day = servertime.day;
         time.type = servertime.type;
         time.lessonId = servertime.id;
-        
+        time.room = servertime.room;
         await timetablerepo.save(time);
       }
     })

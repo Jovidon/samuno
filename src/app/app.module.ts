@@ -21,15 +21,19 @@ import { ContactsPage } from './../pages/contacts/contacts';
 import { ApplicantStatisticsPage } from './../pages/applicant-statistics/applicant-statistics';
 import { TeacherStatisticsPage } from './../pages/teacher-statistics/teacher-statistics';
 import { StudentStatisticsPage } from './../pages/student-statistics/student-statistics';
+import { FullNewsPage } from './../pages/full-news/full-news';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
+import { ModalStatisticsPage } from './../pages/modal-statistics/modal-statistics';
 import { SelectLanguagePage } from './../pages/select-language/select-language';
 import { RegistrPage } from './../pages/registr/registr';
 import { LanguageProvider } from '../providers/language/language';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +51,9 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     ContactsPage,
     ApplicantStatisticsPage,
     TeacherStatisticsPage,
-    StudentStatisticsPage
+    StudentStatisticsPage,
+    ModalStatisticsPage,
+    FullNewsPage
     
   ],
   imports: [
@@ -80,7 +86,9 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     ContactsPage,
     ApplicantStatisticsPage,
     TeacherStatisticsPage,
-    StudentStatisticsPage
+    StudentStatisticsPage,
+    ModalStatisticsPage,
+    FullNewsPage
 
   ],
   providers: [
@@ -89,6 +97,8 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LanguageProvider,
     RestApiProvider,
+    LocalNotifications,
+    ScreenOrientation
 
   ]
 })

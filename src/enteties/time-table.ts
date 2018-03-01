@@ -22,6 +22,9 @@ export class TimeTable {
     @Column()
     lessonId: string;
 
+    @Column()
+    room: string;
+
 
 
 
