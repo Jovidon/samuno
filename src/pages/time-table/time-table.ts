@@ -5,6 +5,7 @@ import { getRepository, Repository } from 'typeorm';
 import { User } from './../../enteties/user';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -15,29 +16,27 @@ export class TimeTablePage {
   timetable : any;
   user : any;
   timetablesync : any;
-  mondayTable : any [];
-  tuesdayTable : any [];
-  wednesdayTable : any [];
-  thursdayTable : any [];
-  fridayTable : any [];
-  saturdayTable : any [];
   hasChange : string ; 
+  monday : any;
+  tuesday : any ;
+  wednesday : any ;
+  thursday : any ;
+  friday : any ;
+  saturday : any ;
+  table : TimeTable [];
+  searching : boolean = true;
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams,
       public getdata : RestApiProvider,
       public toastCtrl : ToastController,
-      public translate : TranslateService) {
+      public translate : TranslateService,
+      private screenOrientation: ScreenOrientation) {
     this.getTimeTable();
     this.Synchronize();
-   
-    this.mondayTable = [];
-    this.tuesdayTable = [];
-    this.wednesdayTable = [];
-    this.thursdayTable = [];
-    this.fridayTable = [];
-    this.saturdayTable = [];
-   // this.makeTimeTable();
+    
+   this.ionViewDidLoad();
+    
 
    this.translate.get('labelChangingTimeTable').subscribe(data => {
      this.hasChange = data;
@@ -47,12 +46,16 @@ export class TimeTablePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimeTablePage');
+    
+    this.searching = false;
   }
 
   ionViewWillEnter(){
+    
     this.getTimeTable();
+    this.makeTimeTable();
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
-  
   async getTimeTable(){ 
     
     let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
@@ -76,7 +79,7 @@ export class TimeTablePage {
         let isChanged : boolean = false ;
          if(this.timetable.length == this.timetablesync.length){
             for(let i in this.timetable){
-              if(this.timetable[i].day != this.timetablesync[i].day || this.timetable[i].fan != this.timetablesync[i].fan || this.timetable[i].teacher != this.timetablesync[i].teacher || this.timetable[i].type != this.timetablesync[i].type || this.timetable[i].lessonId != this.timetablesync[i].id){
+              if(this.timetable[i].day != this.timetablesync[i].day || this.timetable[i].fan != this.timetablesync[i].fan || this.timetable[i].teacher != this.timetablesync[i].teacher || this.timetable[i].type != this.timetablesync[i].type || this.timetable[i].lessonId != this.timetablesync[i].id ||this.timetable[i].room!=this.timetablesync[i].room){
                 isChanged = true;
                 break;
             }
@@ -97,6 +100,7 @@ export class TimeTablePage {
            timetablenew.teacher = timesync.teacher;
            timetablenew.type = timesync.type;
            timetablenew.lessonId = timesync.id;
+           timetablenew.room = timesync.room;
            await timetablerepo.save(timetablenew);
          }
          this.ionViewWillEnter();
@@ -120,57 +124,21 @@ export class TimeTablePage {
       
 
      
-    }) ;
+    });
     toast.present();
   }
-
-  makeTimeTable(){
-    for(let i in this.timetable) {
-      if(this.timetable[i].day == "Dushanba"){
-        this.mondayTable.push(this.timetable[i]);
-      }
-      if(this.timetable[i].day == "Seshanba"){
-        this.tuesdayTable.push(this.timetable[i]);
-      }
-      if(this.timetable[i].day == "Chorshanba"){
-        this.wednesdayTable.push(this.timetable[i]);
-      }
-      if(this.timetable[i].day == "Payshanba"){
-        this.thursdayTable.push(this.timetable[i]);
-      }
-      if(this.timetable[i].day == "Juma"){
-        this.fridayTable.push(this.timetable[i]);
-      }
-      else
-      {
-        this.saturdayTable.push(this.timetable[i]);
-      }
-      
-    }
-
-    /*for(let j=0; j<this.mondayTable.length; j++ ){
-        for(let i=j;i<this.mondayTable.length; i++){
-          if(this.mondayTable[j].lessonId > this.mondayTable[i].lessonId)
-          {
-              this.Swap(this.mondayTable[i],this.mondayTable[j]);
-          }
-        }
-    
-       
-
-    }
-    
-   */ 
-
-    
+  
+  async makeTimeTable() {
+   
+    let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
+    this.monday = await timetablerepo.find({day : "Dushanba"});
+    this.tuesday = await timetablerepo.find({day : "Seshanba"});
+    this.wednesday = await timetablerepo.find({day : "Chorshanba"});
+    this.thursday = await timetablerepo.find({day : "Payshanba"});
+    this.friday = await timetablerepo.find({day : "Juma"});
+    this.saturday = await timetablerepo.find({day : "Shanba"});
   }
 
-  Swap(a : any, b : any){
+ 
 
-    let c : any;
-    c = a;
-    a = b;
-    b = c;
-
-  }
 }

@@ -9,32 +9,48 @@
 
 
 <ion-content padding>
-  <ion-col  offset-4>
-    <ion-select (ionChange)="makeBall()"   [(ngModel)]="direction" class="myCustomSelect" placeholder="{{'selectDirection' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
-    <ion-option value="1">{{'computerEnginering' | translate }}</ion-option>
-    <ion-option value="2">{{'programmingEnginering' | translate }}</ion-option>
-    <ion-option value="3">{{'Telecommunication' | translate }}</ion-option>
-    <ion-option value="4">{{'occupationEducation' | translate }}</ion-option>
-    <ion-option value="5">{{'cyberSecurity' | translate }}</ion-option>
-
-  </ion-select></ion-col>
-
-  <ion-col  offset-4>
-    <ion-select (ionChange)="makeBall()" [(ngModel)]="eduLang" class="myCustomSelect" placeholder="{{'selectLanguageofEdu' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
-    <ion-option value="1">{{'btnUzblang' | translate }}</ion-option>
-    <ion-option value="2">{{'rusLang' | translate }}</ion-option>
+  <ion-grid>
+          <ion-row><br></ion-row>
+          <ion-row><br></ion-row>
+          <ion-row><br></ion-row>
+          <ion-row><br></ion-row>
+          <ion-row><br></ion-row>
+          <ion-row><br></ion-row>
+    <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-8>
+            <ion-select (ionChange)="makeBall()"   [(ngModel)]="direction" class="myCustomSelect" placeholder="{{'selectDirection' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
+              <ion-option value="1">{{'computerEnginering' | translate }}</ion-option>
+              <ion-option value="2">{{'programmingEnginering' | translate }}</ion-option>
+              <ion-option value="3">{{'Telecommunication' | translate }}</ion-option>
+              <ion-option value="4">{{'occupationEducation' | translate }}</ion-option>
+              <ion-option value="5">{{'cyberSecurity' | translate }}</ion-option>
+            </ion-select>
+        </ion-col>
+        <ion-col col-1></ion-col>
+    </ion-row>      
   
-
-  </ion-select></ion-col>
+  <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-8>
+        <ion-select (ionChange)="makeBall()" [(ngModel)]="eduLang" class="myCustomSelect" placeholder="{{'selectLanguageofEdu' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
+            <ion-option value="1">{{'btnUzblang' | translate }}</ion-option>
+            <ion-option value="2">{{'rusLang' | translate }}</ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-1></ion-col>
+  </ion-row>
  
-    <ion-card>
-        <ion-card-header>
-         {{'labelEnterance' | translate}}
-        </ion-card-header>
-        <ion-card-content>
-          <canvas #lineCanvas></canvas>
-        </ion-card-content>
-      </ion-card>
-  
+ 
+   </ion-grid>
+   <ion-card>
+      <ion-card-header>
+       {{'labelEnterance' | translate}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
 
 </ion-content>

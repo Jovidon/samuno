@@ -14,10 +14,14 @@ import { InqueryPage } from './../pages/inquery/inquery';
 import { LanguageRepository } from './../enteties/language';
 import { TimeTable } from './../enteties/time-table';
 import { User } from './../enteties/user';
+import { News } from './../enteties/news';
 
-import { createConnection } from 'typeorm'
+import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
 import { RegistrPage } from '../pages/registr/registr';
+
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -28,15 +32,34 @@ export class MyApp {
   rootPage: any ;
 
   pages: Array<{title: string, component: any, icon: string }>;
+  welcome : string;
+  mainmenu : string;
+  settings : string;
+  lang : string;
+  langId : number;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService, public localNotification : LocalNotifications) {
      this.initializeApp();
     
+     if(this.lang=='uz'){
+      this.mainmenu = 'Bosh sahifa';
+      this.welcome = 'UNOga xush kelibsiz!';
+      this.settings = 'Sozlamalar';
+    }
+    else {
+      this.mainmenu = 'Главная страница';
+      this.welcome = 'Добро пожаловать в UNO!';
+      this.settings = 'Настройки';
+     
 
+    }
+    this.pushNoti();
+     
+     
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'BOSH MENU', component: HomePage, icon: "home" },
-      { title: 'SOZLAMALAR', component: SettingsPage, icon: 'settings'}
+      { title: this.mainmenu, component: HomePage, icon: "assets/imgs/home.png" },
+      { title: this.settings, component: SettingsPage, icon: 'assets/imgs/settings.png'}
     
     ];
 
@@ -47,9 +70,9 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       //this.statusBar.styleDefault();
-      this.splashScreen.hide();
-
-     
+      //this.splashScreen.hide();
+      this.statusBar.backgroundColorByHexString('#ffffff');
+      
       await createConnection({
         type: 'cordova',
         database: 'test',
@@ -59,14 +82,16 @@ export class MyApp {
         entities: [
           LanguageRepository,
           TimeTable,
-          User
+          User,
+          News
 
         ]
       });
 
       let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
       let lang = await languagerepo.findOneById(1);
-    
+        this.lang = lang.code;
+        this.langId = lang.id;
         if(lang){
          
           this.rootPage = HomePage;
@@ -80,6 +105,7 @@ export class MyApp {
         this.translate.setDefaultLang(lang.code);
         
         //  this.translate.setDefaultLang('uz');
+        
     });
     
   }
@@ -95,4 +121,15 @@ export class MyApp {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   
+  pushNoti() {
+    this.platform.ready().then(() => {
+      this.localNotification.schedule( {
+        id : 1,
+        title : 'UNO',
+        text : this.welcome,
+        at: new Date(new Date().getTime() + 1000),
+        data :  { "id" : 1, "name" : "John"}
+      });
+    });
+  }
 }

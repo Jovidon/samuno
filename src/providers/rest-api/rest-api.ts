@@ -52,7 +52,7 @@ export class RestApiProvider {
     let info = name + "@" + surname + "@" + facultyuser + "@" + courseuser + "@" + groupuser;
     var myData = JSON.stringify({ username : info});
     
-    this.http.post('http://192.168.137.1/api.php', myData).subscribe( (data) =>{
+    this.http.post('http://192.168.137.1/pages/api.php', myData).subscribe( (data) =>{
       
       
  

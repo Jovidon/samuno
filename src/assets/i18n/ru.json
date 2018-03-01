@@ -13,7 +13,7 @@
     "btnSettings": "Настройки",
     "btnCopyright": "Создатели",
     "btnMore": "Подробно",
-    "btnMon": "Понидельник",
+    "btnMon": "Понeдельник",
     "btnTus": "Вторник",
     "btnWed": "Среда",
     "btnThus": "Четверг",
@@ -46,7 +46,19 @@
     "labelGrand" : "Davlat granti",
     "labelContract": "To'lov shartnoma",
     "labelChangingTimeTable" : "Dars jadvalingizda o'zgarishlar mavjud!",
+    "labelSubject" : "Fan",
+    "labelRoom" : "Xona",
+    "labelTeacher" : "O'qituvchi",
+    "labelLec" : "Ma'ruza",
+    "labelPrac" : "Amaliyot", 
+    "labelLab" : "Laboratoriya",
+    "labelNoInternet" : "Yuklanmoqda...",
+    "labelWelcome" : "UNOga xush kelibsiz!",
+    "labelMainMenu" : "Bosh Menu",
+    "labelSettings" : "Sozlamalar",
     
+    
+
     
     "inputName" : "Имя",
     "inputFirstName" : "Фамилия",

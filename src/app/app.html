@@ -10,9 +10,15 @@
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon [name]="p.icon" item-start></ion-icon>
-          {{p.title}}
-          
+         <!-- <ion-icon [name]="p.icon" item-start></ion-icon>-->
+         <ion-row>
+           <ion-col >
+            <ion-icon><img height="30%" width="30%" src="{{p.icon}}"></ion-icon>
+           </ion-col>
+           <ion-col >
+            {{p.title}}
+           </ion-col>
+         </ion-row>
       </button>
     </ion-list>
   </ion-content>
