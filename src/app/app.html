@@ -17,9 +17,18 @@
            </ion-col>
            <ion-col >
             {{p.title}}
+           
+           </ion-col>
+           <ion-col>
+            {{'labelRoom' | translate}}
            </ion-col>
          </ion-row>
       </button>
+      <button menuClose ion-item (click)="logOut()">
+        Log Out
+      </button>
+      
+
     </ion-list>
   </ion-content>
 

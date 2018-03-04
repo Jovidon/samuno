@@ -1,0 +1,65 @@
+<ion-header >
+    <ion-navbar color="secondary" hideBackButton="true">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+           </ion-col>
+         <ion-col>
+           <h3 style="color:white">UNO</h3>
+         </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content  >
+    <ion-grid>
+      <ion-col col-12>
+        <ion-row>
+          <ion-slides autoplay="3000" loop="true" speed="1000" pager="true">
+            <ion-slide >
+              <img src="assets/imgs/tatusf1.jpg">
+            </ion-slide>
+            <ion-slide >
+              <img src="assets/imgs/tatusf2.jpg">
+            </ion-slide>
+            <ion-slide >
+              <img src="assets/imgs/tatusf3.jpg">
+            </ion-slide>
+          </ion-slides>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-center>
+            <div (click)="goToNewsPage()">
+                <img width="75%" height="75%" src="assets/imgs/news.png">
+                <ion-label>{{'labelNews' | translate }}</ion-label>
+            </div>
+          </ion-col>
+          <ion-col col-6  text-center>
+              <div (click)="goToTuitSbPage()">
+                  <img width="75%" height="75%" src="assets/imgs/TATU.png">
+                  <ion-label>{{'labelTUIT' | translate }}</ion-label>
+              </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6  text-center>
+            <div (click)="goToStatisticsPage()">
+                <img width="75%" height="75%" src="assets/imgs/Statnew.png">
+                <ion-label>{{ 'labelStatistics' | translate}}</ion-label>
+            </div>
+          </ion-col>
+          <ion-col col-6  text-center> 
+            <div (click)="goToContactsPage()">
+                <img width="75%" height="75%" src="assets/imgs/contact.png">
+                <ion-label>{{'labelContacts' | translate }}</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-grid>
+  </ion-content>
+  
