@@ -35,7 +35,7 @@
     "labelTUIT" : "TATU SF",
     "labelQues" : "So'rovnoma",
     "labelStatistics" : "Statistika",
-    "labelProfessorSt" : "Professor o'qituvchilar statistika",
+    "labelProfessorSt" : "TATU SFdagi professor-o'qituvchilar soni bo'yicha statistika",
     "labelStudentSt" : "Talabalar statistikasi",
     "labelEnterance" : "Kirish ballari statistikasi",
     "labelProfessors" : "Professorlar",
@@ -56,6 +56,12 @@
     "labelWelcome" : "UNOga xush kelibsiz!",
     "labelMainMenu" : "Bosh Menu",
     "labelSettings" : "Sozlamalar",
+    "labelPleaseWait" : "Iltimos kuting...",
+    "labelTodayLessons" : "Bugungi sizning darslaringiz",
+    "labelChooseStatus" : "Maqomingizni tanlang",
+ 
+    "labelStudent" : "Talaba",
+    "labelGuest" : "Mehmon",
 
     
     

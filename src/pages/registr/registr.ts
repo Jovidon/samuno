@@ -25,6 +25,9 @@ export class RegistrPage {
   name : string;
   surname : string;
   serverdata : any;
+  groups : any;
+  currentgroup : string [];
+
   constructor( public toast : ToastController, public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder, public getdata : RestApiProvider, public http : HttpClient) {
     this.reg = formBuilder.group({
       faculty: ['',Validators.compose([Validators.required])],
@@ -34,6 +37,7 @@ export class RegistrPage {
       Surname: ['',Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.required])]
 
     });
+    this.currentgroup = [];
   }
 
   ionViewDidLoad() {
@@ -49,6 +53,17 @@ export class RegistrPage {
   }
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
+  }
+  
+  getGroup(){
+    this.getdata.getGroup(this.idFuculty);
+    this.getdata.getUsers(this.idFuculty.toString())
+    .then(data => {
+      this.groups = data;
+    })
+    .catch(err =>{
+      console.log(err);
+    });
   }
 
   async Registr(){
@@ -107,6 +122,16 @@ export class RegistrPage {
       delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
     
+  }
+
+  generateGroup(){
+    let k = 0;
+    for(let group of this.groups){
+      if(group.kurs==this.idCours){
+        this.currentgroup[k] = group.nomer;
+        k++;
+      }
+    }
   }
 
 }

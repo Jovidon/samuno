@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>status</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <div>
+    <ion-row>
+        <ion-col offset-4>
+            {{'labelChooseStatus' | translate }}
+        </ion-col>
+      </ion-row>
+  </div> 
+ <div>
+    <ion-row>
+        <ion-col offset-5>
+          {{'labelTeacher' | translate}}
+        </ion-col>
+      </ion-row>
+ </div>
+ <div (click)="goToRegistrPage()">
+    <ion-row>
+        <ion-col offset-5>
+          {{'labelStudent' | translate}}
+        </ion-col>
+    </ion-row>
+ </div>
+  <div (click)="goToGuest()">
+      <ion-row>
+          <ion-col offset-5>
+            {{'labelGuest' | translate}}
+          </ion-col>
+      </ion-row>
+  </div>
+  
+
+</ion-content>

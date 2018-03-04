@@ -1,7 +1,3 @@
-
-
-
-
 <ion-content padding>
     
    
@@ -10,13 +6,11 @@
         <ion-row>
                 <br><br><br>
             </ion-row>
-            <ion-row text-center> <br>{{'btnMon' | translate }}</ion-row>
-
-
-           
+            <ion-row text-center> <ion-col> {{'btnMon' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+    
     <table class="table table-striped table-bordered table-hover" id="mytable">
       <thead>
-          <tr >
+          <tr text-center>
               <th>#</th>
               <th>{{'labelSubject' | translate}}</th>
               <th>{{'labelTeacher' | translate}}</th>
@@ -42,16 +36,13 @@
          
   </tbody>
 </table> 
-
-
-  </ion-slide>
+</ion-slide>
   <ion-slide>
       <ion-row>
           <br><br><br>
       </ion-row>
-      <ion-row text-center>
-          <br>{{'btnTus' | translate }}
-      </ion-row>
+      <ion-row text-center> <ion-col > {{'btnTus' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+
       
 
       
@@ -59,7 +50,7 @@
       <table class="table table-striped table-bordered table-hover" id="mytable">
             
         <thead>
-            <tr >
+            <tr text-center>
                 <th>#</th>
                 <th>{{'labelSubject' | translate}}</th>
                 <th>{{'labelTeacher' | translate}}</th>
@@ -92,13 +83,10 @@
             <ion-row>
                     <br><br><br>
                 </ion-row>
-                <ion-row>
-                    <br> {{'btnWed' | translate }} 
-                </ion-row>
-
-        <table class="table table-striped table-bordered table-hover" id="mytable">
+                <ion-row text-center> <ion-col >  {{'btnWed' | translate }} </ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+       <table class="table table-striped table-bordered table-hover" id="mytable">
           <thead>
-              <tr >
+              <tr text-center>
                   <th>#</th>
                   <th>{{'labelSubject' | translate}}</th>
                   <th>{{'labelTeacher' | translate}}</th>
@@ -129,12 +117,10 @@
             <ion-row>
                     <br><br><br>
                 </ion-row>
-                <ion-row>
-                    <br>{{'btnThus' | translate }}
-                </ion-row>
+                <ion-row text-center> <ion-col >  {{'btnThus' | translate }} </ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
           <table class="table table-striped table-bordered table-hover" id="mytable">
             <thead>
-                <tr >
+                <tr text-center>
                     <th>#</th>
                     <th>{{'labelSubject' | translate}}</th>
                     <th>{{'labelTeacher' | translate}}</th>
@@ -165,12 +151,11 @@
                 <ion-row>
                         <br><br><br>
                     </ion-row>
-                    <ion-row>
-                        <br>{{'btnFri' | translate }}
-                    </ion-row>
+                    <ion-row text-center> <ion-col > {{'btnFri' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+                    
             <table class="table table-striped table-bordered table-hover" id="mytable">
               <thead>
-                  <tr >
+                  <tr text-center>
                       <th>#</th>
                       <th>{{'labelSubject' | translate}}</th>
                       <th>{{'labelTeacher' | translate}}</th>
@@ -201,12 +186,11 @@
                 <ion-row>
                         <br><br><br>
                     </ion-row>
-                    <ion-row>
-                            {{'btnSun' | translate }}
-                    </ion-row>
+                    <ion-row text-center> <ion-col > {{'btnSun' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+                    
               <table class="table table-striped table-bordered table-hover" id="mytable">
                 <thead>
-                    <tr >
+                    <tr text-center >
                         <th>#</th>
                         <th>{{'labelSubject' | translate}}</th>
                         <th>{{'labelTeacher' | translate}}</th>
@@ -227,13 +211,15 @@
                         <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
                         <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
                         <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
-          
-                    </tr>
-                   
+                    </tr>   
             </tbody>
           </table>
             </ion-slide>
 </ion-slides>
+
+      <ion-fab right top>
+        <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
+      </ion-fab>
 </ion-content>
 
 

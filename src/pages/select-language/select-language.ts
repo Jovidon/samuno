@@ -9,7 +9,7 @@ import { LanguageRepository } from './../../enteties/language';
 
 import { getRepository, Repository } from 'typeorm';
 import { HomePage } from '../home/home';
-
+import { StatusPage } from '../status/status';
 
 
 @IonicPage()
@@ -60,7 +60,7 @@ export class SelectLanguagePage {
           this.translate.use(this.languageSelected);
       }
       if(!isOld)
-        this.navCtrl.setRoot(RegistrPage); //RegistrPage
+        this.navCtrl.setRoot(StatusPage); //RegistrPage
       else 
         this.navCtrl.setRoot(HomePage)
       

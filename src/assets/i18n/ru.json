@@ -35,7 +35,7 @@
     "labelTUIT" : "СФ ТУИТ",
     "labelQues" : "Вопросник",
     "labelStatistics" : "Статистика",
-    "labelProfessorSt" : "Cтатистика профессоров",
+    "labelProfessorSt" : "Cтатистика по количество  профессор-учителей в СФ ТУИТ",
     "labelStudentSt" : "Статистика студентов",
     "labelEnterance" : "Статистика входных баллов",
     "labelProfessors" : "Профессоры",
@@ -47,7 +47,7 @@
     "labelContract": "To'lov shartnoma",
     "labelChangingTimeTable" : "Dars jadvalingizda o'zgarishlar mavjud!",
     "labelSubject" : "Fan",
-    "labelRoom" : "Xona",
+    "labelRoom" : "room",
     "labelTeacher" : "O'qituvchi",
     "labelLec" : "Ma'ruza",
     "labelPrac" : "Amaliyot", 
@@ -56,7 +56,11 @@
     "labelWelcome" : "UNOga xush kelibsiz!",
     "labelMainMenu" : "Bosh Menu",
     "labelSettings" : "Sozlamalar",
-    
+    "labelPleaseWait" : "Iltimos kuting...",
+    "labelTodayLessons" : "Bugungi sizning darslaringiz",
+    "labelChooseStatus" : "Maqomingizni tanlang",
+    "labelStudent" : "Talaba",
+    "labelGuest" : "Mehmon",
     
 
     
