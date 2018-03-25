@@ -27,7 +27,11 @@ export class InqueryPage {
     let userrepo = getRepository('user') as Repository <User>;
     
 
-    this.user = await userrepo.find();
+    this.user = await userrepo.findOne({idFaculty:1});
+    if(!this.user)
+    {
+      this.user = await userrepo.findOne({idFaculty :2});
+    }
   }
 
 }

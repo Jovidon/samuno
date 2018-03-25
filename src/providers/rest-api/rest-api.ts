@@ -46,10 +46,17 @@ export class RestApiProvider {
   }
 
   getGroup(idFaculty){
+   
     var myData = JSON.stringify({ faculty : idFaculty});
-    this.http.post('http://192.168.137.1/pages/groups.php', myData).subscribe( (data) =>{
+    this.http.post('http://192.168.137.1/groups.php', myData).subscribe( (data) =>{
   });
 
+  }
+
+  getTeachers(idCafedra){
+    var myData = JSON.stringify({ cafedra : idCafedra});
+    this.http.post('http://192.168.137.1/teachers.php', myData).subscribe( (data) =>{
+  });
   }
   
  
@@ -57,7 +64,7 @@ export class RestApiProvider {
     submit(name, surname, facultyuser, courseuser, groupuser) {
     
   
-    let info = name + "@" + surname + "@" + facultyuser + "@" + courseuser + "@" + groupuser;
+    let info = name + "@" + surname + "@" + facultyuser + "@" + courseuser + "@" + groupuser + "@4";
     var myData = JSON.stringify({ username : info});
     
     this.http.post('http://192.168.137.1/pages/api.php', myData).subscribe( (data) =>{

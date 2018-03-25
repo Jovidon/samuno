@@ -17,6 +17,8 @@ import { TimeTable } from './../enteties/time-table';
 import { User } from './../enteties/user';
 import { News } from './../enteties/news';
 import { Guest } from "./../enteties/guest";
+import { Status } from './../enteties/status';
+import { Teacher } from './../enteties/teacher';
 
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
@@ -42,15 +44,10 @@ export class MyApp {
   langId : number;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService, public localNotification : LocalNotifications) {
-     this.initializeApp();
+    this.initializeApp();
     
-    
-
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Menu', component: HomePage, icon: "assets/imgs/home.png" },
       { title: 'Settings', component: SettingsPage, icon: 'assets/imgs/settings.png'}
-    
     ];
 
   }
@@ -75,6 +72,8 @@ export class MyApp {
           User,
           News,
           Guest,
+          Status,
+          Teacher
            ]
       });
 
@@ -82,17 +81,22 @@ export class MyApp {
       let lang = await languagerepo.findOneById(1);
       let guestrepo = getRepository('guest') as Repository <Guest>;
 
-      
-      
       let guest = new Guest();
         guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
+      let userrepo = getRepository('user') as Repository <User>;
+        let user = new User();
+        user = await userrepo.findOne({idFaculty:1});
+        let user2 = new User();
+        user2 = await userrepo.findOne({idFaculty: 2});  
         if(lang){
-            
-          if(guest)
+            if(!guest)
+              if(user || user2)
+                this.rootPage = HomePage;
+              else
+                this.rootPage = StatusPage;
+            else 
               this.rootPage = GuesthomePage;
-          else
-              this.rootPage = HomePage;
-        }
+            }
         else 
         {
           
@@ -116,10 +120,11 @@ export class MyApp {
 
   async logOut(){
    
-    await getRepository('guest').delete(1);
-    await getRepository('news').delete(1);
-    await getRepository('user').delete(1);
-    await getRepository('timetable').delete(1);
+    await getRepository('guest').clear();
+    await getRepository('news').clear();
+    await getRepository('user').clear();
+    await getRepository('timetable').clear();
+    await getRepository('status').delete(1);
     this.nav.setRoot(StatusPage);
   }
   

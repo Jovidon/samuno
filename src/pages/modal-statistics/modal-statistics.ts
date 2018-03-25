@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { TranslateService } from '@ngx-translate/core';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,7 @@ export class ModalStatisticsPage {
   contractText : string;
   direction : string ;
   lang : string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view : ViewController,public translate: TranslateService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view : ViewController,public translate: TranslateService, public screenOrientation : ScreenOrientation) {
     this.translate.get('labelGrand').subscribe(data => {
       this.grandText = data;
   });
@@ -27,6 +28,7 @@ export class ModalStatisticsPage {
     
   }
   ionViewWillLoad(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.grandBall = this.navParams.get('data1');
     this.contractBall = this.navParams.get('data2');
   }
@@ -90,7 +92,8 @@ export class ModalStatisticsPage {
              
   }
   closeModal()
-  {
+  { 
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.view.dismiss(0);
     
   }

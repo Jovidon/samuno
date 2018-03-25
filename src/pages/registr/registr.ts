@@ -26,7 +26,7 @@ export class RegistrPage {
   surname : string;
   serverdata : any;
   groups : any;
-  currentgroup : string [];
+  currentgroup : any [];
 
   constructor( public toast : ToastController, public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder, public getdata : RestApiProvider, public http : HttpClient) {
     this.reg = formBuilder.group({
@@ -35,7 +35,6 @@ export class RegistrPage {
       group: ['',Validators.compose([Validators.required])],
       Name: ['',Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.required])],
       Surname: ['',Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.required])]
-
     });
     this.currentgroup = [];
   }
@@ -48,7 +47,6 @@ export class RegistrPage {
     for(let i=0; i<20-this.idFuculty*6; i++){
       this.idGroup[i]=this.idCours*100+i+1;
       this.selGroup[i]=i;
-
     }
   }
   goToHomePage(){
@@ -56,10 +54,11 @@ export class RegistrPage {
   }
   
   getGroup(){
-    this.getdata.getGroup(this.idFuculty);
+    this.getdata.getGroup(this.idFuculty.toString());
     this.getdata.getUsers(this.idFuculty.toString())
-    .then(data => {
+    .then((data) =>{
       this.groups = data;
+
     })
     .catch(err =>{
       console.log(err);
@@ -71,12 +70,9 @@ export class RegistrPage {
    
   await this.delay(500);
     this.getData();
-  
   }
- async  getData () {
   
-
-    
+  async getData () {
     this.getdata.getUsers(this.amount + "_" +this.idFuculty.toString())
     .then( async (data)  =>  {
       this.serverdata = data;
@@ -97,7 +93,6 @@ export class RegistrPage {
       console.log(err);
     });
     
-    
     let userrepo = getRepository('user') as Repository <User>;
     let user = new User();
     user.name = this.name;
@@ -105,7 +100,6 @@ export class RegistrPage {
     user.idGroup = this.amount;
     user.idFaculty = this.idFuculty;
     await userrepo.save(user);
-    
 
     let toast = this.toast.create({
       message : "Ro'yxatdan muvaffaqiyatli o'tdingiz!",
@@ -113,18 +107,15 @@ export class RegistrPage {
       position : 'middle'
     });
     toast.present();
-  
-
-      this.navCtrl.setRoot(HomePage);
-
+    this.navCtrl.setRoot(HomePage);
   }
 
-      delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-    
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms)); 
   }
 
   generateGroup(){
+    this.currentgroup = [];
     let k = 0;
     for(let group of this.groups){
       if(group.kurs==this.idCours){

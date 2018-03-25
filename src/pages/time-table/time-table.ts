@@ -32,7 +32,7 @@ export class TimeTablePage {
   searching : boolean = true;
   plsWait : string;
   lesson : string;
-
+  key : boolean = false;
   day : number;
   constructor(
       public navCtrl: NavController, 
@@ -103,7 +103,16 @@ export class TimeTablePage {
     let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
     let student  = new User;
     // this.user = await userrepo.findOneById(1);
-     student = await userrepo.findOneById(1);
+      await userrepo.findOne({idFaculty: 1})
+      .then(async (data) =>{
+        student = data;
+        this.key = true;
+      })
+      .catch(err=>{
+        console.log(err);
+      });
+      if(!this.key)
+       student = await userrepo.findOne({idFaculty: 2});
     
     this.getdata.getUsers('pages/' + student.idGroup.toString() + "_" +student.idFaculty.toString())
     .then( async (data)  =>  {

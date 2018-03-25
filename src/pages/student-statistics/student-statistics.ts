@@ -1,7 +1,7 @@
 import { Component , ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -12,7 +12,7 @@ export class StudentStatisticsPage {
 
   @ViewChild('barCanvas') barCanvas;
   barChart: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private screenOrientation: ScreenOrientation) {
   }
 
   ionViewDidLoad() { 

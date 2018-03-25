@@ -5,6 +5,9 @@ import { getRepository, Repository } from 'typeorm';
 import { Guest } from './../../enteties/guest'; 
 import { HomePage } from './../home/home'; 
 import { GuesthomePage } from './../guesthome/guesthome';
+import { Status } from '../../enteties/status';
+import { TeacherRegistrPage } from './../teacher-registr/teacher-registr';
+
 
 @IonicPage()
 @Component({
@@ -31,5 +34,28 @@ export class StatusPage {
     await guestrepo.save(guest);
     this.navCtrl.setRoot(GuesthomePage);
   }
+
+ async goToStudent() {
+   let statusrepo = getRepository('status') as Repository <Status>;
+  
+   
+    let statusnew = new Status();
+    statusnew.role = 2;
+    await statusrepo.save(statusnew)
+
+  
+   this.navCtrl.setRoot(RegistrPage);
+ }
+
+ async goToTeacher(){
+  let statusrepo = getRepository('status') as Repository <Status>;
+ 
+  
+   let statusnew = new Status();
+   statusnew.role = 1;
+   await statusrepo.save(statusnew)
+
+  this.navCtrl.setRoot(TeacherRegistrPage);
+ }
 
 }

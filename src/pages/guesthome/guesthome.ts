@@ -4,6 +4,7 @@ import { TuitSbPage } from '../tuit-sb/tuit-sb';
 import { StatisticsPage } from '../statistics/statistics';
 import { ContactsPage } from '..//contacts/contacts';
 import { NewsPage } from '../news/news';
+import { NewsAnnountsPage } from './../news-announts/news-announts';
 
 @IonicPage()
 @Component({
