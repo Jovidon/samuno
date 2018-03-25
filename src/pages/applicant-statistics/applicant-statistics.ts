@@ -4,6 +4,7 @@ import { Chart } from 'chart.js';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalStatisticsPage } from './../modal-statistics/modal-statistics';
 import { Modal } from 'ionic-angular/components/modal/modal';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -28,7 +29,8 @@ export class ApplicantStatisticsPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public translate: TranslateService,
-              public modal : ModalController) {
+              public modal : ModalController,
+              private screenOrientation: ScreenOrientation) {
                 this.translate.get('labelGrand').subscribe(data => {
                     this.grandText = data;
                 });
@@ -101,8 +103,11 @@ export class ApplicantStatisticsPage {
    
             
   }
-
-
+  ionViewWillEnter(){
+    
+     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+     
+   }
   makeBall(){
       this.grandBall = [];
       this.contractBall = [];

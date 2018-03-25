@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{'labelNewsandAnnounts' | translate }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-tabs tabsPlacement = "top" tabsHighlight = true>
+    <ion-tab [tabTitle]="'btnNews' | translate" [root]="tab1" color="secondary" tabIcon="paper"></ion-tab>
+    <ion-tab [tabTitle]="'btnAnnounts' | translate" [root]="tab2" color="secondary"  tabIcon="megaphone"></ion-tab>
+  </ion-tabs>
+</ion-content>

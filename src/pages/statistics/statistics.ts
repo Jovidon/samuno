@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApplicantStatisticsPage } from '../applicant-statistics/applicant-statistics';
 import { TeacherStatisticsPage } from '../teacher-statistics/teacher-statistics';
 import { StudentStatisticsPage } from '../student-statistics/student-statistics';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ export class StatisticsPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private screenOrientation: ScreenOrientation) {
   }
 
   goBack(){
@@ -33,8 +34,10 @@ export class StatisticsPage {
     this.navCtrl.push(ApplicantStatisticsPage);
   }
   
-   ionViewDidLoad() {
-    
+   ionViewWillEnter() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
        }
-
+   ionViewDidLoad() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+       }
 }

@@ -24,6 +24,7 @@
     "btnCafed" : "Кафедры",
     "btnTuitInfo": "О СФ ТУИТ ",
     "btnSend": "Отправить",
+    "btnAnnounts" : "E'lonlar",
     
     
     
@@ -47,7 +48,7 @@
     "labelContract": "To'lov shartnoma",
     "labelChangingTimeTable" : "Dars jadvalingizda o'zgarishlar mavjud!",
     "labelSubject" : "Fan",
-    "labelRoom" : "room",
+    "labelRoom" : "Xona",
     "labelTeacher" : "O'qituvchi",
     "labelLec" : "Ma'ruza",
     "labelPrac" : "Amaliyot", 
@@ -59,8 +60,18 @@
     "labelPleaseWait" : "Iltimos kuting...",
     "labelTodayLessons" : "Bugungi sizning darslaringiz",
     "labelChooseStatus" : "Maqomingizni tanlang",
+    "labelNewsandAnnounts" : "Yangiliklar va E'lonlar",
     "labelStudent" : "Talaba",
     "labelGuest" : "Mehmon",
+    "labelComputerSystem" : "Kompyuter tizimlari",
+    "labelProgramEnginering": "Dasturiy injiniring",
+    "labelNaturalSubjects": "Ta'biy fanlar",
+    "labelSocialHumanismSubjects" : "Ijtimoiy-Gumanitar fanlar",
+    "labelLanguages": "Tillar",
+    "labelTelecommunicationEngineering": "Telekommunikatsiya injiniringi",
+    "labelIt" : "Axborot-texnologiyalari kafedrasi",
+    "labelItEducation": "Axborot-ta'lim texnologiyalari kafedrasi",
+    "labelInformationSecurity" : "Axborot xavfsizligi kafedrasi",
     
 
     
@@ -73,6 +84,8 @@
     "selectGroup" : "Группа",
     "selectDirection" : "Выберите факультет",
     "selectLanguageofEdu" : "Выберите язык обучения ",
+    "selectCafedra" : "Kafedrangizni tanlang",
+    "select" : "Tanlang",
     "computerEnginering" : "Компютер инжиниринг",
     "programmingEnginering" : "Программа инжиниринг",
     "Telecommunication" : "Телекомуникация",

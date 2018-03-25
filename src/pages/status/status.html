@@ -1,9 +1,5 @@
-<ion-header>
-
-  <ion-navbar color="secondary">
-    <ion-title>status</ion-title>
-  </ion-navbar>
-
+<ion-header no-border>
+  <img  src="assets/imgs/idennew.PNG">
 </ion-header>
 
 
@@ -11,27 +7,35 @@
  <div>
     <ion-row>
         <ion-col offset-4>
+            
             {{'labelChooseStatus' | translate }}
         </ion-col>
       </ion-row>
   </div> 
- <div>
+  <br>
+ <div (click)="goToTeacher()">
     <ion-row>
-        <ion-col offset-5>
+        <ion-col offset-4 col-3 text-center >
+          
+          <img  src="assets/imgs/teachst.png">
           {{'labelTeacher' | translate}}
         </ion-col>
       </ion-row>
  </div>
- <div (click)="goToRegistrPage()">
+ <br>
+ <div (click)="goToStudent()">
     <ion-row>
-        <ion-col offset-5>
+        <ion-col offset-4 col-3 text-center>
+          <img src="assets/imgs/studentst.png">
           {{'labelStudent' | translate}}
         </ion-col>
     </ion-row>
  </div>
+  <br>
   <div (click)="goToGuest()">
       <ion-row>
-          <ion-col offset-5>
+          <ion-col offset-4 col-3 text-center>
+              <img  src="assets/imgs/guestst.png">
             {{'labelGuest' | translate}}
           </ion-col>
       </ion-row>

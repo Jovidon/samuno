@@ -24,6 +24,9 @@ import { StudentStatisticsPage } from './../pages/student-statistics/student-sta
 import { FullNewsPage } from './../pages/full-news/full-news';
 import { StatusPage } from './../pages/status/status';
 import { GuesthomePage } from './../pages/guesthome/guesthome';
+import { NewsAnnountsPage } from './../pages/news-announts/news-announts';
+import { AnnountsPage } from './../pages/announts/announts';
+import { TeacherRegistrPage } from './../pages/teacher-registr/teacher-registr';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,7 +60,11 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     ModalStatisticsPage,
     FullNewsPage,
     StatusPage,
-    GuesthomePage
+    GuesthomePage,
+    NewsAnnountsPage,
+    AnnountsPage,
+    TeacherRegistrPage
+    
     
   ],
   imports: [
@@ -94,7 +101,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     ModalStatisticsPage,
     FullNewsPage,
     StatusPage,
-    GuesthomePage
+    GuesthomePage,
+    NewsAnnountsPage,
+    AnnountsPage,
+    TeacherRegistrPage
 
   ],
   providers: [

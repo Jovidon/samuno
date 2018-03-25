@@ -24,6 +24,11 @@ export class NewsPage {
     public toast : ToastController, 
     public translate : TranslateService,
     public loadingCtrl : LoadingController) {
+      let loading = this.loadingCtrl.create({
+        content : this.pleaseWait,
+        duration : 1000
+      });
+      loading.present();
     this.getNews();
     this.getCurrentLang();
     this.translate.get('labelPleaseWait').subscribe(data =>{
@@ -36,11 +41,7 @@ export class NewsPage {
   }
   
   ionViewWillEnter(){
-    let loading = this.loadingCtrl.create({
-      content : this.pleaseWait,
-      duration : 2000
-    });
-    loading.present();
+   
 
   }
 

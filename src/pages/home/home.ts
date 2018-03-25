@@ -6,9 +6,12 @@ import { InqueryPage } from '../inquery/inquery';
 import { TuitSbPage } from '../tuit-sb/tuit-sb';
 import { StatisticsPage } from '../statistics/statistics';
 import { ContactsPage } from '..//contacts/contacts';
+import { NewsAnnountsPage } from './../news-announts/news-announts';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AnnountsPage } from './../announts/announts';
+
 
 
 
@@ -44,7 +47,7 @@ export class HomePage {
   }
 
   goToInqueryPage() {
-    this.navCtrl.push(InqueryPage);
+    this.navCtrl.push(NewsPage);
   }
 
   goToTuitSbPage(){

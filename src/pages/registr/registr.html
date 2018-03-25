@@ -20,17 +20,16 @@
               <ion-input   [(ngModel)]="surname" formControlName="Surname" type="text"></ion-input>
             </ion-item>
           </ion-list>
-          
             <ion-item>
               <ion-select [(ngModel)]="idFuculty" placeholder="Fakultet"  interface="popover"
-              formControlName="faculty" (ionChange)=onChangeFuculty()>
+              formControlName="faculty" (ionChange)="getGroup()">
                 <ion-option value="1">{{'computerEnginering' | translate }} </ion-option>
                 <ion-option value="2">{{'Telecommunication' | translate }}</ion-option>
               </ion-select>
             </ion-item>
               <ion-item>
                 <ion-select [(ngModel)]="idCours" placeholder="Bosqich"  interface="popover" formControlName="cours"
-                [disabled]="!reg.controls.faculty.valid" (ionChange)=onChangeFuculty()>
+                [disabled]="!reg.controls.faculty.valid" (ionChange)="generateGroup()">
                   <ion-option value="1">1-kurs</ion-option>
                   <ion-option value="2">2-kurs</ion-option>
                   <ion-option value="3">3-kurs</ion-option>
@@ -40,8 +39,8 @@
               <ion-item>
                 <ion-select [(ngModel)]="amount" placeholder="Guruh"  interface="popover" formControlName="group" 
                 [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid">
-                  <ion-option *ngFor="let r of selGroup" [value]="idGroup[r]">
-                    {{idGroup[r]}}</ion-option>
+                  <ion-option *ngFor="let r of currentgroup" [value]="r">
+                    {{r}}</ion-option>
                 </ion-select>
               </ion-item>
           </form>
@@ -59,9 +58,6 @@
         <ion-col></ion-col>
       </ion-row>
     </ion-grid>
-     
-    
-    
   </ion-content>
   <ion-footer>
   </ion-footer>

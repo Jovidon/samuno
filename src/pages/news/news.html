@@ -1,13 +1,3 @@
-
-<ion-header>
-
-  <ion-navbar color="secondary">
-    <ion-title>{{'labelNews' | translate }}</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
  <ion-item *ngIf="news && lang ==='uz'">
   <ion-card *ngFor="let item of news" (click)="goToMore(item)">

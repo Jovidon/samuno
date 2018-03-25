@@ -3,11 +3,12 @@
    
 <ion-slides pager="true" text-center>
   <ion-slide>
-        <ion-row>
-                <br><br><br>
-            </ion-row>
+      <br>
+      <br>
+      <br>
+      <br>
             <ion-row text-center> <ion-col> {{'btnMon' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-    
+            <ion-content  overflow-scroll="false" style="min-height: 300px;">
     <table class="table table-striped table-bordered table-hover" id="mytable">
       <thead>
           <tr text-center>
@@ -31,24 +32,19 @@
               <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
               <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
               <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
-
           </tr>
-         
   </tbody>
 </table> 
+</ion-content>
 </ion-slide>
   <ion-slide>
-      <ion-row>
-          <br><br><br>
-      </ion-row>
+        <br>
+        <br>
+        <br>
+        <br>
       <ion-row text-center> <ion-col > {{'btnTus' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-
-      
-
-      
-        
+      <ion-content  overflow-scroll="false" style="min-height: 300px;">
       <table class="table table-striped table-bordered table-hover" id="mytable">
-            
         <thead>
             <tr text-center>
                 <th>#</th>
@@ -71,20 +67,19 @@
                 <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
                 <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
                 <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
-  
             </tr>
-           
     </tbody>
   </table> 
-  
-
+  </ion-content>
     </ion-slide>
     <ion-slide>
-            <ion-row>
-                    <br><br><br>
-                </ion-row>
+            <br>
+            <br>
+            <br>
+            <br>
                 <ion-row text-center> <ion-col >  {{'btnWed' | translate }} </ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-       <table class="table table-striped table-bordered table-hover" id="mytable">
+                <ion-content  overflow-scroll="false" style="min-height: 300px;">
+        <table class="table table-striped table-bordered table-hover" id="mytable">
           <thead>
               <tr text-center>
                   <th>#</th>
@@ -112,13 +107,16 @@
              
       </tbody>
     </table>
+    </ion-content>
       </ion-slide>
       <ion-slide>
-            <ion-row>
-                    <br><br><br>
-                </ion-row>
+            <br>
+            <br>
+            <br>
+            <br>
                 <ion-row text-center> <ion-col >  {{'btnThus' | translate }} </ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-          <table class="table table-striped table-bordered table-hover" id="mytable">
+                <ion-content  overflow-scroll="false" style="min-height: 300px;">
+                <table class="table table-striped table-bordered table-hover" id="mytable">
             <thead>
                 <tr text-center>
                     <th>#</th>
@@ -146,13 +144,15 @@
                
         </tbody>
       </table> 
+      </ion-content>
         </ion-slide>
         <ion-slide>
-                <ion-row>
-                        <br><br><br>
-                    </ion-row>
+                <br>
+                <br>
+                <br>
+                <br>
                     <ion-row text-center> <ion-col > {{'btnFri' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-                    
+                    <ion-content  overflow-scroll="false" style="min-height: 300px;">
             <table class="table table-striped table-bordered table-hover" id="mytable">
               <thead>
                   <tr text-center>
@@ -181,13 +181,19 @@
                  
           </tbody>
         </table> 
+    </ion-content>
           </ion-slide>
-          <ion-slide>
-                <ion-row>
-                        <br><br><br>
-                    </ion-row>
-                    <ion-row text-center> <ion-col > {{'btnSun' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
-                    
+          <ion-slide >
+                <br>
+                <br>
+                <br>
+                <br>
+            <ion-row text-center> <ion-col > {{'btnSun' | translate }}</ion-col><ion-col><button ion-button class="lec">{{'labelLec' | translate }}</button></ion-col> <ion-col><button ion-button class="prac">{{'labelPrac' | translate }}</button></ion-col> <ion-col><button ion-button class="lab">{{'labelLab' | translate }}</button></ion-col></ion-row>
+            
+                    <ion-content  overflow-scroll="false" style="min-height: 300px;">
+                                      
+                        
+                             
               <table class="table table-striped table-bordered table-hover" id="mytable">
                 <thead>
                     <tr text-center >
@@ -198,7 +204,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                     
                     <tr *ngFor="let item of saturday"  >
+                            
                         <td *ngIf="item.type==='1'" class="lec">{{item.lessonId}}</td>
                         <td *ngIf="item.type==='1'" class="lec">{{item.fan}} </td>
                         <td *ngIf="item.type==='1'" class="lec">{{item.teacher}}</td>
@@ -211,13 +219,17 @@
                         <td *ngIf="item.type==='3'" class="lab">{{item.fan}} </td>
                         <td *ngIf="item.type==='3'" class="lab">{{item.teacher}}</td>
                         <td *ngIf="item.type==='3'" class="lab">{{item.room}}</td>
-                    </tr>   
+                     
+                    </tr> 
+                    
             </tbody>
           </table>
+        </ion-content>
+        
             </ion-slide>
 </ion-slides>
 
-      <ion-fab right top>
+      <ion-fab right bottom>
         <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
       </ion-fab>
 </ion-content>

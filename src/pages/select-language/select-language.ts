@@ -6,10 +6,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { LanguageProvider } from './../../providers/language/language';
 
 import { LanguageRepository } from './../../enteties/language';
-
+import { Guest } from ".././../enteties/guest";
 import { getRepository, Repository } from 'typeorm';
 import { HomePage } from '../home/home';
 import { StatusPage } from '../status/status';
+import { GuesthomePage } from '../guesthome/guesthome';
 
 
 @IonicPage()
@@ -38,7 +39,11 @@ export class SelectLanguagePage {
     let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
     const language = new LanguageRepository();
     language.code = lang;
-
+    
+    let guestrepo = getRepository('guest') as Repository <Guest>;
+    let guest = new Guest();
+    guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
+    
     const isOld = await languagerepo.findOneById(1);
       if(isOld)
       {
@@ -62,7 +67,11 @@ export class SelectLanguagePage {
       if(!isOld)
         this.navCtrl.setRoot(StatusPage); //RegistrPage
       else 
-        this.navCtrl.setRoot(HomePage)
+      if(!guest)
+        this.navCtrl.setRoot(HomePage);
+      else
+      this.navCtrl.setRoot(GuesthomePage);
+
       
       
   }
