@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
-import { FullNewsPage } from './../full-news/full-news';
+
 import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
@@ -24,16 +24,17 @@ export class NewsPage {
     public toast : ToastController, 
     public translate : TranslateService,
     public loadingCtrl : LoadingController) {
-      let loading = this.loadingCtrl.create({
-        content : this.pleaseWait,
-        duration : 1000
-      });
-      loading.present();
+     
     this.getNews();
     this.getCurrentLang();
     this.translate.get('labelPleaseWait').subscribe(data =>{
       this.pleaseWait = data;
-    })
+    });
+    let loading = this.loadingCtrl.create({
+      content : this.pleaseWait,
+      duration : 1000
+    });
+    loading.present();
   }
 
   ionViewDidLoad() {
@@ -46,7 +47,7 @@ export class NewsPage {
   }
 
   getNews(){
-    this.getdata.getUsers('pages/jsnews')
+    this.getdata.getUsers('api/jsnews')
     .then( async(data)=>{
       this.news = data;})
     .catch(err =>{
@@ -62,7 +63,7 @@ export class NewsPage {
   
  
   goToMore(data){
-    this.navCtrl.push(FullNewsPage, {data});
+    this.navCtrl.push('FullNewsPage', {data});
   }
  getCurrentLang(){
 

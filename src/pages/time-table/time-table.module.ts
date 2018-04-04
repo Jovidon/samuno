@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { TimeTablePage } from './time-table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { TimeTablePage } from './time-table';
   ],
   imports: [
     IonicPageModule.forChild(TimeTablePage),
+    TranslateModule.forChild()
   ],
 })
 export class TimeTablePageModule {}

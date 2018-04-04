@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegistrPage } from './../registr/registr'
+
 import { Language } from './../../model/language-model';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageProvider } from './../../providers/language/language';
@@ -8,10 +8,7 @@ import { LanguageProvider } from './../../providers/language/language';
 import { LanguageRepository } from './../../enteties/language';
 import { Guest } from ".././../enteties/guest";
 import { getRepository, Repository } from 'typeorm';
-import { HomePage } from '../home/home';
-import { StatusPage } from '../status/status';
-import { GuesthomePage } from '../guesthome/guesthome';
-
+import { HomePage } from './../home/home';
 
 @IonicPage()
 @Component({
@@ -61,23 +58,24 @@ export class SelectLanguagePage {
       this.languageSelected = lang;
 
       if(this.languageSelected) {
+          
           this.translate.setDefaultLang(this.languageSelected);
           this.translate.use(this.languageSelected);
       }
       if(!isOld)
-        this.navCtrl.setRoot(StatusPage); //RegistrPage
+        this.navCtrl.setRoot('StatusPage'); //RegistrPage
       else 
       if(!guest)
         this.navCtrl.setRoot(HomePage);
       else
-      this.navCtrl.setRoot(GuesthomePage);
+      this.navCtrl.setRoot('GuesthomePage');
 
       
       
   }
 
   goToRegistrPage() {
-    this.navCtrl.push(RegistrPage);
+    this.navCtrl.push('RegistrPage');
   }
 
 }

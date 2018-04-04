@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegistrPage }  from './../registr/registr';
+
 import { getRepository, Repository } from 'typeorm';
 import { Guest } from './../../enteties/guest'; 
-import { HomePage } from './../home/home'; 
-import { GuesthomePage } from './../guesthome/guesthome';
+
+
 import { Status } from '../../enteties/status';
-import { TeacherRegistrPage } from './../teacher-registr/teacher-registr';
+
 
 
 @IonicPage()
@@ -24,7 +24,7 @@ export class StatusPage {
   }
 
   goToRegistrPage() {
-    this.navCtrl.setRoot(RegistrPage);
+    this.navCtrl.setRoot('RegistrPage');
   }
 
  async goToGuest(){
@@ -32,7 +32,7 @@ export class StatusPage {
     const guest = new Guest();
     guest.name = "God wills UNO will be beneficial for the development of SB TUIT!";
     await guestrepo.save(guest);
-    this.navCtrl.setRoot(GuesthomePage);
+    this.navCtrl.setRoot('GuesthomePage');
   }
 
  async goToStudent() {
@@ -44,7 +44,7 @@ export class StatusPage {
     await statusrepo.save(statusnew)
 
   
-   this.navCtrl.setRoot(RegistrPage);
+   this.navCtrl.setRoot('RegistrPage');
  }
 
  async goToTeacher(){
@@ -55,7 +55,7 @@ export class StatusPage {
    statusnew.role = 1;
    await statusrepo.save(statusnew)
 
-  this.navCtrl.setRoot(TeacherRegistrPage);
+  this.navCtrl.setRoot('TeacherRegistrPage');
  }
 
 }

@@ -6,12 +6,9 @@ export class Teacher {
 
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    fullName: string;
     
     @Column()
-    cafedra: string;
+    idTeach: number;
 
 
 

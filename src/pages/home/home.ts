@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, LoadingController } from 'ionic-angular';
-import { NewsPage } from '../news/news';
-import { TimeTablePage } from '../time-table/time-table';
-import { InqueryPage } from '../inquery/inquery';
-import { TuitSbPage } from '../tuit-sb/tuit-sb';
-import { StatisticsPage } from '../statistics/statistics';
-import { ContactsPage } from '..//contacts/contacts';
-import { NewsAnnountsPage } from './../news-announts/news-announts';
+
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
-import { AnnountsPage } from './../announts/announts';
-
-
-
+import { getRepository, Repository } from 'typeorm';
+import { Status } from './../../enteties/status';
 
 @Component({
   selector: 'page-home',
@@ -30,36 +22,48 @@ export class HomePage {
      
     //this.pushNoti();
   }
+  
   ionViewWillEnter(){
-   
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     
-  }
+     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+     
+   }
 
   goToNewsPage(){
-    this.navCtrl.push(NewsPage);
+    this.navCtrl.push('NewsPage');
   }
 
-  goToTimeTablePage(){
-   
-    this.navCtrl.push(TimeTablePage);
+  async goToTimeTablePage(){
+    let statusrepo = getRepository('status') as Repository <Status>;
+    let teacher = await statusrepo.findOne({role:1});
+    
+
+    if(teacher){
+      this.navCtrl.push('TeachertimetablePage');
+    }
+    else
+    {
+      this.navCtrl.push('TimeTablePage');
+    }
+
+   // this.navCtrl.push('TimeTablePage');
   
   }
 
   goToInqueryPage() {
-    this.navCtrl.push(NewsPage);
+    this.navCtrl.push('NewsPage');
   }
 
   goToTuitSbPage(){
-    this.navCtrl.push(TuitSbPage);
+    this.navCtrl.push('TuitSbPage');
   }
 
   goToStatisticsPage(){
-    this.navCtrl.push(StatisticsPage);
+    this.navCtrl.push('StatisticsPage');
   }
 
   goToContactsPage(){
-    this.navCtrl.push(ContactsPage);
+    this.navCtrl.push('ContactsPage');
   }
 
   

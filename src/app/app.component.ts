@@ -6,11 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core'; 
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { SelectLanguagePage } from './../pages/select-language/select-language';
-import { SettingsPage } from './../pages/settings/settings';
-import { InqueryPage } from './../pages/inquery/inquery';
-import { GuesthomePage } from './../pages/guesthome/guesthome';
+
 
 import { LanguageRepository } from './../enteties/language';
 import { TimeTable } from './../enteties/time-table';
@@ -19,13 +15,14 @@ import { News } from './../enteties/news';
 import { Guest } from "./../enteties/guest";
 import { Status } from './../enteties/status';
 import { Teacher } from './../enteties/teacher';
+import { TeacherTimeTable } from './../enteties/teachertimetable';
 
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
-import { RegistrPage } from '../pages/registr/registr';
+
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { StatusPage } from '../pages/status/status';
+
 
 
 @Component({
@@ -47,7 +44,7 @@ export class MyApp {
     this.initializeApp();
     
     this.pages = [
-      { title: 'Settings', component: SettingsPage, icon: 'assets/imgs/settings.png'}
+      { title: 'Settings', component: 'SettingsPage', icon: 'assets/imgs/settings.png'}
     ];
 
   }
@@ -73,7 +70,8 @@ export class MyApp {
           News,
           Guest,
           Status,
-          Teacher
+          Teacher,
+          TeacherTimeTable
            ]
       });
 
@@ -84,23 +82,26 @@ export class MyApp {
       let guest = new Guest();
         guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
       let userrepo = getRepository('user') as Repository <User>;
-        let user = new User();
-        user = await userrepo.findOne({idFaculty:1});
-        let user2 = new User();
-        user2 = await userrepo.findOne({idFaculty: 2});  
+       let user = new User();
+       let users : any;
+       users = await userrepo.find();
+       for(let a of users){
+         user = a;
+       }
+
         if(lang){
             if(!guest)
-              if(user || user2)
+              if(user)
                 this.rootPage = HomePage;
               else
-                this.rootPage = StatusPage;
+                this.rootPage = 'StatusPage';
             else 
-              this.rootPage = GuesthomePage;
+              this.rootPage = 'GuesthomePage';
             }
         else 
         {
           
-          this.rootPage = SelectLanguagePage;
+          this.rootPage = 'SelectLanguagePage';
 
         }
         this.translate.setDefaultLang(lang.code);
@@ -124,8 +125,10 @@ export class MyApp {
     await getRepository('news').clear();
     await getRepository('user').clear();
     await getRepository('timetable').clear();
-    await getRepository('status').delete(1);
-    this.nav.setRoot(StatusPage);
+    await getRepository('status').clear();
+    await getRepository('teacher').clear();
+    await getRepository('teachertimetable').clear();
+    this.nav.setRoot('StatusPage');
   }
   
   delay(ms: number) {

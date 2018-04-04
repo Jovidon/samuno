@@ -8,8 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
-import { HomePage } from './../home/home';
+
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -99,9 +100,9 @@ export class TimeTablePage {
   async Synchronize(){ 
     let userrepo = getRepository('user') as Repository <User>;
 
-    this.user = await userrepo.findOneById(1);
+    //this.user = await userrepo.findOneById(1);
     let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
-    let student  = new User;
+    let student  = new User();
     // this.user = await userrepo.findOneById(1);
       await userrepo.findOne({idFaculty: 1})
       .then(async (data) =>{
@@ -114,7 +115,7 @@ export class TimeTablePage {
       if(!this.key)
        student = await userrepo.findOne({idFaculty: 2});
     
-    this.getdata.getUsers('pages/' + student.idGroup.toString() + "_" +student.idFaculty.toString())
+    this.getdata.getUsers('pages/tables/' + student.idGroup.toString() + "_" +student.idFaculty.toString())
     .then( async (data)  =>  {
       
       this.timetablesync = data;
@@ -192,8 +193,8 @@ export class TimeTablePage {
   pushNoti() {
     var date = new Date()
     date.setDate(date.getDate()+1);
-    date.setHours(10);
-    date.setMinutes(14);
+    date.setHours(8);
+    date.setMinutes(0);
     date.setSeconds(0);
     this.platform.ready().then(() => {
       this.localNotification.schedule({

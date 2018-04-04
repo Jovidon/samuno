@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SelectLanguagePage } from './../select-language/select-language'; 
+
 
 @IonicPage()
 @Component({
@@ -17,7 +17,7 @@ export class SettingsPage {
   }
 
   goToSelectLanguagePage(){
-    this.navCtrl.setRoot(SelectLanguagePage);
+    this.navCtrl.setRoot('SelectLanguagePage');
 
   }
 }
