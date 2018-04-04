@@ -35,7 +35,7 @@ export class TeacherStatisticsPage {
           this.statis = data;
       });
   }
-
+ 
   ionViewDidLoad() {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       

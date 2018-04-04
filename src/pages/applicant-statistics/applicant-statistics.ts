@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { TranslateService } from '@ngx-translate/core';
-import { ModalStatisticsPage } from './../modal-statistics/modal-statistics';
+
 import { Modal } from 'ionic-angular/components/modal/modal';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
@@ -176,7 +176,7 @@ export class ApplicantStatisticsPage {
    
         
         
-        const myModal : Modal = this.modal.create(ModalStatisticsPage, {data1 :this.grandBall, data2 :this.contractBall});
+        const myModal : Modal = this.modal.create('ModalStatisticsPage', {data1 :this.grandBall, data2 :this.contractBall});
         myModal.present();
         myModal.onDidDismiss((data) =>{
             this.direction = 0;

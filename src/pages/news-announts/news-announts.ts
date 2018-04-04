@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NewsPage } from './../news/news';
-import { AnnountsPage } from './../announts/announts';
+
 import { HomePage } from './../home/home';
 
 
@@ -14,8 +13,8 @@ export class NewsAnnountsPage {
   tab1 : any;
   tab2 : any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.tab1 = NewsPage;
-    this.tab2 = AnnountsPage;
+    this.tab1 = 'NewsPage';
+    this.tab2 = 'AnnountsPage';
   }
 
   ionViewDidLoad() {

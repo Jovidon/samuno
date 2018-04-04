@@ -1,9 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { ApplicantStatisticsPage } from '../applicant-statistics/applicant-statistics';
-import { TeacherStatisticsPage } from '../teacher-statistics/teacher-statistics';
-import { StudentStatisticsPage } from '../student-statistics/student-statistics';
+
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
@@ -23,15 +21,15 @@ export class StatisticsPage {
   }
   
   goToStudentStPage(){
-    this.navCtrl.push(StudentStatisticsPage);
+    this.navCtrl.push('StudentStatisticsPage');
   }
 
   goToTeacherStPage(){
-    this.navCtrl.push(TeacherStatisticsPage);
+    this.navCtrl.push('TeacherStatisticsPage');
   }
 
   goToApplicantStPage(){
-    this.navCtrl.push(ApplicantStatisticsPage);
+    this.navCtrl.push('ApplicantStatisticsPage');
   }
   
    ionViewWillEnter() {

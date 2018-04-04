@@ -9,63 +9,22 @@ import { HttpModule } from '@angular/http';
 
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { SettingsPage } from './../pages/settings/settings';
-import { NewsPage } from './../pages/news/news';
-import { TimeTablePage } from './../pages/time-table/time-table';
-import { InqueryPage } from './../pages/inquery/inquery';
-import { TuitSbPage } from './../pages/tuit-sb/tuit-sb';
-import { StatisticsPage } from './../pages/statistics/statistics';
-import { ContactsPage } from './../pages/contacts/contacts';
-import { ApplicantStatisticsPage } from './../pages/applicant-statistics/applicant-statistics';
-import { TeacherStatisticsPage } from './../pages/teacher-statistics/teacher-statistics';
-import { StudentStatisticsPage } from './../pages/student-statistics/student-statistics';
-import { FullNewsPage } from './../pages/full-news/full-news';
-import { StatusPage } from './../pages/status/status';
-import { GuesthomePage } from './../pages/guesthome/guesthome';
-import { NewsAnnountsPage } from './../pages/news-announts/news-announts';
-import { AnnountsPage } from './../pages/announts/announts';
-import { TeacherRegistrPage } from './../pages/teacher-registr/teacher-registr';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HomePage } from './../pages/home/home';
 
-import { ModalStatisticsPage } from './../pages/modal-statistics/modal-statistics';
-import { SelectLanguagePage } from './../pages/select-language/select-language';
-import { RegistrPage } from './../pages/registr/registr';
 import { LanguageProvider } from '../providers/language/language';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
-
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
-    SelectLanguagePage,
-    RegistrPage,
-    SettingsPage,
-    NewsPage,
-    TimeTablePage,
-    InqueryPage,
-    TuitSbPage,
-    StatisticsPage,
-    ContactsPage,
-    ApplicantStatisticsPage,
-    TeacherStatisticsPage,
-    StudentStatisticsPage,
-    ModalStatisticsPage,
-    FullNewsPage,
-    StatusPage,
-    GuesthomePage,
-    NewsAnnountsPage,
-    AnnountsPage,
-    TeacherRegistrPage
-    
-    
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -84,28 +43,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
-    SelectLanguagePage,
-    RegistrPage,
-    SettingsPage,
-    NewsPage,
-    TimeTablePage,
-    InqueryPage,
-    TuitSbPage,
-    StatisticsPage,
-    ContactsPage,
-    ApplicantStatisticsPage,
-    TeacherStatisticsPage,
-    StudentStatisticsPage,
-    ModalStatisticsPage,
-    FullNewsPage,
-    StatusPage,
-    GuesthomePage,
-    NewsAnnountsPage,
-    AnnountsPage,
-    TeacherRegistrPage
-
+    HomePage
+    
   ],
   providers: [
     StatusBar,
@@ -119,6 +58,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   ]
 })
 export class AppModule {}
+
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
   }

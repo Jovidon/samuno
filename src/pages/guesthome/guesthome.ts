@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TuitSbPage } from '../tuit-sb/tuit-sb';
-import { StatisticsPage } from '../statistics/statistics';
-import { ContactsPage } from '..//contacts/contacts';
-import { NewsPage } from '../news/news';
-import { NewsAnnountsPage } from './../news-announts/news-announts';
+import { LanguageRepository } from './../../enteties/language';
+import { getRepository, Repository } from 'typeorm';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageProvider } from './../../providers/language/language';
 
 @IonicPage()
 @Component({
@@ -13,7 +12,12 @@ import { NewsAnnountsPage } from './../news-announts/news-announts';
 })
 export class GuesthomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private translate : TranslateService,) {
+    
+      //this.getLanguage();
   }
 
   ionViewDidLoad() {
@@ -21,19 +25,20 @@ export class GuesthomePage {
   }
   
   goToNewsPage(){
-    this.navCtrl.push(NewsPage);
+    this.navCtrl.push('NewsPage');
   }
 
   goToTuitSbPage(){
-    this.navCtrl.push(TuitSbPage);
+    this.navCtrl.push('TuitSbPage');
   }
 
   goToStatisticsPage(){
-    this.navCtrl.push(StatisticsPage);
+    this.navCtrl.push('StatisticsPage');
   }
 
   goToContactsPage(){
-    this.navCtrl.push(ContactsPage);
+    this.navCtrl.push('ContactsPage');
   }
 
+  
 }

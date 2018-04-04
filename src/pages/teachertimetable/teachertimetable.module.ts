@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { FullNewsPage } from './full-news';
+import { TeachertimetablePage } from './teachertimetable';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    FullNewsPage,
+    TeachertimetablePage,
   ],
   imports: [
-    IonicPageModule.forChild(FullNewsPage),
+    IonicPageModule.forChild(TeachertimetablePage),
     TranslateModule.forChild()
   ],
 })
-export class FullNewsPageModule {}
+export class TeachertimetablePageModule {}

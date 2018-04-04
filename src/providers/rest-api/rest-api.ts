@@ -33,32 +33,48 @@ export class RestApiProvider {
       });
     });
   }
-  
-  getTimeTable(){
+  getTeacher(url) {
     return new Promise(resolve => {
-      this.http.get('http://192.168.137.1/api.php').subscribe(data => {
+      this.http.get('http://192.168.137.1/pages/teachers/' + url + ".php").subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
       });
     });
-
   }
+
+  group(url) {
+    return new Promise(resolve => {
+      this.http.get('http://192.168.137.1/pages/groups/' + url + ".php").subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 
   getGroup(idFaculty){
    
     var myData = JSON.stringify({ faculty : idFaculty});
-    this.http.post('http://192.168.137.1/groups.php', myData).subscribe( (data) =>{
+    this.http.post('http://192.168.137.1/api/groups.php', myData).subscribe( (data) =>{
   });
 
   }
 
-  getTeachers(idCafedra){
-    var myData = JSON.stringify({ cafedra : idCafedra});
-    this.http.post('http://192.168.137.1/teachers.php', myData).subscribe( (data) =>{
+  postTeacher(idCafedra,lang){
+    let infoteacher = idCafedra+lang;
+    var myData = JSON.stringify({ cafedra : infoteacher});
+    this.http.post('http://192.168.137.1/api/teachers.php', myData).subscribe( (data) =>{
   });
   }
   
+  registrPostTeacher(Teacher){
+    let a = Teacher;
+    var myData = JSON.stringify({ idTeacher : a});
+    this.http.post('http://192.168.137.1/api/teach_api.php', myData).subscribe( (data) =>{
+  });
+  }
  
  /*async*/ 
     submit(name, surname, facultyuser, courseuser, groupuser) {
@@ -67,7 +83,7 @@ export class RestApiProvider {
     let info = name + "@" + surname + "@" + facultyuser + "@" + courseuser + "@" + groupuser + "@4";
     var myData = JSON.stringify({ username : info});
     
-    this.http.post('http://192.168.137.1/pages/api.php', myData).subscribe( (data) =>{
+    this.http.post('http://192.168.137.1/api/api.php', myData).subscribe( (data) =>{
   });
 
   }

@@ -7,7 +7,7 @@
   <form [formGroup]="reg">
   <ion-grid>
     <ion-row></ion-row>
-    <ion-row></ion-row>
+    <ion-row>{{teachId}}</ion-row>
     <ion-row>
       <ion-col offset-3 col-6>
           <ion-item floating>
@@ -22,22 +22,22 @@
                 <ion-option value="8">{{'labelTelecommunicationEngineering'| translate}}</ion-option>
                 <ion-option value="9">{{'labelLanguages'| translate}}</ion-option>
             </ion-select>
-            
           </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
         <ion-col offset-3 col-6>
               <ion-item floating>
-                <ion-select [(ngModel)]="teacherFullName" [disabled]="!reg.controls.cafedra.valid" placeholder="{{'select' | translate }}" formControlName="teacher">
-                
+                <ion-select [(ngModel)]="teachId" [disabled]="!reg.controls.cafedra.valid" placeholder="{{'select' | translate }}" formControlName="teacher">
+                    <ion-option *ngFor="let r of teachers" value="{{r.idTeach}}">
+                         {{r.fish}}</ion-option>
                 </ion-select>
               </ion-item>
           </ion-col>
     </ion-row>
     <ion-row>
       <ion-col offset-4>
-        <button ion-button color="secondary" round [disabled]="!reg.controls.cafedra.valid || !reg.controls.teacher.valid">{{'btnSignIn' | translate}}</button>
+        <button ion-button color="secondary" round (click)="Registr()" [disabled]="!reg.controls.cafedra.valid || !reg.controls.teacher.valid">{{'btnSignIn' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-grid>

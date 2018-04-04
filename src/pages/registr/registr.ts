@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HomePage } from './../home/home'
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
-import { TimeTablePage } from './../time-table/time-table';
+
 import { HttpClient } from '@angular/common/http';
 import { resolve } from 'path';
 import { TimeTable } from './../../enteties/time-table';
@@ -55,7 +55,7 @@ export class RegistrPage {
   
   getGroup(){
     this.getdata.getGroup(this.idFuculty.toString());
-    this.getdata.getUsers(this.idFuculty.toString())
+    this.getdata.group(this.idFuculty.toString())
     .then((data) =>{
       this.groups = data;
 
