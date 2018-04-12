@@ -81,11 +81,15 @@ export class RegistrPage {
         let time = new TimeTable();
         
         time.fan = servertime.fan;
+        time.fan1 = servertime.fan1;
         time.teacher = servertime.teacher;
+        time.teacher1 = servertime.teacher1;
         time.day = servertime.day;
         time.type = servertime.type;
+        time.type1 = servertime.type1;
         time.lessonId = servertime.id;
         time.room = servertime.room;
+        time.room1 = servertime.room1;
         await timetablerepo.save(time);
       }
     })

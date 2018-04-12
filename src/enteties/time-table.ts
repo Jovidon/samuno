@@ -9,9 +9,15 @@ export class TimeTable {
 
     @Column()
     fan: string;
+
+    @Column()
+    fan1: string;
     
     @Column()
     teacher: string;
+   
+    @Column()
+    teacher1: string;
     
     @Column()
     day: string;
@@ -20,10 +26,18 @@ export class TimeTable {
     type: string;
 
     @Column()
+    type1:string;
+
+    @Column()
     lessonId: string;
 
     @Column()
     room: string;
+
+    @Column()
+    room1:string;
+
+
 
 
 

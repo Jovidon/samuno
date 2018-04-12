@@ -6,6 +6,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { getRepository, Repository } from 'typeorm';
 import { Status } from './../../enteties/status';
+import { TeachertimetablePage } from './../teachertimetable/teachertimetable';
+import { TimeTablePage } from './../time-table/time-table'; 
+
+
 
 @Component({
   selector: 'page-home',
@@ -39,11 +43,11 @@ export class HomePage {
     
 
     if(teacher){
-      this.navCtrl.push('TeachertimetablePage');
+      this.navCtrl.push(TeachertimetablePage);
     }
     else
     {
-      this.navCtrl.push('TimeTablePage');
+      this.navCtrl.push(TimeTablePage);
     }
 
    // this.navCtrl.push('TimeTablePage');
