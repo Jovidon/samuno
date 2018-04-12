@@ -1,12 +1,12 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity('news')
-export class News { 
+@Entity('notice')
+export class Notice { 
     
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    news_id: string;
+    note_id: string;
 }

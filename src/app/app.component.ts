@@ -15,6 +15,7 @@ import { News } from './../enteties/news';
 import { Guest } from "./../enteties/guest";
 import { Status } from './../enteties/status';
 import { Teacher } from './../enteties/teacher';
+import { Notice } from './../enteties/notice';
 import { TeacherTimeTable } from './../enteties/teachertimetable';
 
 import { createConnection } from 'typeorm';
@@ -71,7 +72,8 @@ export class MyApp {
           Guest,
           Status,
           Teacher,
-          TeacherTimeTable
+          TeacherTimeTable,
+          Notice
            ]
       });
 
@@ -84,17 +86,21 @@ export class MyApp {
       let userrepo = getRepository('user') as Repository <User>;
        let user = new User();
        let users : any;
-       users = await userrepo.find();
-       for(let a of users){
-         user = a;
-       }
+
+       let studenta = await userrepo.findOne({idFaculty:1});
+       let studentb = await userrepo.findOne({idFaculty:2});
+
+       let statusrepo = getRepository('status') as Repository <Status>;
+       let teacher = await statusrepo.findOne({role:1});
 
         if(lang){
-            if(!guest)
-              if(user)
-                this.rootPage = HomePage;
-              else
-                this.rootPage = 'StatusPage';
+            if(!guest){
+            if(teacher|| studenta || studentb)
+              this.rootPage = HomePage;
+            else
+              this.rootPage = 'StatusPage';
+            }
+             
             else 
               this.rootPage = 'GuesthomePage';
             }
@@ -126,8 +132,8 @@ export class MyApp {
     await getRepository('user').clear();
     await getRepository('timetable').clear();
     await getRepository('status').clear();
-    await getRepository('teacher').clear();
     await getRepository('teachertimetable').clear();
+    
     this.nav.setRoot('StatusPage');
   }
   

@@ -42,7 +42,7 @@ export class TeachertimetablePage {
       this.translate.get('labelTodayLessons').subscribe(data =>{
         this.lesson = data;
       });
-      this.getTimeTable();
+    //  this.getTimeTable();
       this.Synchronize();
   }
 
@@ -62,14 +62,11 @@ export class TeachertimetablePage {
 
     let timetablerepo = getRepository('teachertimetable') as Repository <TeacherTimeTable>;
     let teacherrepo = getRepository('teacher') as Repository<Teacher>;
+    this.getTimeTable();
     
-    let allteacher : any;
-    allteacher = await teacherrepo.find();
 
-    let teacher = new Teacher ();
-    for (let a of allteacher)
-      teacher = a;
-
+    let teacher = await teacherrepo.findOneById(1);
+    
       this.getdata.registrPostTeacher(teacher.idTeach.toString());
       this.delay(500);
     

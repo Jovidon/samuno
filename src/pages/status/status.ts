@@ -47,13 +47,8 @@ export class StatusPage {
    this.navCtrl.setRoot('RegistrPage');
  }
 
- async goToTeacher(){
-  let statusrepo = getRepository('status') as Repository <Status>;
- 
+ goToTeacher(){
   
-   let statusnew = new Status();
-   statusnew.role = 1;
-   await statusrepo.save(statusnew)
 
   this.navCtrl.setRoot('TeacherRegistrPage');
  }

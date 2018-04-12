@@ -7,6 +7,7 @@ import { HomePage } from './../home/home';
 import { getRepository, Repository } from 'typeorm';
 import { Teacher } from './../../enteties/teacher';
 import { TeacherTimeTable } from './../../enteties/teachertimetable';
+import { Status } from './../../enteties/status';
 
 @IonicPage()
 @Component({
@@ -57,7 +58,18 @@ export class TeacherRegistrPage {
     let teacher = new Teacher ();
     
     teacher.idTeach = this.teachId;
-    await teacherrepo.save(teacher);
+
+    const isOldteacher = await teacherrepo.findOneById(1);
+    if(isOldteacher){
+
+      isOldteacher.idTeach = this.teachId;
+      await teacherrepo.save(isOldteacher);
+    }
+    else
+    {
+      await teacherrepo.save(teacher);
+    }
+   
     
     this.getdata.registrPostTeacher(this.teachId.toString());
 
@@ -89,7 +101,12 @@ export class TeacherRegistrPage {
     .catch(err =>{
       console.log(err);
     });
-
+    let statusrepo = getRepository('status') as Repository <Status>;
+    
+     
+      let statusnew = new Status();
+      statusnew.role = 1;
+      await statusrepo.save(statusnew)
     this.navCtrl.setRoot(HomePage);
 
   }

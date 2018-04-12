@@ -122,7 +122,7 @@ export class TimeTablePage {
         let isChanged : boolean = false ;
          if(this.timetable.length == this.timetablesync.length){
             for(let i in this.timetable){
-              if(this.timetable[i].day != this.timetablesync[i].day || this.timetable[i].fan != this.timetablesync[i].fan || this.timetable[i].teacher != this.timetablesync[i].teacher || this.timetable[i].type != this.timetablesync[i].type || this.timetable[i].lessonId != this.timetablesync[i].id ||this.timetable[i].room!=this.timetablesync[i].room){
+              if(this.timetable[i].day != this.timetablesync[i].day || this.timetable[i].fan != this.timetablesync[i].fan || this.timetable[i].fan1 != this.timetablesync[i].fan1 || this.timetable[i].teacher != this.timetablesync[i].teacher || this.timetable[i].teacher1 != this.timetablesync[i].teacher1 || this.timetable[i].type != this.timetablesync[i].type ||this.timetable[i].type1!=this.timetablesync[i].type1 || this.timetable[i].lessonId != this.timetablesync[i].id ||this.timetable[i].room!=this.timetablesync[i].room  ||this.timetable[i].room1!=this.timetablesync[i].room1){
                 isChanged = true;
                 break;
             }
@@ -140,10 +140,14 @@ export class TimeTablePage {
            let timetablenew = new TimeTable();
            timetablenew.day = timesync.day;
            timetablenew.fan = timesync.fan;
+           timetablenew.fan1 = timesync.fan1;
            timetablenew.teacher = timesync.teacher;
+           timetablenew.teacher1 = timesync.teacher1;
            timetablenew.type = timesync.type;
+           timetablenew.type1 = timesync.type1;
            timetablenew.lessonId = timesync.id;
            timetablenew.room = timesync.room;
+           timetablenew.room1 = timesync.room1;
            await timetablerepo.save(timetablenew);
          }
          this.ionViewWillEnter();
