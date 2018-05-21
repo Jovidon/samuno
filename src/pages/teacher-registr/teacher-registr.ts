@@ -59,7 +59,7 @@ export class TeacherRegistrPage {
     
     teacher.idTeach = this.teachId;
 
-    const isOldteacher = await teacherrepo.findOneById(1);
+    let isOldteacher: Teacher = await teacherrepo.findOneById(1);
     if(isOldteacher){
 
       isOldteacher.idTeach = this.teachId;

@@ -1,15 +1,26 @@
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>{{'labelNewsandAnnounts' | translate }} </ion-title>
+    <ion-title>{{'btnAnnounts' | translate }} </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-  <ion-tabs tabsPlacement = "top" tabsHighlight = true>
-    <ion-tab [tabTitle]="'btnNews' | translate" [root]="tab1" color="secondary" tabIcon="paper"></ion-tab>
-    <ion-tab [tabTitle]="'btnAnnounts' | translate" [root]="tab2" color="secondary"  tabIcon="megaphone"></ion-tab>
-  </ion-tabs>
+<ion-content>
+  <div *ngIf="lang==='uz'">
+    <ion-card-header><h2>{{note.title}}</h2></ion-card-header>
+    <h2>{{note.full}}</h2>
+    <hr>
+    <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{note.auth}}
+    </span>
+    <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{note.date}}</span>
+  </div>
+  <div *ngIf="lang==='ru'"> 
+    <ion-card-header><h2>{{note.title_ru}}</h2></ion-card-header>
+    <h2>{{note.full_ru}}</h2> 
+    <hr>
+    <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{note.auth_ru}}
+    </span>
+    <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{note.date}}</span>
+  </div>
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
+  </ion-fab>
 </ion-content>

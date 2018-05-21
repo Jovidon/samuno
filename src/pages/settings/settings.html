@@ -1,19 +1,16 @@
-
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>Sozlamalar</ion-title>
+    <ion-title>{{'labelSettings' | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-
     <button ion-item (click)="goToSelectLanguagePage()"> <ion-icon name="swap" item-start>
     </ion-icon>
     <div>
-      Tilni o'zgartirish
+      {{'lablelChangeLang' | translate}}
     </div>
     </button>
+    <ion-fab right bottom>
+      <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
+    </ion-fab>
 </ion-content>

@@ -128,15 +128,19 @@ export class MyApp {
   async logOut(){
    
     await getRepository('guest').clear();
-    await getRepository('news').clear();
     await getRepository('user').clear();
     await getRepository('timetable').clear();
     await getRepository('status').clear();
+    await getRepository('notice').clear();
     await getRepository('teachertimetable').clear();
     
     this.nav.setRoot('StatusPage');
   }
   
+  goToAboutAppPage(){
+    this.nav.setRoot('AboutAppPage');
+  }
+
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }

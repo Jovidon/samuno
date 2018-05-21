@@ -27,6 +27,7 @@ export class TeachertimetablePage {
   thursday : any ;
   friday : any ;
   saturday : any ;
+  current : any; 
   lesson : string;
   teachId : any;
   constructor(
@@ -137,6 +138,11 @@ export class TeachertimetablePage {
      this.thursday = await timetablerepo.find({day : "Payshanba"});
      this.friday = await timetablerepo.find({day : "Juma"});
      this.saturday = await timetablerepo.find({day : "Shanba"});
+     var date = new Date();
+     let today : number = date.getDay();
+    // this.goToSlide(today-1);
+     // current has to equal to today;
+     this.getCurrentTable(today);
    }
 
    ionViewWillEnter(){
@@ -146,7 +152,7 @@ export class TeachertimetablePage {
      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
      var date = new Date();
      let today : number = date.getDay();
-     this.goToSlide(today-1);
+    // this.goToSlide(today-1);
      if(today){
        let toast = this.toastCtrl.create({
          message: this.lesson,
@@ -172,4 +178,15 @@ export class TeachertimetablePage {
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms)); 
   }
+
+  getCurrentTable(day){
+    switch(day){
+      case 1: this.current = this.monday; break;
+      case 2: this.current = this.tuesday; break;
+      case 3: this.current = this.wednesday; break;
+      case 4: this.current = this.thursday; break;
+      case 5: this.current = this.friday; break;
+      case 6: this.current = this.saturday; break;
+    }
+  } 
 }

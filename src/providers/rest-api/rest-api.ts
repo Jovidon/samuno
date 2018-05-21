@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { TimeTable } from './../../enteties/time-table';
 import { getRepository, Repository } from 'typeorm';
+import { parse } from 'url';
 
 
 
@@ -43,6 +44,9 @@ export class RestApiProvider {
     });
   }
 
+   parseJson(data: any): Promise<any> {
+    return JSON.parse(data)
+  }
   group(url) {
     return new Promise(resolve => {
       this.http.get('http://192.168.137.1/pages/groups/' + url + ".php").subscribe(data => {

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { HomePage } from './../home/home';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -10,11 +9,17 @@ import { HomePage } from './../home/home';
   templateUrl: 'news-announts.html',
 })
 export class NewsAnnountsPage {
-  tab1 : any;
-  tab2 : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.tab1 = 'NewsPage';
-    this.tab2 = 'AnnountsPage';
+  note : any;
+  lang : string;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public translate : TranslateService) {
+    
+      this.note = this.navParams.get('item');
+
+      this.getCurrentLang();
+
   }
 
   ionViewDidLoad() {
@@ -22,6 +27,10 @@ export class NewsAnnountsPage {
   }
 
   goToHomePage () {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
+  }
+
+  getCurrentLang(){
+    this.lang = this.translate.getDefaultLang();
   }
 }

@@ -15,8 +15,8 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from './../pages/home/home';
-import { TimeTablePage } from './../pages/time-table/time-table';
-import { TeachertimetablePage } from './../pages/teachertimetable/teachertimetable';
+// import { TimeTablePage } from './../pages/time-table/time-table';
+// import { TeachertimetablePage } from './../pages/teachertimetable/teachertimetable';
 
 import { LanguageProvider } from '../providers/language/language';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
@@ -27,8 +27,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   declarations: [
     MyApp,
     HomePage,
-    TimeTablePage,
-    TeachertimetablePage
+    // TimeTablePage,
+    // TeachertimetablePage
   ],
   imports: [
     BrowserModule,
@@ -48,8 +48,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   entryComponents: [
     MyApp,
     HomePage,
-    TimeTablePage,
-    TeachertimetablePage
+    // TimeTablePage,
+    // TeachertimetablePage
     
   ],
   providers: [

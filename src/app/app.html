@@ -1,9 +1,14 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar color="secondary">
-      
-      <ion-col offset-1>  <img src="assets/imgs/logo_uno.png"  width="75%"></ion-col>
-    
+      <ion-col offset-3><img src="assets/imgs/logo_uno.png"  width="40%"></ion-col>
+      <ion-row>
+        <ion-col offset-1>
+          <div style="font-size:17px; color:white">
+            UNIVERSITY NOTIFICATION
+          </div>
+        </ion-col>
+      </ion-row>
     </ion-toolbar>
   </ion-header>
 
@@ -11,7 +16,7 @@
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
          <!-- <ion-icon [name]="p.icon" item-start></ion-icon>-->
-         <ion-row>
+         <ion-row style="text-align:start">
            <ion-col >
             <ion-icon><img height="35%" width="35%" src="{{p.icon}}"></ion-icon>
            </ion-col>
@@ -20,14 +25,25 @@
            </ion-col>
          </ion-row>
       </button>
+      <button menuClose ion-item (click)="goToAboutAppPage()">
+        <ion-row style="text-align:start">
+          <ion-col >
+            <ion-icon><img height="35%" width="35%" src="assets/imgs/info_left_menu.png"></ion-icon>
+          </ion-col>
+          <ion-col>
+             {{'labelAbout' | translate }}
+          </ion-col>
+        </ion-row>
+      </button>
       <button menuClose ion-item (click)="logOut()">
         Log Out
       </button>
-      
-
     </ion-list>
   </ion-content>
-
+  <ion-footer>
+    <ion-row><ion-col text-center>UNO - 0.0.1v</ion-col></ion-row>
+    <ion-row><ion-col text-center>Made with LoVe</ion-col></ion-row>
+  </ion-footer>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

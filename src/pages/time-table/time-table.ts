@@ -29,6 +29,7 @@ export class TimeTablePage {
   thursday : any ;
   friday : any ;
   saturday : any ;
+  current : any; 
   table : TimeTable [];
   searching : boolean = true;
   plsWait : string;
@@ -77,7 +78,10 @@ export class TimeTablePage {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     var date = new Date();
     let today : number = date.getDay();
-    this.goToSlide(today-1);
+   // this.goToSlide(today-1);
+    // current has to equal to today;
+    //this.getCurrentTable(today);
+    
     if(today){
       let toast = this.toastCtrl.create({
         message: this.lesson,
@@ -168,9 +172,6 @@ export class TimeTablePage {
       message : this.hasChange,
       duration : 2000,
       position : 'middle',
-      
-
-     
     });
     toast.present();
   }
@@ -184,6 +185,11 @@ export class TimeTablePage {
     this.thursday = await timetablerepo.find({day : "Payshanba"});
     this.friday = await timetablerepo.find({day : "Juma"});
     this.saturday = await timetablerepo.find({day : "Shanba"});
+    var date = new Date();
+    let today : number = date.getDay();
+   // this.goToSlide(today-1);
+    // current has to equal to today;
+    this.getCurrentTable(today);
   }
 
   goToSlide(n) {
@@ -211,5 +217,16 @@ export class TimeTablePage {
       });
     });
   }
+
+  getCurrentTable(day){
+    switch(day){
+      case 1: this.current = this.monday; break;
+      case 2: this.current = this.tuesday; break;
+      case 3: this.current = this.wednesday; break;
+      case 4: this.current = this.thursday; break;
+      case 5: this.current = this.friday; break;
+      case 6: this.current = this.saturday; break;
+    }
+  } 
 
 }

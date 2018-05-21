@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>{{'labelAbout' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col justify-content-center>
+        <ion-slides pager="true">
+          <ion-slide>
+            <ion-row justify-content-center><h1>UNO ga xush kelibsiz!</h1></ion-row>
+            <ion-row justify-content-center><h1>TATU SAMARQAND FILIALI TARAQQIYOTI UCHUN</h1></ion-row>
+            <ion-row justify-content-center><h1>UNO LOYIHACHILARI JAMOASI</h1></ion-row>
+            <img src="assets/imgs/logo_uno.png"> 
+          </ion-slide>
+          <ion-slide>
+            <ion-row justify-content-center><h1>{{'appInfo' | translate }}</h1></ion-row>
+          </ion-slide>
+          <ion-slide>
+              <ion-row justify-content-center><h1>O'qituvchilar va talabalar uchun dars jadvali.</h1></ion-row>
+          </ion-slide>
+          <ion-slide>
+              <ion-row justify-content-center><h1>O'qituvchilar va talabalar uchun yangiliklar va e'lonlar.</h1></ion-row>
+          </ion-slide>
+          <ion-slide>
+              <ion-row justify-content-center><h1>TATU SF DAGI BARCHA STATISTIKALAR</h1></ion-row>
+          </ion-slide>
+          <ion-slide>
+              <ion-row justify-content-center><h1>BARCHASI UNO LOYIHASIDA</h1></ion-row>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
+  </ion-fab>
+</ion-content>

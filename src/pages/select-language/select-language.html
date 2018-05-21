@@ -4,46 +4,33 @@
 
 
 <ion-content padding>
- 
-
   <ion-grid text-center>
-    <ion-col col-3></ion-col>
-    <ion-col col-8 >
-        <ion-row>
-          <ion-col offset-5>
-              <h3>Tilni tanlang</h3>
-          </ion-col>
+        <ion-row justify-content-center>
+          <h3>Tilni tanlang</h3>
         </ion-row>
         <ion-row>
           <br>
         </ion-row>
-        <ion-row>
-          <ion-col offset-4>
-              <h3> Выберите язык</h3> 
-          </ion-col>
+        <ion-row justify-content-center>
+          <h3> Выберите язык</h3>
         </ion-row>  
         <br><br>
-        <ion-row >
-          <div offset-6 (click)="goToNext(uz)">
+        <ion-row justify-content-center>
+          <div (click)="goToNext(uz)">
             <ion-img width="120" height="60" src="assets/imgs/uzFlag.png"></ion-img> 
             <br>
             <br>O'zbek tili
           </div>
         </ion-row>
         <ion-row><br><br><br></ion-row>
-        <ion-row>
-          <div  offset-6  (click)="goToNext(ru)">
+        <ion-row justify-content-center>
+          <div (click)="goToNext(ru)">
            <ion-img width="120" height="60" src="assets/imgs/ruFlag.png"></ion-img> 
             <br>
             <br>Русский язык
           </div>
         </ion-row>
-      </ion-col>
-      <ion-col col-1></ion-col>
   </ion-grid>
-   
-  
-  
 </ion-content>
 <ion-footer class="footer">
 </ion-footer>

@@ -8,5 +8,5 @@ export class News {
     id: number;
 
     @Column()
-    news_id: string;
+    id_news: number;
 }

@@ -42,13 +42,16 @@
         </ion-row>
         <ion-row>
           <ion-col col-6 text-center>
-            <div (click)="goToNewsPage()">
+            <div class="item" (click)="goToNewsPage()">
+                  <div *ngIf="badgeCnt > 0">
+                      <span class="notify-badge">{{badgeCnt}}</span>
+                  </div>
                 <img width="75%" height="75%" src="assets/imgs/news.png">
                 <ion-label>{{'labelNews' | translate }}</ion-label>
             </div>
           </ion-col>
           <ion-col col-6  text-center>
-              <div (click)="goToTuitSbPage()">
+              <div  (click)="goToTuitSbPage()">
                   <img width="75%" height="75%" src="assets/imgs/TATU.png">
                   <ion-label>{{'labelTUIT' | translate }}</ion-label>
               </div>
