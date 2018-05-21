@@ -2,26 +2,22 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from './../home/home';
 
-
 @IonicPage()
 @Component({
-  selector: 'page-settings',
-  templateUrl: 'settings.html',
+  selector: 'page-about-app',
+  templateUrl: 'about-app.html',
 })
-export class SettingsPage {
+export class AboutAppPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
-
-  goToSelectLanguagePage(){
-    this.navCtrl.setRoot('SelectLanguagePage');
+    console.log('ionViewDidLoad AboutAppPage');
   }
 
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
   }
+
 }

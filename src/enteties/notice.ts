@@ -8,5 +8,5 @@ export class Notice {
     id: number;
 
     @Column()
-    note_id: string;
+    id_note: number;
 }

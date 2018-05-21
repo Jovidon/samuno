@@ -1,4 +1,5 @@
-{
+{  
+    "appInfo" : "UNO loyihasi Toshkent Axborot Texnologiyalari Universiteti Samarqand filialini rivojlantirish va Universitet salohiyatini oshirish maqsadida yaratilgan.",
     "btnUzblang" : "Узбекский язык",
     "btnRuslang" : "Русский язык",
     "btnSignIn": "Войти",
@@ -53,6 +54,7 @@
     "labelLec" : "Ma'ruza",
     "labelPrac" : "Amaliyot", 
     "labelLab" : "Laboratoriya",
+    "labelLessonType" : "Turi",
     "labelNoInternet" : "Yuklanmoqda...",
     "labelWelcome" : "UNOga xush kelibsiz!",
     "labelMainMenu" : "Bosh Menu",
@@ -73,7 +75,10 @@
     "labelItEducation": "Axborot-ta'lim texnologiyalari kafedrasi",
     "labelInformationSecurity" : "Axborot xavfsizligi kafedrasi",
     "labelGroup": "Guruh",
-
+    "labelTeachStatistics": "O'qituvchilar statistikasi",
+    "labelDecs": "E'lonlar", 
+    "labelAbout" : "Dastur haqida",
+    "lablelChangeLang" : "Dastur tilini o'zgartirish",
     
     "inputName" : "Имя",
     "inputFirstName" : "Фамилия",

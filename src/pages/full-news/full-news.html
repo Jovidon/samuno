@@ -1,9 +1,9 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>fullNews</ion-title>
+    <ion-title>{{'btnNews' | translate}}</ion-title>
   </ion-navbar>
-  <img src="{{currentnews.pic}}">
+  <img src="http://192.168.137.1/{{currentnews.pic}}">
 
 </ion-header>
 
@@ -26,5 +26,7 @@
       </span>
       <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{currentnews.date}}</span>
  </div>
-  
+ <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
+  </ion-fab>
 </ion-content>

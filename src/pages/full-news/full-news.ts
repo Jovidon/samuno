@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { HomePage } from './../home/home';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,9 @@ export class FullNewsPage {
   getData(){
     this.currentnews = this.navParams.get('data');
     this.lang = this.translate.getDefaultLang();
+  }
 
-
+  goToHomePage(){
+    this.navCtrl.setRoot(HomePage);
   }
 }

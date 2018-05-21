@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
-
 import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
@@ -39,33 +38,28 @@ export class NewsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
-  }
-  
-  ionViewWillEnter(){
-   
 
   }
 
   getNews(){
-    this.getdata.getUsers('api/jsnews')
+    this.getdata.getUsers('pages/news')
     .then( async(data)=>{
       this.news = data;})
     .catch(err =>{
       console.log(err);
     });
-
-
-    
-
-
   }
 
+  parseJson(data: any): Promise<any> {
+    return JSON.parse(data)
+  }
   
  
   goToMore(data){
     this.navCtrl.push('FullNewsPage', {data});
   }
- getCurrentLang(){
+
+  getCurrentLang(){
 
    this.lang = this.translate.getDefaultLang();
 

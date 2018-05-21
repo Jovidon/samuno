@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { getRepository, Repository } from 'typeorm';
 import { User } from './../../enteties/user';
+import { RestApiProvider } from './../../providers/rest-api/rest-api';
 
 @IonicPage()
 @Component({
@@ -13,8 +14,14 @@ export class InqueryPage {
   name : string ;
   surname : string;
   user : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.getUser();
+  human : number;
+  notes : any;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public getdata : RestApiProvider) {
+   // this.human = this.navParams.get('human');
+    //this.getLenNews();
   }
 
 
@@ -22,16 +29,18 @@ export class InqueryPage {
     console.log('ionViewDidLoad InqueryPage');
   }
 
-  async getUser(){
+  // getLenNews(){
+  //   this.getdata.getUsers('pages/notice/3')
+  //   .then( async(data)=>{
+  //    this.notes = data;
+  //   })
+  //   .catch(err =>{
+  //     console.log(err);
+  //   });
+  // }
 
-    let userrepo = getRepository('user') as Repository <User>;
-    
+  
 
-    this.user = await userrepo.findOne({idFaculty:1});
-    if(!this.user)
-    {
-      this.user = await userrepo.findOne({idFaculty :2});
-    }
-  }
+
 
 }
