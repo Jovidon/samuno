@@ -6,8 +6,6 @@ import { TeacherTimeTable } from './../../enteties/teachertimetable';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -16,7 +14,6 @@ import { HomePage } from '../home/home';
   templateUrl: 'teachertimetable.html',
 })
 export class TeachertimetablePage {
-  @ViewChild(Slides) slides: Slides;
  
   timetable : any ;
   timetablesync : any;
@@ -156,19 +153,14 @@ export class TeachertimetablePage {
      if(today){
        let toast = this.toastCtrl.create({
          message: this.lesson,
-         duration: 4000,
-         position: 'top',
-         cssClass : 'toast' 
+         duration: 2000,
+         position: 'bottom',
        
        });
        toast.present();
      }
  
    }
-
-   goToSlide(n){
-    this.slides.slideTo(n, 500);
-  }
 
  
   goToHomePage(){

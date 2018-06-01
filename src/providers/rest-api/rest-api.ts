@@ -24,10 +24,10 @@ export class RestApiProvider {
   url = 'http://jsonplaceholder.typicode.com/posts';
   local = '../../assets/res.json';
   neww = 'http://baxatest.000webhostapp.com';
-  
+  urluno = "http://192.168.137.1/";
   getUsers(url) {
     return new Promise(resolve => {
-      this.http.get('http://192.168.137.1/' + url + ".php").subscribe(data => {
+      this.http.get(this.urluno + url + ".php").subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -36,7 +36,7 @@ export class RestApiProvider {
   }
   getTeacher(url) {
     return new Promise(resolve => {
-      this.http.get('http://192.168.137.1/pages/teachers/' + url + ".php").subscribe(data => {
+      this.http.get( this.urluno+'pages/teachers/' + url + ".php").subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -49,7 +49,7 @@ export class RestApiProvider {
   }
   group(url) {
     return new Promise(resolve => {
-      this.http.get('http://192.168.137.1/pages/groups/' + url + ".php").subscribe(data => {
+      this.http.get(this.urluno + 'pages/groups/' + url + ".php").subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -61,7 +61,7 @@ export class RestApiProvider {
   getGroup(idFaculty){
    
     var myData = JSON.stringify({ faculty : idFaculty});
-    this.http.post('http://192.168.137.1/api/groups.php', myData).subscribe( (data) =>{
+    this.http.post(this.urluno + 'api/groups.php', myData).subscribe( (data) =>{
   });
 
   }
@@ -69,14 +69,14 @@ export class RestApiProvider {
   postTeacher(idCafedra,lang){
     let infoteacher = idCafedra+lang;
     var myData = JSON.stringify({ cafedra : infoteacher});
-    this.http.post('http://192.168.137.1/api/teachers.php', myData).subscribe( (data) =>{
+    this.http.post(this.urluno + 'api/teachers.php', myData).subscribe( (data) =>{
   });
   }
   
   registrPostTeacher(Teacher){
     let a = Teacher;
     var myData = JSON.stringify({ idTeacher : a});
-    this.http.post('http://192.168.137.1/api/teach_api.php', myData).subscribe( (data) =>{
+    this.http.post( this.urluno + 'api/teach_api.php', myData).subscribe( (data) =>{
   });
   }
  
@@ -87,7 +87,7 @@ export class RestApiProvider {
     let info = name + "@" + surname + "@" + facultyuser + "@" + courseuser + "@" + groupuser + "@4";
     var myData = JSON.stringify({ username : info});
     
-    this.http.post('http://192.168.137.1/api/api.php', myData).subscribe( (data) =>{
+    this.http.post(this.urluno + 'api/api.php', myData).subscribe( (data) =>{
   });
 
   }

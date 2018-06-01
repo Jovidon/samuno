@@ -40,7 +40,7 @@ export class ApplicantStatisticsPage {
 
   } 
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
         
                    type: 'line',
@@ -104,7 +104,8 @@ export class ApplicantStatisticsPage {
             
   }
   ionViewWillEnter(){
-    
+     this.direction =0;
+     this.eduLang = 0;
      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
      
    }
@@ -176,12 +177,14 @@ export class ApplicantStatisticsPage {
    
         
         
-        const myModal : Modal = this.modal.create('ModalStatisticsPage', {data1 :this.grandBall, data2 :this.contractBall});
-        myModal.present();
-        myModal.onDidDismiss((data) =>{
-            this.direction = 0;
-            this.eduLang = 0;
-        });
+        // const myModal : Modal = this.modal.create('ModalStatisticsPage', {data1 :this.grandBall, data2 :this.contractBall});
+        // myModal.present();
+        // myModal.onDidDismiss((data) =>{
+        //     this.direction = 0;
+        //     this.eduLang = 0;
+        // });
+
+        this.navCtrl.push('ModalStatisticsPage', {data1 :this.grandBall, data2 :this.contractBall});
    }
   
 }

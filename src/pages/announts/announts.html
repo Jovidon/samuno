@@ -4,25 +4,42 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  User-{{human}}
-  <br>
-  LastId - {{lastId}}
   <div *ngIf="lang==='uz'">
     <ion-list>
-      <ion-item *ngFor="let item of notes" (click)="goToFull(item)">
-        <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar>
-        <h3>{{item.title}}</h3>
-        <h4>{{item.date}}</h4>
-      </ion-item>
+      <div *ngFor="let item of notes">
+        <div>
+            <h4 color="secondary" padding>{{item.date}}
+              <ion-icon name="notifications" class="note-icn"></ion-icon>
+            </h4>
+        </div>
+        <ion-card  class="note-card">
+          <!-- <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar> -->
+          <div  class="note-card-title">
+            <h2 >{{item.title | uppercase}}</h2>
+          </div>
+          <div  class="note-card-body"><h4>{{item.full}}</h4></div>
+        </ion-card>
+      </div>
+      
     </ion-list>
   </div>
   <div *ngIf="lang==='ru'">
-    <ion-list>
-      <ion-item *ngFor="let item of notes" (click)="goToFull(item)">
-        <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar>
-        <h3>{{item.title_ru}}</h3>
-        <h4>{{item.date}}</h4>
-      </ion-item>
-    </ion-list>
+      <ion-list>
+          <div *ngFor="let item of notes">
+            <div>
+                <h4 color="secondary" padding>{{item.date}}
+                  <ion-icon name="notifications" class="note-icn"></ion-icon>
+                </h4>
+            </div>
+            <ion-card  class="note-card">
+              <!-- <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar> -->
+              <div  class="note-card-title">
+                <h2 >{{item.title_ru | uppercase}}</h2>
+              </div>
+              <div  class="note-card-body"><h4>{{item.full_ru}}</h4></div>
+            </ion-card>
+          </div>
+          
+        </ion-list>
   </div>
 </ion-content>

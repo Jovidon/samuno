@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{'btnCafed' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-grid>
+    <ion-item *ngFor="let item of cafedraInfo" (click)="goToItem(item)" class="slide-in">
+      <ion-row>
+        <ion-col col-3><ion-avatar>
+          <img src="{{item.cafedraPhoto}}">
+        </ion-avatar></ion-col>
+        <ion-col col-9>
+          <h3>{{item.cafedraName}}</h3>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+   </ion-grid>
+  </ion-list>
+</ion-content>

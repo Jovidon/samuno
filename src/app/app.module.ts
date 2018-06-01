@@ -11,7 +11,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 
 
-
+import { Network } from '@ionic-native/network';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from './../pages/home/home';
@@ -59,7 +59,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     LanguageProvider,
     RestApiProvider,
     LocalNotifications,
-    ScreenOrientation
+    ScreenOrientation,
+    Network
 
   ]
 })

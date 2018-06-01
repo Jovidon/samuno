@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 import { LanguageRepository } from './../../enteties/language';
 import { getRepository, Repository } from 'typeorm';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,7 +27,9 @@ export class GuesthomePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private translate : TranslateService,
-    public getdata : RestApiProvider) {
+    public getdata : RestApiProvider,
+    public menuCtrl: MenuController) {
+      this.menuCtrl.enable(true, 'myMenu');
       this.getLenNews();
       this.checkBadge();
   }
@@ -36,8 +38,27 @@ export class GuesthomePage {
     console.log('ionViewDidLoad GuesthomePage');
   }
   
-  goToNewsPage(){
+ async goToNewsPage(){
     this.navCtrl.push('NewsPage');
+    let newsrepo = getRepository('news') as Repository<News>;
+    
+        let isFirstLaunch = await newsrepo.findOneById(1);
+        let newsId = new News (); 
+        this.id = this.news[0].id_news;
+    
+        if(!isFirstLaunch){
+          newsId.id_news = this.id;
+          await newsrepo.save(newsId);
+        }
+        else
+        {
+          if(this.badgeCnt > 0){
+            isFirstLaunch.id_news = this.id;
+            await newsrepo.save(isFirstLaunch);
+          }
+        }
+    
+
     this.badgeCnt = 0;
   }
 
@@ -55,24 +76,17 @@ export class GuesthomePage {
 
   async checkBadge(){
     let newsrepo = getRepository('news') as Repository<News>;
-
-    let isFirstLaunch = await newsrepo.findOneById(1);
-    let newsId = new News (); 
-    this.id = this.news[0].id_news;
-
-    if(!isFirstLaunch){
-      this.badgeCnt = this.len;
-      newsId.id_news = this.id;
-      await newsrepo.save(newsId);
-    }
-    else
-    {
-      this.badgeCnt = this.id-isFirstLaunch.id_news;
-      if(this.badgeCnt > 0){
-        isFirstLaunch.id_news = this.id;
-        await newsrepo.save(isFirstLaunch);
-      }
-    }
+    
+        let isFirstLaunch = await newsrepo.findOneById(1);
+        let newsId = new News (); 
+        this.id = this.news[0].id_news;
+    
+        if(!isFirstLaunch)
+          this.badgeCnt = this.len;
+        
+        else
+        
+          this.badgeCnt = this.id-isFirstLaunch.id_news;
 
   }
   

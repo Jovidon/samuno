@@ -1,3 +1,26 @@
 page-announts {
+    .note-card-title{
+        padding: 3px;
+        margin-top: 5px;
+    }
+    .note-icn {
+        position: block;
+        top: 0;
+        float: right;
+        padding: 0px;
+        margin: 0;
+        color: #045222;
+    }
+    .note-card {
+        box-shadow: 1px 1px 3px; 
+    }
+    ion-card {
+        margin-bottom: 10px !important;
+      
+    }
+    .note-card-body {
+        margin: 5px;
+        padding: 3px;
+    }
 
 }

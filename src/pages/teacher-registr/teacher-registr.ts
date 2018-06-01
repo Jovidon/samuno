@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
@@ -17,22 +17,26 @@ import { Status } from './../../enteties/status';
 export class TeacherRegistrPage {
   reg: FormGroup;
   teacherCafedra : number;
-  teacherFullName : string;
   teachers : any;
   teachId : number;
   idTeachers : any []; 
   timetable : any;
+  sucreg: string;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams, 
     public formBuilder: FormBuilder, 
     public getdata : RestApiProvider,
-    private translate : TranslateService) {
+    private translate : TranslateService,
+    private toastCtrl : ToastController) {
     this.reg = formBuilder.group({
       cafedra: ['',Validators.compose([Validators.required])],
       teacher: ['',Validators.compose([Validators.required])],
     });
     this.idTeachers = [];
+    this.translate.get('successReg').subscribe(data =>{
+      this.sucreg = data;
+    });
   }
 
   ionViewDidLoad() {
@@ -104,11 +108,17 @@ export class TeacherRegistrPage {
     let statusrepo = getRepository('status') as Repository <Status>;
     
      
-      let statusnew = new Status();
-      statusnew.role = 1;
-      await statusrepo.save(statusnew)
+    let statusnew = new Status();
+    statusnew.role = 1;
+    await statusrepo.save(statusnew);
+    let toast = this.toastCtrl.create({
+      message : this.sucreg,
+      duration : 3000,
+      position : 'middle'
+    });
+    toast.present();
     this.navCtrl.setRoot(HomePage);
-
+    
   }
   
   delay(ms: number) {

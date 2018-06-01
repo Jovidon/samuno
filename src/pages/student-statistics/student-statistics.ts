@@ -2,6 +2,7 @@ import { Component , ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -11,8 +12,21 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class StudentStatisticsPage {
 
   @ViewChild('barCanvas') barCanvas;
+  debtor : string; 
   barChart: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private screenOrientation: ScreenOrientation) {
+  marks : string;
+  constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams,
+      private screenOrientation: ScreenOrientation,
+      public translateService : TranslateService) {
+        this.translateService.get('debtor').subscribe( res =>{
+            this.debtor = res;
+        });
+        
+        this.translateService.get('markOfStudents').subscribe( res =>{
+            this.marks = res;
+        });
   }
 
   ionViewDidLoad() { 
@@ -20,10 +34,10 @@ export class StudentStatisticsPage {
     
                type: 'bar',
                data: {
-                   labels: ["Qarzdor", "3 lik", "4 lik", "5 lik"],
+                   labels: ["3", "4", "5"],
                    datasets: [{
-                       label: 'Talabalar',
-                       data: [12, 19, 20, 3],
+                       label: this.marks,
+                       data: [813, 352, 150],
                        backgroundColor: [
                            'rgba(255, 99, 132, 0.2)',
                            'rgba(54, 162, 235, 0.2)',

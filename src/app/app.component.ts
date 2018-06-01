@@ -21,11 +21,6 @@ import { TeacherTimeTable } from './../enteties/teachertimetable';
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
 
-
-import { LocalNotifications } from '@ionic-native/local-notifications';
-
-
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -35,15 +30,10 @@ export class MyApp {
   rootPage: any ;
 
   pages: Array<{title: string, component: any, icon: string }>;
-  welcome : string;
-  mainmenu : string;
-  settings : string;
-  lang : string;
-  langId : number;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService, public localNotification : LocalNotifications) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService) {
     this.initializeApp();
-    
+    //this.translate.setDefaultLang('ru');  
     this.pages = [
       { title: 'Settings', component: 'SettingsPage', icon: 'assets/imgs/settings.png'}
     ];
@@ -84,8 +74,6 @@ export class MyApp {
       let guest = new Guest();
         guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
       let userrepo = getRepository('user') as Repository <User>;
-       let user = new User();
-       let users : any;
 
        let studenta = await userrepo.findOne({idFaculty:1});
        let studentb = await userrepo.findOne({idFaculty:2});
@@ -126,12 +114,11 @@ export class MyApp {
   }
 
   async logOut(){
-   
+    
     await getRepository('guest').clear();
     await getRepository('user').clear();
     await getRepository('timetable').clear();
     await getRepository('status').clear();
-    await getRepository('notice').clear();
     await getRepository('teachertimetable').clear();
     
     this.nav.setRoot('StatusPage');
@@ -141,8 +128,4 @@ export class MyApp {
     this.nav.setRoot('AboutAppPage');
   }
 
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
- 
 }

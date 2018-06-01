@@ -10,7 +10,7 @@
 
 <ion-content padding>
   <div *ngIf="lang==='uz'">
-  <ion-card-header><h2>{{currentnews.title}}</h2></ion-card-header>
+  <ion-card-header><h2 text-wrap>{{currentnews.title}}</h2></ion-card-header>
   <h2>{{currentnews.full}}</h2>
       <hr>
       <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.auth}}
@@ -19,14 +19,11 @@
     </div>
  <div *ngIf="lang==='ru'"> 
    
-  <ion-card-header><h2>{{currentnews.title_ru}}</h2></ion-card-header>
+  <ion-card-header><h2 text-wrap>{{currentnews.title_ru}}</h2></ion-card-header>
   <h2>{{currentnews.full_ru}}</h2> 
       <hr>
       <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.auth_ru}}
       </span>
       <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{currentnews.date}}</span>
  </div>
- <ion-fab right bottom>
-    <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
-  </ion-fab>
 </ion-content>

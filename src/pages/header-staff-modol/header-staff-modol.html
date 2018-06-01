@@ -1,0 +1,37 @@
+<ion-content>
+  <div class="body">
+    <div class="this-close-btn" (click)="closeModal()">
+      <button ion-button icon-only clear>
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </button>
+    </div>
+     <ion-grid>
+     <ion-col>
+       <ion-grid>
+          <ion-row>
+            <ion-col col-auto>
+              <div class="this-avatar">
+                <img src="{{current.photo}}">
+              </div>
+            </ion-col>
+            <ion-col>
+              <h6 text-center>{{current.fullName}} {{current.fatherName}}</h6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <h6 text-center>{{current.bio}}</h6>
+          </ion-row>
+          <ion-row>
+            <label> <b>{{'academicTitle' | translate }}:</b> {{current.ilmiyUnvon}}</label>
+          </ion-row>
+          <ion-row>
+            <label><b>{{'position' | translate }}:</b> {{current.lavozim}}</label>
+          </ion-row>
+          <ion-row>
+            <label><b>{{'tel' | translate }}:</b> {{current.tel}}</label>
+          </ion-row>
+       </ion-grid>
+     </ion-col>
+   </ion-grid>
+  </div>
+</ion-content>

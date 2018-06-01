@@ -3,13 +3,13 @@
     <ion-title>{{'labelSettings' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-    <button ion-item (click)="goToSelectLanguagePage()"> <ion-icon name="swap" item-start>
+<ion-content >
+    <div ion-item (click)="goToSelectLanguagePage()"> <ion-icon name="swap" item-start>
     </ion-icon>
     <div>
       {{'lablelChangeLang' | translate}}
     </div>
-    </button>
+  </div>
     <ion-fab right bottom>
       <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
     </ion-fab>

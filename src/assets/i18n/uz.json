@@ -26,8 +26,22 @@
     "btnTuitInfo": "TATU SF haqida",
     "btnSend": "Yuborish",
     "btnAnnounts" : "E'lonlar",
+
+    "course" : "bosqich", 
     
+    "debtor" : "Qarzdor",
     
+    "markOfStudents" : "Talabalar soni",
+
+    "noInternet" : "Internet tarmog'iga ulanmagansiz",
+    "conForRegistr" : "Ro'yxatdan o'tish uchun internetga ulaning!",
+    "conForNews" : "Yangiliklarni ko'rish uchun internetga ulaning!",
+    "conForNote" : "E'lonlarni ko'rish uchun internetga ulaning!",
+    "successReg" : "Ro'yxatdan muvaffaqiyatli o'tdingiz!",
+
+    "labelStSrc" : "Manba: TATU SF Buxgalteriya bo'limi",
+    "labelTeachSrc" : "Manba: TATU SF Kadrlar bo'limi",
+    "labelStAbout" : "*Ushbu statistika TATU SF dagi barcha bakalvr talabalarining oxirgi smestrda olgan baholari bo'yicha statistikadir",
     "labelLang" : "Tilni tanlash",
     "labelContacts" : "Bog'lanish",
     "labelSignIn" : "Tizimga kirish",
@@ -98,6 +112,22 @@
 
     "cancelText" : "Bekor qilish",
     "okText" : "Tanlash",
-    "rusLang" : "Rus tili"
+    "rusLang" : "Rus tili",
+    "building1" : "A Bino",
+    "building2" : "B Bino" ,
+    "address1" : "Sh.Mirzo ko'chasi 47 A uy",
+    "address2" : "Shoxrux Mirzo ko'chasi",
+    "tel" : "Murojat uchun tel:",
+    
+    "TKF" : "TKF",
+    "KIF" : "KIF",
+    "tuitInfo" :"Toshkent axborot texnologiyalari universiteti Samarqand filiali O`zbekiston Respublikasi prezidentining 2005 yil 2 - iyundagi ”Axborot texnologiyalari sohasidagi kadrlar tayyorlash tizimini takomillashtirish to`g`risida”  PQ - 91 qaroriga muofiq tashkil etilgan. <p> TATU Samarqand filiali Samarqand, Jizzax va Buxoro viloyatlari uchun    Axborot  komunikatsiya Texnologiyalari sohasida mutaxasis kadrlar tayyorlashga mo`ljallangan. <p>Shu kunga qadar filial Respublikamiz Xalq  xo`jaligininga aloqa va axborotlashtirish sohasi uchun 2851 nafar malakali yetuk mutaxassis kadrlar, 4 nafar fan doktori va 14 nafar fan nomzodlari tayyorlab berdi. <p>Filial professor-o`qituvchilarining 94 nafari asosiy shtatda va 28 nafari o`rindoshlik asosida faoliyat olib bormoqdalar. Ularning 5 nafari fan doktori, professorlar va 24 nafari fan nomzodi dotsentlardir. Ilmiy salohiyat 31 % ni tashkil etadi. ",
+    "academicTitle" : "Ilmiy unvoni",
+    "position" : "Lavozimi",
+    "dekan" : "Dekan",
+    "zamdekan" : "Dekan o'rinbosari",
+    "infoCaf" : "Kafedra haqida ma`lumot",
+    "cafBoss" : "Kafedra mudiri"
 
+    
     }

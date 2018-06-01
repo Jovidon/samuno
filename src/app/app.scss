@@ -14,3 +14,29 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-app {
+    
+    .modal-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        width: 600px;
+        height: 500px;
+        max-width: 85% !important;
+        max-height: 85% !important;
+    }
+
+    .modal-head-staff .modal-wrapper {
+       width: 350px;
+       height: 400px;
+       overflow: hidden;
+       border-radius: 4px;
+    }
+    
+    .toast-container{
+        background-color: #174434;
+        text-align: center;
+        }
+  
+}

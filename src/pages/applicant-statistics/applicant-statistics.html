@@ -17,9 +17,8 @@
           <ion-row><br></ion-row>
           <ion-row><br></ion-row>
     <ion-row>
-      <ion-col col-3></ion-col>
-      <ion-col col-8>
-            <ion-select (ionChange)="makeBall()"   [(ngModel)]="direction" class="myCustomSelect" placeholder="{{'selectDirection' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
+      <ion-col offset-2 col-auto>
+            <ion-select (ionChange)="makeBall()"  class="myselect"  [(ngModel)]="direction" placeholder="{{'selectDirection' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
               <ion-option value="1">{{'computerEnginering' | translate }}</ion-option>
               <ion-option value="2">{{'programmingEnginering' | translate }}</ion-option>
               <ion-option value="3">{{'Telecommunication' | translate }}</ion-option>
@@ -27,25 +26,24 @@
               <ion-option value="5">{{'cyberSecurity' | translate }}</ion-option>
             </ion-select>
         </ion-col>
-        <ion-col col-1></ion-col>
     </ion-row>      
-  
   <ion-row>
-      <ion-col col-3></ion-col>
-      <ion-col col-8>
-        <ion-select (ionChange)="makeBall()" [(ngModel)]="eduLang" class="myCustomSelect" placeholder="{{'selectLanguageofEdu' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
+      <ion-col offset-2 col-auto>
+        <ion-select (ionChange)="makeBall()" [(ngModel)]="eduLang" class="myselect"   placeholder="{{'selectLanguageofEdu' | translate }}" [cancelText]="'cancelText' | translate " [okText]="'okText' | translate">
             <ion-option value="1">{{'btnUzblang' | translate }}</ion-option>
             <ion-option value="2">{{'rusLang' | translate }}</ion-option>
         </ion-select>
       </ion-col>
-      <ion-col col-1></ion-col>
   </ion-row>
  
  
    </ion-grid>
    <ion-card>
       <ion-card-header>
-       {{'labelEnterance' | translate}}
+        <ion-row text-center wrap>
+          {{'labelEnterance' | translate}}
+        </ion-row>
+        
       </ion-card-header>
       <ion-card-content>
         <canvas #lineCanvas></canvas>

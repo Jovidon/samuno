@@ -9,6 +9,7 @@ import { resolve } from 'path';
 import { TimeTable } from './../../enteties/time-table';
 import { getRepository, Repository } from 'typeorm';
 import { User } from './../../enteties/user';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -27,28 +28,33 @@ export class RegistrPage {
   serverdata : any;
   groups : any;
   currentgroup : any [];
+  sucreg: string;
 
-  constructor( public toast : ToastController, public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder, public getdata : RestApiProvider, public http : HttpClient) {
+  constructor(
+     public toast : ToastController, 
+     public navCtrl: NavController, 
+     public navParams: NavParams, 
+     formBuilder: FormBuilder, 
+     public getdata : RestApiProvider, 
+     public http : HttpClient,
+     private translate : TranslateService) {
     this.reg = formBuilder.group({
       faculty: ['',Validators.compose([Validators.required])],
       cours: ['',Validators.compose([Validators.required])],
       group: ['',Validators.compose([Validators.required])],
-      Name: ['',Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.required])],
-      Surname: ['',Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.required])]
+      Name: ['',Validators.compose([Validators.pattern('[a-zA-Z а-яА-Я]*'),Validators.required])],
+      Surname: ['',Validators.compose([Validators.pattern('[a-zA-Z а-яА-Я]*'),Validators.required])]
     });
     this.currentgroup = [];
+    this.translate.get('successReg').subscribe(data =>{
+      this.sucreg = data;
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IdentiPage');
   }
   
-  onChangeFuculty(){
-    for(let i=0; i<20-this.idFuculty*6; i++){
-      this.idGroup[i]=this.idCours*100+i+1;
-      this.selGroup[i]=i;
-    }
-  }
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
   }
@@ -106,7 +112,7 @@ export class RegistrPage {
     await userrepo.save(user);
 
     let toast = this.toast.create({
-      message : "Ro'yxatdan muvaffaqiyatli o'tdingiz!",
+      message : this.sucreg,
       duration : 3000,
       position : 'middle'
     });
