@@ -1,0 +1,43 @@
+page-cafedra {
+    .backNews_bt {
+        background: url('../../assets/imgs/homebtn.png');
+        background-size: 60px;
+        background-position: center;
+        background-position-y: 1px;
+    }
+    
+    @-webkit-keyframes slideInCaf {
+        0% {
+          -webkit-transform: translate3d(0,800%,0);
+          opacity: 1;
+        }
+        50% {
+            -webkit-transform: translate3d(0,20%,0);
+            opacity: 1;
+          }
+        100% {
+          -webkit-transform: translate3d(0,0,0);
+          opacity: 1;
+        }
+      }
+      
+      
+      .slide-in{
+         -webkit-animation: slideInCaf ease-in 1; 
+        animation: slideInCaf ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 750ms;
+        animation-duration: 750ms;
+        opacity: 0;
+      }
+        .slide-in:nth-child(1) {-webkit-animation-delay: 0.0s; }
+        .slide-in:nth-child(2) {-webkit-animation-delay: 0.25s; }
+        .slide-in:nth-child(3) {-webkit-animation-delay: 0.5s; }
+        .slide-in:nth-child(4) {-webkit-animation-delay: 0.75s; }
+        .slide-in:nth-child(5) {-webkit-animation-delay: 1.0s; }
+        .slide-in:nth-child(6) {animation-delay: 1.25s; }
+        .slide-in:nth-child(7) {-webkit-animation-delay: 1.5s; }
+        .slide-in:nth-child(8) {-webkit-animation-delay: 1.75s; }
+        .slide-in:nth-child(9) {-webkit-animation-delay: 2.0s; }
+}

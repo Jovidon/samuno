@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { TimeTable } from './../../enteties/time-table';
 import { getRepository, Repository } from 'typeorm';
 import { User } from './../../enteties/user';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { HomePage } from '../home/home';
@@ -18,9 +16,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'time-table.html',
 })
 export class TimeTablePage {
-  @ViewChild(Slides) slides: Slides;
   timetable : any;
-  user : any;
   timetablesync : any;
   hasChange : string ; 
   monday : any;
@@ -30,12 +26,8 @@ export class TimeTablePage {
   friday : any ;
   saturday : any ;
   current : any; 
-  table : TimeTable [];
-  searching : boolean = true;
-  plsWait : string;
   lesson : string;
   key : boolean = false;
-  day : number;
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams,
@@ -43,32 +35,19 @@ export class TimeTablePage {
       public toastCtrl : ToastController,
       public translate : TranslateService,
       private screenOrientation: ScreenOrientation,
-      public loadingCtrl: LoadingController,
-      public platform : Platform,
       public localNotification : LocalNotifications) {
     this.getTimeTable();
     this.Synchronize();
-    
-   this.ionViewDidLoad();
     
 
    this.translate.get('labelChangingTimeTable').subscribe(data => {
      this.hasChange = data;
    });
-   this.translate.get('labelPleaseWait').subscribe(data =>{
-     this.plsWait = data;
-   });
+  
    this.translate.get('labelTodayLessons').subscribe(data =>{
      this.lesson = data;
    });
-   this.pushNoti();
 
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TimeTablePage');
-    
-    this.searching = false;
   }
 
   ionViewWillEnter(){
@@ -78,16 +57,12 @@ export class TimeTablePage {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     var date = new Date();
     let today : number = date.getDay();
-   // this.goToSlide(today-1);
-    // current has to equal to today;
-    //this.getCurrentTable(today);
     
     if(today){
       let toast = this.toastCtrl.create({
         message: this.lesson,
-        duration: 4000,
-        position: 'top',
-        cssClass : 'toast' 
+        duration: 2000,
+        position: 'bottom',
       
       });
       toast.present();
@@ -103,11 +78,8 @@ export class TimeTablePage {
 
   async Synchronize(){ 
     let userrepo = getRepository('user') as Repository <User>;
-
-    //this.user = await userrepo.findOneById(1);
     let timetablerepo = getRepository('timetable') as Repository <TimeTable>;
     let student  = new User();
-    // this.user = await userrepo.findOneById(1);
       await userrepo.findOne({idFaculty: 1})
       .then(async (data) =>{
         student = data;
@@ -187,35 +159,11 @@ export class TimeTablePage {
     this.saturday = await timetablerepo.find({day : "Shanba"});
     var date = new Date();
     let today : number = date.getDay();
-   // this.goToSlide(today-1);
-    // current has to equal to today;
     this.getCurrentTable(today);
-  }
-
-  goToSlide(n) {
-    this.slides.slideTo(n, 500);
   }
 
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
-  }
-
-  pushNoti() {
-    var date = new Date()
-    date.setDate(date.getDate()+1);
-    date.setHours(8);
-    date.setMinutes(0);
-    date.setSeconds(0);
-    this.platform.ready().then(() => {
-      this.localNotification.schedule({
-        id : 1,
-        title : 'UNO',
-        text : 'Hello',
-        firstAt : date,
-        data :  { "id" : 1, "name" : "John"},
-        every: 'day',
-      });
-    });
   }
 
   getCurrentTable(day){

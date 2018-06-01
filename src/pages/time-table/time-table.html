@@ -1,12 +1,12 @@
 <ion-header>
   <ion-grid>
       <ion-row justify-content-center nowrap>
-          <ion-col col-auto><button (click)="getCurrentTable(1)" ion-button color="secondary">{{'btnMon' | translate }}</button></ion-col>
+          <ion-col style="padding-left:1px" col-auto><button (click)="getCurrentTable(1)" ion-button color="secondary">{{'btnMon' | translate }}</button></ion-col>
           <ion-col col-auto><button (click)="getCurrentTable(2)" ion-button color="secondary">{{'btnTus' | translate }}</button></ion-col>
           <ion-col col-auto><button (click)="getCurrentTable(3)" ion-button color="secondary">{{'btnWed' | translate }}</button></ion-col>
           <ion-col col-auto><button (click)="getCurrentTable(4)" ion-button color="secondary">{{'btnThus' | translate }}</button></ion-col>
           <ion-col col-auto><button (click)="getCurrentTable(5)" ion-button color="secondary">{{'btnFri' | translate }}</button></ion-col>
-          <ion-col col-auto><button (click)="getCurrentTable(6)" ion-button color="secondary">{{'btnSun' | translate }}</button></ion-col>
+          <ion-col style="padding-right:1px" col-auto><button (click)="getCurrentTable(6)" ion-button color="secondary">{{'btnSun' | translate }}</button></ion-col>
       </ion-row>
   </ion-grid>
 </ion-header>
@@ -29,6 +29,7 @@
                                 <td *ngIf="item.fan1==='-'" >{{item.fan}} </td>
                                 <td *ngIf="item.fan1==='-'" >{{item.teacher}}</td>
                                 <td *ngIf="item.fan1==='-'" >{{item.room}}</td>
+
                                 <td *ngIf="item.type==='1' && item.fan1==='-'" >{{'labelLec' | translate}}</td>
                                 <td *ngIf="item.type==='2' && item.fan1==='-'" >{{'labelPrac' | translate}} </td>
                                 <td *ngIf="item.type==='3' && item.fan1==='-'" >{{'labelLab' | translate}}</td>
@@ -41,7 +42,15 @@
                                 <td *ngIf="item.type==='1'&& item.type1==='2'" >{{'labelLec' | translate}} <br> {{'labelPrac' | translate}} </td>
                                 <td *ngIf="item.type==='3'&& item.type1==='3'" >{{'labelLab' | translate}} <br> {{'labelLab' | translate}}</td>
                                 <td *ngIf="item.type==='2'&& item.type1==='3'" >{{'labelPrac' | translate}} <br> {{'labelLab' | translate}}</td>
+                                <td *ngIf="item.type==='2'&& item.type1==='1'" >{{'labelPrac' | translate}} <br> {{'labelLec' | translate}}</td>
                                 <td *ngIf="item.type==='1'&& item.type1==='3'" >{{'labelLec' | translate}} <br> {{'labelLab' | translate}}</td> 
+                                <td *ngIf="item.type==='3'&& item.type1==='1'" >  {{'labelLab' | translate}}<br> {{'labelLec' | translate}}</td>
+                                <td *ngIf="item.type==='3'&& item.type1==='2'" >  {{'labelLab' | translate}}<br> {{'labelPrac' | translate}}</td>  
+                                <td *ngIf="item.type==='-'&& item.type1==='1'" > <br> {{'labelLec' | translate}} </td>
+                                <td *ngIf="item.type==='-'&& item.type1==='2'" ><br> {{'labelPrac' | translate}} </td>
+                                <td *ngIf="item.type==='-'&& item.type1==='3'" > <br> {{'labelLab' | translate}} </td>
+
+                               
                     </tr>
                 </tbody>
               </table> 

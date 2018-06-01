@@ -2,13 +2,13 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title> {{'labelTeachers' | translate}}</ion-title>
+    <ion-title text-wrap> {{'labelTeachers' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
     <ion-grid>
         <ion-row><br></ion-row>
         <ion-row><br></ion-row>
@@ -21,15 +21,15 @@
         <ion-row><br></ion-row>
         <ion-row><br></ion-row>
       </ion-grid>
-    <ion-card >
-        <ion-card-header >
-         {{'labelProfessorSt' | translate}}
+    <ion-card>
+        <ion-card-header>
+          <h4 text-wrap>{{'labelProfessorSt' | translate}}</h4>
         </ion-card-header>
         <ion-card-content>
           <canvas #doughnutCanvas></canvas>
         </ion-card-content>
-      </ion-card>
-      
+    </ion-card>
+      <h5 text-center>{{'labelTeachSrc' | translate }}</h5>
             
           
 </ion-content>

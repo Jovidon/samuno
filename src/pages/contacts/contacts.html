@@ -1,13 +1,31 @@
 
 <ion-header>
-
-  <ion-navbar color="secondary">
-    <ion-title>{{'labelContacts' | translate }} </ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+  
+    <ion-navbar color="secondary">
+      <ion-title>{{'labelContacts' | translate }} </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-slides autoplay="3000" loop="true" speed="1000" pager="true">
+      <ion-slide >
+        <img src="assets/imgs/map2.jpg">
+        <h3>{{'building1' | translate }}</h3>
+        <h3>{{'address1' | translate }}</h3><br>
+        <h3>{{'tel' | translate }}</h3>
+        <h3>+998 (66) 232-29-29</h3>
+      </ion-slide>
+      <ion-slide >
+        <img src="assets/imgs/map1.jpg">
+        <h3>{{'building2' | translate }}</h3>
+        <h3>{{'address2' | translate }}</h3>
+        <h3></h3><br>
+        <h3>{{'tel' | translate }}</h3>
+        <h3>+998(66) 232-18-11</h3>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-content>
+  

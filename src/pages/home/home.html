@@ -8,7 +8,7 @@
           </button>
          </ion-col>
        <ion-col>
-         <h3 style="color:white">UNO uzun -{{lennotes}}<br> badge- {{badgeCntNote}} <br> lastid-{{id2}} <br> </h3>
+         <h3 style="color:white" text-center>UNO</h3>
        </ion-col>
       </ion-row>
     </ion-grid>
@@ -46,7 +46,7 @@
                   <span class="notify-badge">{{badgeCnt}}</span>
                </div>
               <img width="100%" src="assets/imgs/news.png">
-              <ion-label>{{'labelNewsandAnnounts' | translate }}</ion-label>
+              <ion-label>{{'labelNews' | translate }}</ion-label>
           </div>
         </ion-col>
         <ion-col col-4  text-center>
@@ -56,10 +56,7 @@
           </div>
         </ion-col>
         <ion-col col-4  text-center>
-          <div class="item_g" (click)="goToInqueryPage()">
-              <div *ngIf="badgeCntNote > 0">
-                  <span class="notify-badge">{{badgeCntNote}}</span>
-               </div>
+          <div (click)="goToInqueryPage()">
               <img width="100%" src="assets/imgs/dec.PNG">
               <ion-label>{{'labelDecs' | translate }}</ion-label>
           </div>

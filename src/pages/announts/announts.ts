@@ -4,6 +4,10 @@ import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
 import { Notice } from './../../enteties/notice';
 import { getRepository, Repository } from 'typeorm';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { Network } from '@ionic-native/network';
+import { User } from './../../enteties/user';
+import { Status } from './../../enteties/status';
 
 @IonicPage()
 @Component({
@@ -14,21 +18,46 @@ export class AnnountsPage {
   notes : any;
   human : any;
   lang : string ;
-  lastId : number = 0;
+  noInetcon : string;
+  conInet : string;
+  key : boolean = false;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public getdata : RestApiProvider,
-    public translate : TranslateService) {
-      this.human = this.navParams.get('human');
-      if(!this.human)
-        this.human = 2;
+    public translate : TranslateService,
+    private network: Network,
+    private alertCtrl : AlertController) {
 
-      this.getLenNews();
+      this.translate.get('noInternet').subscribe(data =>{
+        this.noInetcon = data;
+      });
+      this.translate.get('conForNote').subscribe(data =>{
+        this.conInet = data;
+      });
+      //this.human = 3;
+      this.human = this.navParams.get('human');
+     
+
+      this.getNotes();
+
+      setTimeout(() => {
+        if (this.network.type == 'none') {
+          let alert = this.alertCtrl.create({
+            title: this.noInetcon,
+            subTitle: this.conInet,
+            buttons: [{
+            
+            text: ("Ok")
+            }]
+            });
+            alert.present();
+        }
+      }, 500);
       
-      this.getCurrentLang();
-      
-      this.getBase();
+     this.getCurrentLang();
+    // this.lang ="uz";
     }
 
 
@@ -36,15 +65,8 @@ export class AnnountsPage {
     console.log('ionViewDidLoad AnnountsPage');
   }
 
-  async getBase(){
-    let noticerepo = getRepository('notice') as Repository<Notice>;
-    
-    let isFirstLaunch = await noticerepo.findOneById(1);
-    this.lastId = isFirstLaunch.id_note;
-  }
-
   
-  getLenNews(){
+  getNotes(){
     this.getdata.getUsers('pages/notice/'+this.human)
     .then( async(data)=>{
      this.notes = data;
@@ -61,5 +83,5 @@ export class AnnountsPage {
   goToFull(item) {
     this.navCtrl.push('NewsAnnountsPage', {item});
   }
-
+   
 }

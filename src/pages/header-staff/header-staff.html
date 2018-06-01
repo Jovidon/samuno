@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{'btnHeaderStaff' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-grid>
+    <ion-item *ngFor="let item of headerstaff" (click)="goToItem(item,'modal-head-staff')" class="slide-in">
+      <ion-row>
+        <ion-col col-3><ion-avatar>
+          <img src="{{item.photo}}">
+        </ion-avatar></ion-col>
+        <ion-col col-9>
+          <h3>{{item.fullName}}</h3>
+          <h3>{{item.fatherName}}</h3>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+   </ion-grid>
+  </ion-list>
+</ion-content>

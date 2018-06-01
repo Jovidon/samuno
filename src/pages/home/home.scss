@@ -8,12 +8,14 @@ page-home {
     }
     .notify-badge{
         position: absolute;
-        right: 0px;
+        top : 1px;
+        right: 1px;
         background:rgb(54, 126, 104);
         text-align: center;
         border-radius: 30px;
         color:white;
-        padding:5px 10px;
+        padding:8px 12px;
         font-size:15px;
     }
+
 }

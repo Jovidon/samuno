@@ -1,3 +1,69 @@
 page-tuit-sb {
-
+    .labelesp{
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 28%;
+        margin-left: 5%;
+        font-size: 17px;
+    }
+    .backNews_bt {
+        background: url('../../assets/imgs/homebtn.png');
+        background-size: 60px;
+        background-position: center;
+        background-position-y: 1px;
+    }
+    @-webkit-keyframes slideInRight {
+        0% {
+          -webkit-transform: translate3d(100%,0,0);
+          opacity: 1;
+        }
+        50% {
+            -webkit-transform: translate3d(-10%,0,0);
+            opacity: 1;
+          }
+        100% {
+          -webkit-transform: translate3d(0,0,0);
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes slideInLeft {
+        0% {
+          -webkit-transform: translate3d(-100%,0,0);
+          opacity: 1;
+        }
+        50% {
+            -webkit-transform: translate3d(10%,0,0);
+            opacity: 1;
+          }
+        100% {
+          -webkit-transform: translate3d(0,0,0);
+          opacity: 1;
+        }
+      }
+      
+      
+      .slide-inR{
+         -webkit-animation: slideInRight ease-in 1; 
+        animation: slideInRight ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 750ms;
+        animation-duration: 750ms;
+        opacity: 0;
+      }
+      .slide-inL{
+        -webkit-animation: slideInLeft ease-in 1; 
+       animation: slideInLeft ease-in 1;
+       -webkit-animation-fill-mode: forwards;
+       animation-fill-mode: forwards;
+       -webkit-animation-duration: 750ms;
+       animation-duration: 750ms;
+       opacity: 0;
+     }
+        .slide-inR:nth-child(1) {-webkit-animation-delay: 0.0s; }
+        .slide-inL:nth-child(2) {-webkit-animation-delay: 0.35s; }
+        .slide-inR:nth-child(3) {-webkit-animation-delay: 0.7s; }
+        .slide-inL:nth-child(4) {-webkit-animation-delay: 1.05s; }
+        //.slide-in:nth-child(5) {-webkit-animation-delay: 2.0s; }
+        //.slide-in:nth-child(6) {animation-delay: 2.5s; }
 }

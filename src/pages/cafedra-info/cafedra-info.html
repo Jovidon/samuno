@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title text-wrap>{{current.cafedraName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-grid>
+  <ion-col>
+    <ion-row>
+      <ion-col col-auto>
+        <div class="this-avatar">
+          <img src="{{current.photo}}">
+        </div>
+      </ion-col>
+      <ion-col col-8>
+        <h4>{{'cafBoss' | translate}}</h4>
+        <h6>{{current.cafedraPrincipleName}}</h6>
+        <h6>{{current.tel}}</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+        <h4>{{'infoCaf' | translate}}</h4>
+        <h6 >{{current.info}}</h6>
+    </ion-row>
+  </ion-col>
+</ion-grid>
+</ion-content>

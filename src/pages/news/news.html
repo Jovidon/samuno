@@ -4,10 +4,10 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
- <!-- <ion-item *ngIf="news && lang ==='uz'">
+ <ion-item *ngIf="lang ==='uz'">
   <ion-card *ngFor="let item of news" (click)="goToMore(item)">
     <ion-card-header style="color: black; text-transform: uppercase; font-size: 90%; " >
-        <h1>{{item.title}}</h1>
+        <h3 text-wrap>{{item.title}}</h3>
         <hr>
     </ion-card-header>
   <ion-card-content>
@@ -20,10 +20,10 @@
   </ion-card-content>
   </ion-card>
   </ion-item>
-  <ion-item *ngIf="news && lang ==='ru'">
+  <ion-item *ngIf="lang ==='ru'">
       <ion-card *ngFor="let item of news" (click)="goToMore(item)">
         <ion-card-header >
-            <h1>{{item.title_ru}}</h1>
+            <h3 text-wrap>{{item.title_ru}}</h3>
         </ion-card-header>
       <ion-card-content>
           <img src="http://192.168.137.1/{{item.pic}}">
@@ -39,8 +39,8 @@
             <ion-col col-3></ion-col>
             <ion-col col-6 offset-5><ion-spinner name="bubbles"></ion-spinner></ion-col>
             <ion-col col-3></ion-col>
-   </div> -->
-   <ion-list [virtualScroll]="news">
+   </div>
+   <!-- <ion-list [virtualScroll]="news">
    <div *ngIf="lang==='ru'">
     <ion-item *virtualItem="let item">
         <ion-card  (click)="goToMore(item)">
@@ -48,7 +48,7 @@
                 <h1>{{item.title_ru}}</h1>
             </ion-card-header>
         <ion-card-content>
-            <img src="http://192.168.137.1/{{item.pic}}">
+            <img src="http://www.samuno.uz/{{item.pic}}">
             <h3>{{item.short_ru}}</h3>
             <hr>
             <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.auth_ru}}
@@ -66,7 +66,7 @@
                     <h1>{{item.title}}</h1>
                 </ion-card-header>
             <ion-card-content>
-                <img src="http://192.168.137.1/{{item.pic}}">
+                <img src="http://www.samuno.uz/{{item.pic}}">
                 <h3>{{item.short}}</h3>
                 <hr>
                 <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.auth}}
@@ -76,5 +76,5 @@
             </ion-card>
         </ion-item>
    </div>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

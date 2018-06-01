@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-
-
 @IonicPage()
 @Component({
   selector: 'page-tuit-sb',
@@ -17,4 +15,16 @@ export class TuitSbPage {
     console.log('ionViewDidLoad TuitSbPage');
   }
 
+  goToStaffPage(){
+    this.navCtrl.push( 'HeaderStaffPage' );
+  }
+  goToFacultyPage(){
+    this.navCtrl.push( 'FacultyPage' );
+  }
+  goToCafedraPage(){
+    this.navCtrl.push( 'CafedraPage' );
+  }
+  goToTatusfPage(){
+    this.navCtrl.push( 'TatusfPage' );
+  }
 }
