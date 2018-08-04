@@ -9,14 +9,6 @@ import { HomePage } from '../pages/home/home';
 
 
 import { LanguageRepository } from './../enteties/language';
-import { TimeTable } from './../enteties/time-table';
-import { User } from './../enteties/user';
-import { News } from './../enteties/news';
-import { Guest } from "./../enteties/guest";
-import { Status } from './../enteties/status';
-import { Teacher } from './../enteties/teacher';
-import { Notice } from './../enteties/notice';
-import { TeacherTimeTable } from './../enteties/teachertimetable';
 
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
@@ -33,7 +25,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService) {
     this.initializeApp();
-    //this.translate.setDefaultLang('ru');  
+
     this.pages = [
       { title: 'Settings', component: 'SettingsPage', icon: 'assets/imgs/settings.png'}
     ];
@@ -46,51 +38,23 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      //this.statusBar.backgroundColorByHexString('#ffffff');
-      
+
       await createConnection({
         type: 'cordova',
-        database: 'test',
+        database: 'unodb',
         location: 'default',
         logging: ['error', 'query', 'schema'],
         synchronize: true,
         entities: [
           LanguageRepository,
-          TimeTable,
-          User,
-          News,
-          Guest,
-          Status,
-          Teacher,
-          TeacherTimeTable,
-          Notice
            ]
       });
 
       let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
       let lang = await languagerepo.findOneById(1);
-      let guestrepo = getRepository('guest') as Repository <Guest>;
-
-      let guest = new Guest();
-        guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
-      let userrepo = getRepository('user') as Repository <User>;
-
-       let studenta = await userrepo.findOne({idFaculty:1});
-       let studentb = await userrepo.findOne({idFaculty:2});
-
-       let statusrepo = getRepository('status') as Repository <Status>;
-       let teacher = await statusrepo.findOne({role:1});
 
         if(lang){
-            if(!guest){
-            if(teacher|| studenta || studentb)
               this.rootPage = HomePage;
-            else
-              this.rootPage = 'StatusPage';
-            }
-             
-            else 
-              this.rootPage = 'GuesthomePage';
             }
         else 
         {
@@ -99,10 +63,8 @@ export class MyApp {
 
         }
         this.translate.setDefaultLang(lang.code);
-       
-        
-        //  this.translate.setDefaultLang('uz');
-        
+      this.rootPage = HomePage;
+      this.translate.setDefaultLang('uz');
     });
     
   }
@@ -114,18 +76,18 @@ export class MyApp {
   }
 
   async logOut(){
+    // With provider
+    // await getRepository('guest').clear();
+    // await getRepository('user').clear();
+    // await getRepository('timetable').clear();
+    // await getRepository('status').clear();
+    // await getRepository('teachertimetable').clear();
     
-    await getRepository('guest').clear();
-    await getRepository('user').clear();
-    await getRepository('timetable').clear();
-    await getRepository('status').clear();
-    await getRepository('teachertimetable').clear();
-    
-    this.nav.setRoot('StatusPage');
+    this.nav.setRoot('SelectLanguagePage');
   }
   
   goToAboutAppPage(){
-    this.nav.setRoot('AboutAppPage');
+    
   }
 
 }

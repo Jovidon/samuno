@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { LanguageProvider } from './../../providers/language/language';
 
 import { LanguageRepository } from './../../enteties/language';
-import { Guest } from ".././../enteties/guest";
 import { getRepository, Repository } from 'typeorm';
 import { HomePage } from './../home/home';
 
@@ -24,8 +23,6 @@ export class SelectLanguagePage {
      public navParams : NavParams,
      private translate : TranslateService,
      private languageProvider : LanguageProvider ) {
-      // this.languages = this.languageProvider.getSupportedLanguages();
-     //  this.languageSelected = this.translate.getDefaultLang();
   }
 
   ionViewDidLoad() {
@@ -33,13 +30,10 @@ export class SelectLanguagePage {
   }
 
  async goToNext(lang){
+   //  Any work with db should be done with provider
     let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
     const language = new LanguageRepository();
     language.code = lang;
-    
-    let guestrepo = getRepository('guest') as Repository <Guest>;
-    let guest = new Guest();
-    guest = await guestrepo.findOne({name : "God wills UNO will be beneficial for the development of SB TUIT!"});
     
     const isOld = await languagerepo.findOneById(1);
       if(isOld)
@@ -62,13 +56,12 @@ export class SelectLanguagePage {
           this.translate.setDefaultLang(this.languageSelected);
           this.translate.use(this.languageSelected);
       }
-      if(!isOld)
-        this.navCtrl.setRoot('StatusPage'); //RegistrPage
-      else 
-      if(!guest)
+      if(!isOld){
+        // According to isOld it pushes page 
+        //   this.navCtrl.setRoot('StatusPage'); //RegistrPage
+        // else 
         this.navCtrl.setRoot(HomePage);
-      else
-      this.navCtrl.setRoot('GuesthomePage');
+      }
 
       
       

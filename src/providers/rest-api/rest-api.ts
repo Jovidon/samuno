@@ -1,11 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
-import { TimeTable } from './../../enteties/time-table';
-import { getRepository, Repository } from 'typeorm';
-import { parse } from 'url';
-
-
 
 @Injectable()
 export class RestApiProvider {
