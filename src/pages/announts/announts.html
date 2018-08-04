@@ -20,26 +20,24 @@
           <div  class="note-card-body"><h4>{{item.full}}</h4></div>
         </ion-card>
       </div>
-      
     </ion-list>
   </div>
   <div *ngIf="lang==='ru'">
-      <ion-list>
-          <div *ngFor="let item of notes">
-            <div>
-                <h4 color="secondary" padding>{{item.date}}
-                  <ion-icon name="notifications" class="note-icn"></ion-icon>
-                </h4>
-            </div>
-            <ion-card  class="note-card">
-              <!-- <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar> -->
-              <div  class="note-card-title">
-                <h2 >{{item.title_ru | uppercase}}</h2>
-              </div>
-              <div  class="note-card-body"><h4>{{item.full_ru}}</h4></div>
-            </ion-card>
+    <ion-list>
+      <div *ngFor="let item of notes">
+        <div>
+          <h4 color="secondary" padding>{{item.date}}
+            <ion-icon name="notifications" class="note-icn"></ion-icon>
+          </h4>
+        </div>
+        <ion-card  class="note-card">
+          <!-- <ion-avatar item-left><ion-icon name="notifications"></ion-icon></ion-avatar> -->
+          <div  class="note-card-title">
+            <h2 >{{item.title_ru | uppercase}}</h2>
           </div>
-          
-        </ion-list>
+          <div  class="note-card-body"><h4>{{item.full_ru}}</h4></div>
+        </ion-card>
+      </div>
+    </ion-list>
   </div>
 </ion-content>

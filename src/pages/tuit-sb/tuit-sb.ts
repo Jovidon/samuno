@@ -16,15 +16,15 @@ export class TuitSbPage {
   }
 
   goToStaffPage(){
-    this.navCtrl.push( 'HeaderStaffPage' );
+    this.navCtrl.push('HeaderStaffPage');
   }
   goToFacultyPage(){
-    this.navCtrl.push( 'FacultyPage' );
+    this.navCtrl.push('FacultyPage');
   }
   goToCafedraPage(){
-    this.navCtrl.push( 'CafedraPage' );
+    this.navCtrl.push('CafedraPage');
   }
   goToTatusfPage(){
-    this.navCtrl.push( 'TatusfPage' );
+    this.navCtrl.push('TatusfPage');
   }
 }

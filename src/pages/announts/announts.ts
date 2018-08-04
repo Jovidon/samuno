@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
-import { Notice } from './../../enteties/notice';
-import { getRepository, Repository } from 'typeorm';
-import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Network } from '@ionic-native/network';
-import { User } from './../../enteties/user';
-import { Status } from './../../enteties/status';
 
 @IonicPage()
 @Component({
@@ -36,12 +31,7 @@ export class AnnountsPage {
       this.translate.get('conForNote').subscribe(data =>{
         this.conInet = data;
       });
-      //this.human = 3;
-      this.human = this.navParams.get('human');
      
-
-      this.getNotes();
-
       setTimeout(() => {
         if (this.network.type == 'none') {
           let alert = this.alertCtrl.create({
