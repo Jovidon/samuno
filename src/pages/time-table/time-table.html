@@ -19,12 +19,30 @@
           <th>#</th>
           <th>{{'labelSubject' | translate}}</th>
           <th>{{'labelTeacher' | translate}}</th>
+          <th>{{'labelGroup' | translate}}</th>
           <th>{{'labelRoom' | translate}}</th>
           <th>{{'labelLessonType'| translate}} </th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Here time table body -->
+      <tbody *ngIf="lang==='uz'">
+        <tr *ngFor="let item of current">
+          <td>{{item.pair}}</td>
+          <td>{{item.SubNameUz}}</td>
+          <td>{{item.TeachNameUz}}</td>
+          <td>{{item.GroupName}}</td>
+          <td>{{item.room}}</td>
+          <td>{{type[item.type] | translate}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="lang==='ru'">
+        <tr *ngFor="let item of current">
+          <td>{{item.pair}}</td>
+          <td>{{item.SubNameRu}}</td>
+          <td>{{item.TeachNameRu}}</td>
+          <td>{{item.GroupName}}</td>
+          <td>{{item.room}}</td>
+          <td>{{type[item.type] | translate}}</td>
+        </tr>
       </tbody>
     </table> 
 </ion-content>

@@ -9,9 +9,14 @@ import { HomePage } from '../pages/home/home';
 
 
 import { LanguageRepository } from './../enteties/language';
+import { User } from './../enteties/user';
+import { Badges } from './../enteties/badges';
+import { Table } from './../enteties/timetable';
+import { UniversityImages } from './../enteties/unversityimages';
 
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
+import { AuthProvider } from '../providers/auth/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,11 +24,16 @@ import { getRepository, Repository } from 'typeorm';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any ;
+  rootPage: any;
 
   pages: Array<{title: string, component: any, icon: string }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public translate : TranslateService) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public translate : TranslateService,
+    public authProvider: AuthProvider) {
     this.initializeApp();
 
     this.pages = [
@@ -47,24 +57,31 @@ export class MyApp {
         synchronize: true,
         entities: [
           LanguageRepository,
+          User,
+          Badges,
+          Table,
+          UniversityImages
            ]
       });
 
+      this.authProvider.getCurrentUser();
       let languagerepo = getRepository('languagerepository') as Repository <LanguageRepository>;
       let lang = await languagerepo.findOneById(1);
+      
 
-        if(lang){
+        if(lang) {
+          if(AuthProvider.role == 3)
+              this.rootPage = 'GuesthomePage';
+          else 
+          if(AuthProvider.role != 0)
               this.rootPage = HomePage;
-            }
-        else 
-        {
-          
+          else 
+              this.rootPage = 'StatusPage';
+        }
+        else {
           this.rootPage = 'SelectLanguagePage';
-
         }
         this.translate.setDefaultLang(lang.code);
-      this.rootPage = HomePage;
-      this.translate.setDefaultLang('uz');
     });
     
   }
@@ -76,14 +93,9 @@ export class MyApp {
   }
 
   async logOut(){
-    // With provider
-    // await getRepository('guest').clear();
-    // await getRepository('user').clear();
-    // await getRepository('timetable').clear();
-    // await getRepository('status').clear();
-    // await getRepository('teachertimetable').clear();
-    
-    this.nav.setRoot('SelectLanguagePage');
+    this.authProvider.logOut();
+    this.authProvider.getCurrentUser();
+    this.nav.setRoot('StatusPage');
   }
   
   goToAboutAppPage(){

@@ -3,11 +3,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Language } from './../../model/language-model';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageProvider } from './../../providers/language/language';
 
 import { LanguageRepository } from './../../enteties/language';
 import { getRepository, Repository } from 'typeorm';
 import { HomePage } from './../home/home';
+import { AuthProvider } from './../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -19,10 +19,11 @@ export class SelectLanguagePage {
    ru = "ru"; 
   languages : Array <Language>;
   languageSelected : any = null ; 
-  constructor(public navCtrl: NavController,
-     public navParams : NavParams,
-     private translate : TranslateService,
-     private languageProvider : LanguageProvider ) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams : NavParams,
+    private translate : TranslateService,
+    public authProvider: AuthProvider) {
   }
 
   ionViewDidLoad() {
@@ -45,8 +46,6 @@ export class SelectLanguagePage {
       else {
 
         await languagerepo.save(language);
-        
-
       }
     
       this.languageSelected = lang;
@@ -56,19 +55,17 @@ export class SelectLanguagePage {
           this.translate.setDefaultLang(this.languageSelected);
           this.translate.use(this.languageSelected);
       }
+
       if(!isOld){
-        // According to isOld it pushes page 
-        //   this.navCtrl.setRoot('StatusPage'); //RegistrPage
-        // else 
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot('StatusPage');
       }
-
-      
-      
-  }
-
-  goToRegistrPage() {
-    this.navCtrl.push('RegistrPage');
+      else
+      {
+        if(AuthProvider.role == 3)
+        this.navCtrl.setRoot('GuesthomePage');
+        else
+        this.navCtrl.setRoot(HomePage);
+      }  
   }
 
 }

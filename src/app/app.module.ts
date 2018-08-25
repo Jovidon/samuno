@@ -16,10 +16,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from './../pages/home/home';
 
-import { LanguageProvider } from '../providers/language/language';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { RegisterApiProvider } from '../providers/register-api/register-api';
+import { AuthProvider } from '../providers/auth/auth';
+import { DbProvider } from '../providers/db/db';
 
 @NgModule({
   declarations: [
@@ -50,11 +52,13 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LanguageProvider,
     RestApiProvider,
     LocalNotifications,
     ScreenOrientation,
-    Network
+    Network,
+    RegisterApiProvider,
+    AuthProvider,
+    DbProvider
 
   ]
 })
