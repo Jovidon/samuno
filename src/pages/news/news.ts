@@ -70,12 +70,6 @@ export class NewsPage {
   }
 
   getNews(){
-    this.getdata.getUsers('pages/news')
-    .then( async(data)=>{
-      this.news = data;})
-    .catch(err =>{
-      console.log(err);
-    });
   }
 
   parseJson(data: any): Promise<any> {

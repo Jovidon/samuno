@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <img  src="assets/imgs/idennew.PNG">
+</ion-header>
+<ion-content>
+  <form [formGroup]="reg">
+    <ion-grid>
+      <ion-row><br></ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-input [(ngModel)]="teacher.login" formControlName="login" placeholder="Login" [class.invalid]="!reg.controls.login.valid && reg.controls.login.dirty"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-input [(ngModel)]="teacher.password" formControlName="password" placeholder="Password" [class.invalid]="!reg.controls.password.valid &&  reg.controls.password.dirty"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <br>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button color="secondary" round (click)="Login()" [disabled]="!reg.controls.login.valid || !reg.controls.password.valid">{{'btnSignIn' | translate}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

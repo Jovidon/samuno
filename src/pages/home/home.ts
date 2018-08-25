@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, MenuController } from 'ionic-angular';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { DbProvider } from './../../providers/db/db';
+import { AuthProvider } from './../../providers/auth/auth';
 
 @Component({
   selector: 'page-home',
@@ -16,18 +17,31 @@ export class HomePage {
   human : number;
   key : boolean;
   constructor(public navCtrl: NavController, 
-    public localNotification : LocalNotifications,
     private screenOrientation: ScreenOrientation,
-    public getdata : RestApiProvider,
+    public restApi : RestApiProvider,
     public toastCtrl : ToastController,
-    public menuCtrl: MenuController) {
+    public menuCtrl: MenuController,
+    public dbProvider: DbProvider,
+    public authProvider: AuthProvider) {
+      
       this.menuCtrl.enable(true, 'myMenu');
+      this.human = AuthProvider.role;
+      this.id = AuthProvider.user_id;
   }
   
   ionViewWillEnter(){
      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-   }
+  }
 
+  ionViewDidEnter() {
+      this.restApi.getData("table/" + AuthProvider.role + "/" + AuthProvider.user_id).then(res => {
+        this.dbProvider.synchronizeTabe(res);
+        this.showMessage(res);
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+  }
   goToNewsPage(){
     this.navCtrl.push('NewsPage');
   }
@@ -55,5 +69,12 @@ export class HomePage {
     this.navCtrl.push('ContactsPage');
   }
 
-  
+   showMessage(message) {
+    let toast = this.toastCtrl.create({
+      message : message,
+      duration : 1000,
+      position : 'middle'
+    });
+    toast.present();
+  }
 }

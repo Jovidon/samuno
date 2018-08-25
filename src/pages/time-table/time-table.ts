@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { TranslateService } from '@ngx-translate/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HomePage } from '../home/home';
+import { DbProvider } from './../../providers/db/db';
 
 @IonicPage()
 @Component({
@@ -12,94 +12,63 @@ import { HomePage } from '../home/home';
 })
 export class TimeTablePage {
   timetable : any;
-  timetablesync : any;
-  hasChange : string ; 
-  monday : any;
-  tuesday : any ;
-  wednesday : any ;
-  thursday : any ;
-  friday : any ;
-  saturday : any ;
+  hasChange : string ;
   current : any; 
   lesson : string;
-  key : boolean = false;
+  lang : string ;
+  type : string [] = [];
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams,
-      public getdata : RestApiProvider,
       public toastCtrl : ToastController,
       public translate : TranslateService,
-      private screenOrientation: ScreenOrientation) {
-    this.getTimeTable();
-    this.Synchronize();
-    
+      private screenOrientation: ScreenOrientation,
+      public dbProvider: DbProvider) {
+        this.type = [];
+        this.type[1] = "labelLec";
+        this.type[2] = "labelPrac";
+        this.type[3] = "labelLab";
+        this.lang = this.translate.getDefaultLang();
+        var date = new Date();
+        let today : number = date.getDay();
+        
+        this.dbProvider.getTableWithDay(today).then(res => {
+          this.current = res;
+        });
 
-   this.translate.get('labelChangingTimeTable').subscribe(data => {
-     this.hasChange = data;
-   });
-  
-   this.translate.get('labelTodayLessons').subscribe(data =>{
-     this.lesson = data;
-   });
+      this.dbProvider.getTableFromBase().then(res => {
+        this.timetable = res;
+        this.makeToast(res);
+      });
+      this.translate.get('labelTodayLessons').subscribe(data =>{
+        this.lesson = data;
+      });
+    
 
   }
 
   ionViewWillEnter(){
-   
-    this.getTimeTable();
-    this.makeTimeTable();
     // Change orientation to landspace 
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    
-    var date = new Date();
-    let today : number = date.getDay();
-    
-    if(today){
-      let toast = this.toastCtrl.create({
-        message: this.lesson,
-        duration: 2000,
-        position: 'bottom',
-      
-      });
-      toast.present();
-    }
-
-  }
-  async getTimeTable(){ 
-    // Get from rest-api
   }
 
-  async Synchronize(){ 
-    // Synchronize time table with base
-  }
-
-
-  makeToast(){
+  makeToast(message){
     let toast = this.toastCtrl.create({
-      message : this.hasChange,
+      message : message,
       duration : 2000,
       position : 'middle',
     });
     toast.present();
   }
   
-  async makeTimeTable() {
-
-  }
-
   goToHomePage(){
     this.navCtrl.setRoot(HomePage);
   }
 
   getCurrentTable(day){
-    switch(day){
-      case 1: this.current = this.monday; break;
-      case 2: this.current = this.tuesday; break;
-      case 3: this.current = this.wednesday; break;
-      case 4: this.current = this.thursday; break;
-      case 5: this.current = this.friday; break;
-      case 6: this.current = this.saturday; break;
-    }
+    this.dbProvider.getTableWithDay(day).then(res => {
+      this.current = res;
+    });
   } 
 
 }

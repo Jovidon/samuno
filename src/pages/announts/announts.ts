@@ -25,13 +25,13 @@ export class AnnountsPage {
     private network: Network,
     private alertCtrl : AlertController) {
 
-      this.translate.get('noInternet').subscribe(data =>{
-        this.noInetcon = data;
-      });
-      this.translate.get('conForNote').subscribe(data =>{
-        this.conInet = data;
-      });
-     
+      // this.translate.get('noInternet').subscribe(data =>{
+      //   this.noInetcon = data;
+      // });
+      // this.translate.get('conForNote').subscribe(data =>{
+      //   this.conInet = data;
+      // });
+     this.getNotes();
       setTimeout(() => {
         if (this.network.type == 'none') {
           let alert = this.alertCtrl.create({
@@ -46,7 +46,7 @@ export class AnnountsPage {
         }
       }, 500);
       
-     this.getCurrentLang();
+    //  this.getCurrentLang();
     // this.lang ="uz";
     }
 
@@ -57,9 +57,10 @@ export class AnnountsPage {
 
   
   getNotes(){
-    this.getdata.getUsers('pages/notice/'+this.human)
-    .then( async(data)=>{
+    this.getdata.getNotice("announcement")
+    .then((data)=>{
      this.notes = data;
+     console.log(data);
     })
     .catch(err =>{
       console.log(err);

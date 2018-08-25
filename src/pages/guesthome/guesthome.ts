@@ -46,13 +46,6 @@ export class GuesthomePage {
   }
   
   getLenNews(){
-    this.getdata.getUsers('pages/news')
-    .then( async(data)=>{
-      this.news = data;
-      this.len = this.news.length;
-    })
-    .catch(err =>{
-      console.log(err);
-    });
+    
   }
 }

@@ -1,0 +1,47 @@
+<ion-header no-border>
+    <img  src="assets/imgs/idennew.PNG">
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row></ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="reg">
+          <ion-list>
+            <ion-item>
+              <ion-label floating>{{'inputName' | translate | uppercase}}</ion-label>
+              <ion-input [(ngModel)]="name" formControlName="Name" type="text"></ion-input>
+            </ion-item>
+            <ion-item >
+              <ion-label floating>{{'inputFirstName' | translate | uppercase}}</ion-label>
+              <ion-input   [(ngModel)]="surname" formControlName="Surname" type="text"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-item>
+            <ion-select class="myselect" [(ngModel)]="facultyId" placeholder="{{'selectFacul' | translate | uppercase}}" (ionChange)="getCourse()"  interface="popover" formControlName="faculty">
+              <ion-option *ngFor="let fac of faculty" value="{{fac.id}}">{{fac.nameUz}} </ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-select class="myselect" [(ngModel)]="courseId" placeholder="{{'course' | translate | uppercase}}"  interface="popover" formControlName="cours"  [disabled]="!reg.controls.faculty.valid" (ionChange)="getGroup()">
+              <ion-option *ngFor="let cour of course" value="{{cour.id}}">{{cour.course}}-{{'course' | translate}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-select class="myselect" [(ngModel)]="student.Group_id" placeholder="{{'selectGroup' | translate | uppercase }}" (ionChange)="getGroup()" interface="popover" formControlName="group" [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid">
+              <ion-option *ngFor="let gr of group" value="{{gr.id}}"> {{gr.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round color="secondary" (click)="Register()" [disabled]="!reg.controls.faculty.valid || !reg.controls.cours.valid || !reg.controls.group.valid || !reg.controls.Name.valid || !reg.controls.Surname.valid">
+          {{'btnSignIn' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+  
