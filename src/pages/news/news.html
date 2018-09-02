@@ -7,31 +7,30 @@
  <ion-item *ngIf="lang ==='uz'">
   <ion-card *ngFor="let item of news" (click)="goToMore(item)">
     <ion-card-header style="color: black; text-transform: uppercase; font-size: 90%; " >
-        <h3 text-wrap>{{item.title}}</h3>
-        <hr>
-    </ion-card-header>
-  <ion-card-content>
-      <img src="http://192.168.137.1/{{item.pic}}">
-      <h3>{{item.short}}</h3>
+      <h3 text-wrap>{{item.titleUz}} </h3>
       <hr>
-      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.auth}}
-      </span>
-      <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{item.date}}</span>
-  </ion-card-content>
-  </ion-card>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="assets/imgs/s3.jpg">
+      <div [innerHTML]="item.shortUz"></div>
+      <hr>
+      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.authorUz}}</span>
+      <span style="float: right;">   <ion-icon ios="ios-eye" md="md-eye"></ion-icon> {{item.viewCount}} </span>
+    </ion-card-content>
+   </ion-card>
   </ion-item>
   <ion-item *ngIf="lang ==='ru'">
       <ion-card *ngFor="let item of news" (click)="goToMore(item)">
         <ion-card-header >
-            <h3 text-wrap>{{item.title_ru}}</h3>
+            <h3 text-wrap>{{item.titleRu}}</h3>
         </ion-card-header>
       <ion-card-content>
-          <img src="http://192.168.137.1/{{item.pic}}">
-          <h3>{{item.short_ru}}</h3>
+          <img src="assets/imgs/s3.jpg">
+          <div [innerHTML]="item.shortRu"></div>
           <hr>
-          <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.auth_ru}}
+          <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{item.authorRu}}
           </span>
-          <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{item.date}}</span>
+          <span style="float: right;"><ion-icon ios="ios-eye" md="md-eye"></ion-icon> {{item.viewCount}} </span>
       </ion-card-content>
       </ion-card>
       </ion-item>

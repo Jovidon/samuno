@@ -4,7 +4,30 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-item *ngFor="let note of notes">
-    {{note.titleUz}}
-  </ion-item>
+    <div *ngIf="lang==='uz'">
+      <ion-card *ngFor="let item of notes">
+        <ion-card-header style="color: black; text-transform: uppercase; font-size: 90%; " >
+            <h3 text-wrap>{{item.titleUz}} <ion-icon name="notifications" class="note-icn"></ion-icon></h3>
+            <hr>
+        </ion-card-header>
+      <ion-card-content>
+          <div [innerHTML]="item.infoUz"></div>
+          <hr>
+          <span style="float: left;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{item.date}}</span>
+      </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf="lang==='ru'">
+      <ion-card *ngFor="let item of notes">
+        <ion-card-header style="color: black; text-transform: uppercase; font-size: 90%; " >
+            <h3 text-wrap>{{item.titleRu}} <ion-icon name="notifications" class="note-icn"></ion-icon></h3>
+            <hr>
+        </ion-card-header>
+      <ion-card-content>
+          <div [innerHTML]="item.infoRu"></div>
+          <hr>
+          <span style="float: left;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{item.date}}</span>
+      </ion-card-content>
+      </ion-card>
+    </div>
 </ion-content>

@@ -39,9 +39,9 @@ export class RegistrPage {
       Surname: ['',Validators.compose([Validators.pattern('[a-zA-Z а-яА-Я]*'),Validators.required])]
     });
     this.getFaculty();
-    // this.translate.get('successReg').subscribe(data =>{
-    //   this.sucreg = data;
-    // });
+    this.translate.get('successReg').subscribe(data =>{
+      this.sucreg = data;
+    });
     
   }
 
@@ -75,10 +75,8 @@ export class RegistrPage {
   Register() {
     this.student.fullName = this.surname + " " +this.name;
     this.registerProvider.postRegister(this.student).subscribe(res => {
-      //AuthProvider.token = res.id_token;
       this.authProvider.register(res.Group_id,2).then(res1=>{
         this.authProvider.getCurrentUser().then(res2 =>{
-          this.showMessage(AuthProvider.role + "/" + AuthProvider.user_id);
           this.navCtrl.setRoot(HomePage);
         })
       });

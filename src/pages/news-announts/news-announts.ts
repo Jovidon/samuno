@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angular';
 import { HomePage } from './../home/home';
 import { TranslateService } from '@ngx-translate/core';
+import { RestApiProvider } from './../../providers/rest-api/rest-api';
 
 @IonicPage()
 @Component({
@@ -11,19 +12,18 @@ import { TranslateService } from '@ngx-translate/core';
 export class NewsAnnountsPage {
   note : any;
   lang : string;
+  group : any;
+  groupId : number;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public translate : TranslateService) {
-    
-      this.note = this.navParams.get('item');
-
-      this.getCurrentLang();
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsAnnountsPage');
+    public translate : TranslateService,
+    public restProvider: RestApiProvider,
+    public view : ViewController) {
+      this.groupId = this.navParams.get('id');
+      this.restProvider.getData('getstudent/' + this.groupId).then((res) =>{
+        this.group = res;
+      });
   }
 
   goToHomePage () {
@@ -32,5 +32,10 @@ export class NewsAnnountsPage {
 
   getCurrentLang(){
     this.lang = this.translate.getDefaultLang();
+  }
+
+  closeModal()
+  {
+    this.view.dismiss();
   }
 }

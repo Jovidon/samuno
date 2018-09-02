@@ -1,0 +1,80 @@
+<ion-header no-border>
+    <img  src="assets/imgs/idennew.PNG">
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset-3 col-1>
+        <ion-icon name="search"></ion-icon>
+      </ion-col>
+      <ion-col>
+        Search In Timetable
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-select class="myselect" placeholder="Select" interface="popover" [(ngModel)]="status">
+          <ion-option value="1">
+            Teacher
+          </ion-option>
+          <ion-option value="2">
+            Student
+          </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="status==1">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-select class="myselect" placeholder="Select Cafedra" interface="popover" [(ngModel)]="cafId" (ionChange)="getTeacher()">
+                  <ion-option *ngFor="let caf of cafedra" value="{{caf.id}}">{{caf.fullName}} </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-select class="myselect" placeholder="Select Teacher" interface="popover" [(ngModel)]="teacherId" [disabled]="!cafId">
+                  <ion-option *ngFor="let teach of teacher" value="{{teach.id}}">{{teach.fullName}} </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center>
+                <button ion-button round color="secondary" (click)="goToResult(1)" [disabled]="!cafId || !teacherId">Search
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngIf="status==2">
+          <ion-grid>
+            <ion-item>
+              <ion-select class="myselect" [(ngModel)]="facId" placeholder="{{'selectFacul' | translate | uppercase}}" (ionChange)="getCourse()"  interface="popover">
+                <ion-option *ngFor="let fac of faculty" value="{{fac.id}}">{{fac.nameUz}} </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-select class="myselect" [(ngModel)]="courseId" placeholder="{{'course' | translate | uppercase}}"  interface="popover" (ionChange)="getGroup()" [disabled]="!facId">
+                <ion-option *ngFor="let cour of course" value="{{cour.id}}">{{cour.course}}-{{'course' | translate}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-select class="myselect" [(ngModel)]="groupId" placeholder="{{'selectGroup' | translate | uppercase }}" (ionChange)="getGroup()" interface="popover" [disabled]="!courseId">
+                <ion-option *ngFor="let gr of group" value="{{gr.id}}"> {{gr.name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-row>
+              <ion-col text-center>
+                <button ion-button round color="secondary" (click)="goToResult(2)" [disabled]="!facId || !courseId || !groupId">Search
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

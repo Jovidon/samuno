@@ -8,7 +8,7 @@ export class AuthProvider {
   constructor(public http: HttpClient) {
   }
 
-  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbE5hbWVVeiI6ImFzZCIsImZ1bGxOYW1lUnUiOiJhc2QiLCJiaXJ0aGRheSI6IjIwMTgtMDgtMDZUMTk6MDA6MDAuMDAwWiIsIkNhZmVkcmFfaWQiOjEsImlzSGVhZCI6MSwibG9naW4iOiJhc2QiLCJpbWFnZSI6bnVsbCwiaWF0IjoxNTM0ODc1OTM4LCJleHAiOjE1MzU5NTU5Mzh9.Jxx-J045sG0cIFkbNg1ZZmjS2tc5ZjCnjEbzulPtAc4";
+  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJndWVzdCIsImlhdCI6MTUzNTM2ODQwMX0.7YavWSiTxuYdxNyM8rN5fIK_CmqMoWuHuSyny8QJCFg";
   public static role: number;
   public static user_id: number;
 
@@ -52,6 +52,5 @@ export class AuthProvider {
       user.user_id = null;
       await userRepo.save(user);
       await getRepository('Table').clear();
-      
     }
 }

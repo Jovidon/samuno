@@ -28,11 +28,11 @@ export class NewsPage {
     public translate : TranslateService,
     public loadingCtrl : LoadingController,
     private network: Network,
-    private alertCtrl : AlertController,) {
+    private alertCtrl : AlertController) {
      
-    this.getNews();
-    this.getCurrentLang();
-   // this.lang = "uz";
+   
+   this.getCurrentLang();
+    // this.lang = "uz";
     this.translate.get('labelPleaseWait').subscribe(data =>{
       this.pleaseWait = data;
     });
@@ -64,20 +64,24 @@ export class NewsPage {
     loading.present();
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter(){
     console.log('ionViewDidLoad NewsPage');
-
+    this.getNews();
   }
 
   getNews(){
-  }
-
-  parseJson(data: any): Promise<any> {
-    return JSON.parse(data)
+    this.getdata.getData("news").then((res) =>{
+      this.news = res;
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
   
  
   goToMore(data){
+    let count:number = data.viewCount + 1;
+    this.getdata.getData('newscount/'+count+"/"+data.id);
     this.navCtrl.push('FullNewsPage', {data});
   }
 

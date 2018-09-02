@@ -10,8 +10,4 @@ export class LanguageRepository {
     @Column()
     code: string;
 
-
-
-
-
 }
