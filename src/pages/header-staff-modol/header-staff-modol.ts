@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-
-
+import { RestApiProvider } from './../../providers/rest-api/rest-api';
 
 @IonicPage()
 @Component({
@@ -10,22 +9,29 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'header-staff-modol.html',
 })
 export class HeaderStaffModolPage {
+  teacher : any;
+  teachId : number;
   current : any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public view : ViewController, 
-    public translate : TranslateService,) {
-    this.getData();
+    public translate : TranslateService,
+    public restProvider: RestApiProvider) {
+    this.teachId = this.navParams.get('id');
+    this.restProvider.getData('teacherid/' + this.teachId + '/uz').then((res) =>{
+      this.teacher = res;
+      console.log(res);
+    });
+
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad HeaderStaffModolPage');
+    
+    this.current = this.teacher;
   }
 
-  getData(){
-    this.current = this.navParams.get('p');
-  }
 
   closeModal()
   {

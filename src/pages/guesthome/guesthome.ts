@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
+import { Badges } from '../../enteties/badges';
+import { DbProvider } from './../../providers/db/db'; 
 
 @IonicPage()
 @Component({
@@ -8,29 +10,28 @@ import { RestApiProvider } from './../../providers/rest-api/rest-api';
   templateUrl: 'guesthome.html',
 })
 export class GuesthomePage {
-  isSeenNews : boolean = false;
-  badgeCnt : number = 0;
-  user : any;
-  len : number;
-  id : number = 0;
-  size : number = 0;
-
-  news : any;
-
+  badgeCntNews: number = 0;
+  baseBadgeCnt: Badges;
+  newsIds: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public getdata : RestApiProvider,
-    public menuCtrl: MenuController) {
+    public restApi : RestApiProvider,
+    public menuCtrl: MenuController,
+    public dbProvider: DbProvider) {
       this.menuCtrl.enable(true, 'myMenu');
   }
 
-  ionViewWillEnter() {
-    console.log('ionViewDidLoad GuesthomePage');
+  ionViewDidEnter() {
+    this.checkBadgeCount();
   }
   
- async goToNewsPage(){
+  goToNewsPage(){
     this.navCtrl.push('NewsPage');
+    if(this.newsIds.length > 0) {
+      this.dbProvider.updateBadgeCount(this.newsIds[this.newsIds.length-1].id,1);
+      this.badgeCntNews = 0;
+    }
   }
 
   goToTuitSbPage(){
@@ -47,5 +48,33 @@ export class GuesthomePage {
   
   getLenNews(){
     
+  }
+
+  checkBadgeCount() {
+    this.restApi.getData('newsid').then(res => {
+      this.newsIds = res;
+    });
+
+    this.dbProvider.getBadgeCount().then(res => {
+      if(res) {
+        this.baseBadgeCnt = res;
+        this.badgeCntNews = 0;
+  
+        if(!this.baseBadgeCnt.News_id) {
+          this.badgeCntNews = this.newsIds.length;
+        }
+        else {
+          for(let item of this.newsIds) {
+            if( item.id > this.baseBadgeCnt.News_id )  
+              this.badgeCntNews++;
+          }
+        }
+      }
+      else
+      {
+        this.badgeCntNews = this.newsIds.length;
+      }
+    });
+       
   }
 }

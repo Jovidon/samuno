@@ -13,7 +13,7 @@ import { User } from './../enteties/user';
 import { Badges } from './../enteties/badges';
 import { Table } from './../enteties/timetable';
 import { UniversityImages } from './../enteties/unversityimages';
-
+import { Exam } from './../enteties/exam';
 import { createConnection } from 'typeorm';
 import { getRepository, Repository } from 'typeorm';
 import { AuthProvider } from '../providers/auth/auth';
@@ -60,7 +60,8 @@ export class MyApp {
           User,
           Badges,
           Table,
-          UniversityImages
+          UniversityImages,
+          Exam
            ]
       });
 
@@ -99,7 +100,7 @@ export class MyApp {
   }
   
   goToAboutAppPage(){
-    
+    this.nav.push('SearchTimeTablePage');
   }
 
 }

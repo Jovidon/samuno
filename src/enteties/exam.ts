@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity('Table')
-export class Table { 
+@Entity('Exam')
+export class Exam { 
     
 
     @PrimaryGeneratedColumn()
@@ -9,15 +9,6 @@ export class Table {
 
     @Column()
     room: string;
-
-    @Column("boolean", {nullable:true})
-    isEven: boolean;
-
-    @Column()
-    type: number;
-
-    @Column()
-    pair: number;
 
     @Column()
     TeachNameUz: string;
@@ -30,16 +21,16 @@ export class Table {
 
     @Column()
     SubNameRu: string;
-
-    @Column()
-    Day_id: number;
     
     @Column()
     GroupName: string;
 
-    @Column()
-    Teacher_id: number;
+    @Column() 
+    examNameUz: string;
 
-    @Column()
-    Group_id: number;
+    @Column() 
+    examNameRu: string;
+
+    @Column() 
+    date: string;
 }

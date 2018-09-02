@@ -27,9 +27,9 @@ export class TeacherRegistrPage {
       login: ['',Validators.compose([Validators.required])],
       password: ['',Validators.compose([Validators.required])],
     });
-    // this.translate.get('successReg').subscribe(data =>{
-    //   this.sucreg = data;
-    // });
+    this.translate.get('successReg').subscribe(data =>{
+      this.sucreg = data;
+    });
   }
   
   Login(){
@@ -51,7 +51,12 @@ export class TeacherRegistrPage {
       }
       else
       {
-        console.log("No user!");
+        let toast = this.toastCtrl.create({
+          message : "Incorrect login or password!",
+          duration : 3000,
+          position : 'middle'
+        });
+        toast.present();
       }
     });
     

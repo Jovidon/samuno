@@ -11,11 +11,9 @@ import { Network } from '@ionic-native/network';
 })
 export class AnnountsPage {
   notes : any;
-  human : any;
   lang : string ;
   noInetcon : string;
   conInet : string;
-  key : boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -25,12 +23,12 @@ export class AnnountsPage {
     private network: Network,
     private alertCtrl : AlertController) {
 
-      // this.translate.get('noInternet').subscribe(data =>{
-      //   this.noInetcon = data;
-      // });
-      // this.translate.get('conForNote').subscribe(data =>{
-      //   this.conInet = data;
-      // });
+      this.translate.get('noInternet').subscribe(data =>{
+        this.noInetcon = data;
+      });
+      this.translate.get('conForNote').subscribe(data =>{
+        this.conInet = data;
+      });
      this.getNotes();
       setTimeout(() => {
         if (this.network.type == 'none') {
@@ -46,8 +44,7 @@ export class AnnountsPage {
         }
       }, 500);
       
-    //  this.getCurrentLang();
-    // this.lang ="uz";
+     this.getCurrentLang();
     }
 
 
@@ -69,10 +66,6 @@ export class AnnountsPage {
 
   getCurrentLang(){
     this.lang = this.translate.getDefaultLang();
-  }
-
-  goToFull(item) {
-    this.navCtrl.push('NewsAnnountsPage', {item});
   }
    
 }

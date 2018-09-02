@@ -3,26 +3,26 @@
   <ion-navbar color="secondary">
     <ion-title>{{'btnNews' | translate}}</ion-title>
   </ion-navbar>
-  <img src="http://192.168.137.1/{{currentnews.pic}}">
+  <img src="assets/imgs/s3.jpg">
 
 </ion-header>
 
 
 <ion-content padding>
   <div *ngIf="lang==='uz'">
-  <ion-card-header><h2 text-wrap>{{currentnews.title}}</h2></ion-card-header>
-  <h2>{{currentnews.full}}</h2>
+  <ion-card-header><h2 text-wrap>{{currentnews.titleUz}}</h2></ion-card-header>
+  <div [innerHTML]="currentnews.fullUz"></div>
       <hr>
-      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.auth}}
+      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.authorUz}}
       </span>
       <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{currentnews.date}}</span>
     </div>
  <div *ngIf="lang==='ru'"> 
    
-  <ion-card-header><h2 text-wrap>{{currentnews.title_ru}}</h2></ion-card-header>
-  <h2>{{currentnews.full_ru}}</h2> 
+  <ion-card-header><h2 text-wrap>{{currentnews.titleRu}}</h2></ion-card-header>
+  <div [innerHTML]="currentnews.fullRu"></div>
       <hr>
-      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.auth_ru}}
+      <span style="float: left; text-decoration: italic;"><ion-icon name="contact"></ion-icon> {{currentnews.authorRu}}
       </span>
       <span style="float: right;">  <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{currentnews.date}}</span>
  </div>

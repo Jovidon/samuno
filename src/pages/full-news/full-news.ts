@@ -22,6 +22,7 @@ export class FullNewsPage {
   getData(){
     this.currentnews = this.navParams.get('data');
     this.lang = this.translate.getDefaultLang();
+   //this.lang = "uz";
   }
 
   goToHomePage(){

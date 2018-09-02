@@ -1,5 +1,45 @@
 page-news-announts {
-    .tab-item-active{
-        background:green;
+    .screen {
+        border: 5px solid #174434;
+        padding: 20px;
+    }
+  
+    .this-close-btn {
+      display: inline-block;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      // transform: translate(-50%, 50%);
+      z-index: 1000;
+      .button {
+        background-color: #174434;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
       }
+      .icon {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+    
+    .this-avatar{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 2px solid #848484;
+      overflow: hidden;
+      padding: 2px;
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    .scroll-content {
+      overflow-x: visible !important;
+      overflow-y: visible !important;
+    }
 }

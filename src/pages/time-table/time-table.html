@@ -1,12 +1,12 @@
 <ion-header>
   <ion-grid>
     <ion-row justify-content-center nowrap>
-    <ion-col style="padding-left:1px" col-auto><button (click)="getCurrentTable(1)" ion-button color="secondary">{{'btnMon' | translate }}</button></ion-col>
-    <ion-col col-auto><button (click)="getCurrentTable(2)" ion-button color="secondary">{{'btnTus' | translate }}</button></ion-col>
-    <ion-col col-auto><button (click)="getCurrentTable(3)" ion-button color="secondary">{{'btnWed' | translate }}</button></ion-col>
-    <ion-col col-auto><button (click)="getCurrentTable(4)" ion-button color="secondary">{{'btnThus' | translate }}</button></ion-col>
-    <ion-col col-auto><button (click)="getCurrentTable(5)" ion-button color="secondary">{{'btnFri' | translate }}</button></ion-col>
-    <ion-col style="padding-right:1px" col-auto><button (click)="getCurrentTable(6)" ion-button color="secondary">{{'btnSun' | translate }}</button></ion-col>
+    <ion-col style="padding-left:1px" col-auto><button [disabled]="!days[1]" (click)="getCurrentTable(1)" ion-button color="secondary">{{'btnMon' | translate }}</button></ion-col>
+    <ion-col col-auto><button [disabled]="!days[2]" (click)="getCurrentTable(2)" ion-button color="secondary">{{'btnTus' | translate }}</button></ion-col>
+    <ion-col col-auto><button [disabled]="!days[3]" (click)="getCurrentTable(3)" ion-button color="secondary">{{'btnWed' | translate }}</button></ion-col>
+    <ion-col col-auto><button [disabled]="!days[4]" (click)="getCurrentTable(4)" ion-button color="secondary">{{'btnThus' | translate }}</button></ion-col>
+    <ion-col col-auto><button [disabled]="!days[5]" (click)="getCurrentTable(5)" ion-button color="secondary">{{'btnFri' | translate }}</button></ion-col>
+    <ion-col style="padding-right:1px" col-auto><button [disabled]="!days[6]" (click)="getCurrentTable(6)" ion-button color="secondary">{{'btnSun' | translate }}</button></ion-col>
     </ion-row>
   </ion-grid>
 </ion-header>
@@ -17,26 +17,26 @@
       <thead>
         <tr text-center>
           <th>#</th>
-          <th>{{'labelSubject' | translate}}</th>
-          <th>{{'labelTeacher' | translate}}</th>
-          <th>{{'labelGroup' | translate}}</th>
-          <th>{{'labelRoom' | translate}}</th>
-          <th>{{'labelLessonType'| translate}} </th>
+          <th><img class="img" src="assets/icon/subject.png"> &nbsp;{{'labelSubject' | translate}}</th>
+          <th><img class="img" src="assets/icon/teacher.png"> &nbsp;{{'labelTeacher' | translate}}</th>
+          <th><img class="img" src="assets/icon/group.png"> &nbsp;{{'labelGroup' | translate}}</th>
+          <th><img class="img" src="assets/icon/room.png"> &nbsp;{{'labelRoom' | translate}}</th>
+          <th><img class="img" src="assets/icon/type.png">  &nbsp;{{'labelLessonType'| translate}}</th>
         </tr>
       </thead>
       <tbody *ngIf="lang==='uz'">
-        <tr *ngFor="let item of current">
-          <td>{{item.pair}}</td>
+        <tr *ngFor="let item of current" [ngStyle]="{'background-color' : '#f4f4f4'}">
+          <td [ngStyle]="{'background-color' : indentifyPair(item)}">{{item.pair}}</td>
           <td>{{item.SubNameUz}}</td>
-          <td>{{item.TeachNameUz}}</td>
-          <td>{{item.GroupName}}</td>
+          <td (click)="showTeacherInfo(item.Teacher_id,'modal-head-staff',1)">{{item.TeachNameUz}}</td>
+          <td (click)="showTeacherInfo(item.Group_id,'modal-head-staff',0)">{{item.GroupName}}</td>
           <td>{{item.room}}</td>
           <td>{{type[item.type] | translate}}</td>
         </tr>
       </tbody>
       <tbody *ngIf="lang==='ru'">
-        <tr *ngFor="let item of current">
-          <td>{{item.pair}}</td>
+        <tr *ngFor="let item of current" [ngStyle]="{'background-color' : '#f4f4f4'}">
+          <td [ngStyle]="{'background-color' : indentifyPair(item)}">{{item.pair}}</td>
           <td>{{item.SubNameRu}}</td>
           <td>{{item.TeachNameRu}}</td>
           <td>{{item.GroupName}}</td>
