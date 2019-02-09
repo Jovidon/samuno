@@ -13,7 +13,7 @@ export class HeaderStaffPage {
   key : boolean = false;
   headerstaff = [];
   lang : string;
-
+  head = [];
   staff : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public translate : TranslateService) {
@@ -120,9 +120,11 @@ export class HeaderStaffPage {
     ];
 
 
-
-    }
     
+    }
+
+    
+
     this.key = true;
   }
 

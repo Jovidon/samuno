@@ -1,7 +1,16 @@
+<ion-header>
+  <ion-navbar style="min-height: 65%;" color="secondary">
+    <ion-title>{{name}}-{{'groupStudents' | translate}}</ion-title>
+</ion-navbar>
+</ion-header>
 <ion-content>
-  <ion-list>
-    <ion-item  *ngFor="let item of group; let i = index">
-      {{item.fullName}}
-    </ion-item>
-  </ion-list>
+  <div class="sc" >
+    <ion-grid text-center>
+      <ion-row>
+        <ion-col>
+          <ion-item *ngFor="let item of group">{{item.fullName}}</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

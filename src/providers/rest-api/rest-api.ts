@@ -7,7 +7,7 @@ export class RestApiProvider {
 
 
   data : string ="salom";
-  link : string="http://192.168.137.2:3333/";
+  link : string="http://192.168.137.1:3333/";
   logic : boolean;
   serverdata : any;
 
@@ -45,5 +45,18 @@ export class RestApiProvider {
     });
   }
 
-
+  logOut(url) {
+    var head = new HttpHeaders({
+      'Content-Type': "application/json",
+      "Authorization" : "Bearer " + AuthProvider.token
+    });
+    return new Promise(resolve => {
+      this.http.delete( this.link + url, {headers: head} ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  } 
+ 
 }

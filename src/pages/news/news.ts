@@ -32,7 +32,6 @@ export class NewsPage {
      
    
    this.getCurrentLang();
-    // this.lang = "uz";
     this.translate.get('labelPleaseWait').subscribe(data =>{
       this.pleaseWait = data;
     });
@@ -42,8 +41,6 @@ export class NewsPage {
     this.translate.get('conForNews').subscribe(data =>{
       this.conInet = data;
     });
-    
-
     setTimeout(() => {
       if (this.network.type === 'none') {
         let alert = this.alertCtrl.create({
@@ -77,7 +74,7 @@ export class NewsPage {
       console.log(err);
     })
   }
-  
+
  
   goToMore(data){
     let count:number = data.viewCount + 1;

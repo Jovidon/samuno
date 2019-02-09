@@ -8,7 +8,7 @@ export class AuthProvider {
   constructor(public http: HttpClient) {
   }
 
-  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJndWVzdCIsImlhdCI6MTUzNTM2ODQwMX0.7YavWSiTxuYdxNyM8rN5fIK_CmqMoWuHuSyny8QJCFg";
+  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZnVsbE5hbWUiOiJEYW1pcm92IElicm9oaW0iLCJHcm91cF9pZCI6IjIiLCJpYXQiOjE1MzUzNDQzOTF9.wSOgOjuDaCAGNW2X8-APffqpwLVC7zGmhnOPux264Xs";
   public static role: number;
   public static user_id: number;
 
@@ -52,5 +52,6 @@ export class AuthProvider {
       user.user_id = null;
       await userRepo.save(user);
       await getRepository('Table').clear();
+      await getRepository('Badges').clear();
     }
 }

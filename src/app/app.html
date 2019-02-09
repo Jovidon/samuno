@@ -14,6 +14,16 @@
 
   <ion-content>
     <ion-list>
+      <button menuClose ion-item (click)="goToStatisticsPage()">
+        <ion-row style="text-align:start">
+          <ion-col >
+            <ion-icon><img height="35%" width="35%" src="assets/imgs/statistics.png"></ion-icon>
+          </ion-col>
+          <ion-col>
+              {{'labelStatistics' | translate }}
+          </ion-col>
+        </ion-row>
+      </button>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
          <!-- <ion-icon [name]="p.icon" item-start></ion-icon>-->
          <ion-row style="text-align:start">
@@ -28,15 +38,12 @@
       <button menuClose ion-item (click)="goToAboutAppPage()">
         <ion-row style="text-align:start">
           <ion-col >
-            <ion-icon><img height="35%" width="35%" src="assets/imgs/info_left_menu.png"></ion-icon>
+            <ion-icon><img height="35%" width="35%" src="assets/imgs/logout.png"></ion-icon>
           </ion-col>
           <ion-col>
-             {{'labelAbout' | translate }}
+            Log Out
           </ion-col>
         </ion-row>
-      </button>
-      <button menuClose ion-item (click)="logOut()">
-        Log Out
       </button>
     </ion-list>
   </ion-content>

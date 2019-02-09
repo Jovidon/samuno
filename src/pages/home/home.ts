@@ -31,7 +31,6 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-
       this.restApi.getData("table/" + AuthProvider.role + "/" + AuthProvider.user_id).then(res => {
         this.dbProvider.synchronizeTabe(res);
       })
@@ -89,22 +88,22 @@ export class HomePage {
   goToNewsPage(){
     this.navCtrl.push('NewsPage');
     if(this.newsIds.length > 0) {
-      this.dbProvider.updateBadgeCount(this.newsIds[this.newsIds.length-1].id,1);
-      this.badgeCntNews = 0;
+      this.dbProvider.updateBadgeCount(this.newsIds[this.newsIds.length-1].id,1).then((res) => {
+        this.badgeCntNews = 0;
+      });
     }
   }
 
   goToTimeTablePage(){
-   
      this.navCtrl.push('TimeTablePage');
-  
   }
 
-  goToInqueryPage() {
+  goToNotePage() {
     this.navCtrl.push('AnnountsPage');
     if(this.notesIds.length > 0) {
-      this.dbProvider.updateBadgeCount(this.notesIds[this.notesIds.length-1].id,2);
-      this.badgeCntNotes = 0;
+      this.dbProvider.updateBadgeCount(this.notesIds[this.notesIds.length-1].id,2).then((res) =>{
+        this.badgeCntNotes = 0;
+      });
     }
   }
 
@@ -112,11 +111,11 @@ export class HomePage {
     this.navCtrl.push('TuitSbPage');
   }
 
-  goToStatisticsPage(){
-    this.navCtrl.push('StatisticsPage');
+  goToSearchPage(){
+    this.navCtrl.push('SearchTimeTablePage');
   }
 
-  goToContactsPage(){
+  goToExamPage(){
     this.navCtrl.push('ExamPage');
   }
 

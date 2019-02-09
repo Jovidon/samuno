@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angula
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
 import { Badges } from '../../enteties/badges';
 import { DbProvider } from './../../providers/db/db'; 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ export class GuesthomePage {
   baseBadgeCnt: Badges;
   newsIds: any;
   constructor(
+    private screenOrientation: ScreenOrientation,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public restApi : RestApiProvider,
@@ -34,21 +36,18 @@ export class GuesthomePage {
     }
   }
 
-  goToTuitSbPage(){
-    this.navCtrl.push('TuitSbPage');
+  ionViewWillEnter(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
-  goToStatisticsPage(){
-    this.navCtrl.push('StatisticsPage');
+  goToTuitSbPage(){
+    this.navCtrl.push('TuitSbPage');
   }
 
   goToContactsPage(){
     this.navCtrl.push('ContactsPage');
   }
   
-  getLenNews(){
-    
-  }
 
   checkBadgeCount() {
     this.restApi.getData('newsid').then(res => {
@@ -77,4 +76,9 @@ export class GuesthomePage {
     });
        
   }
+
+  goToSearchPage(){
+    this.navCtrl.push('SearchTimeTablePage');
+  }
+
 }

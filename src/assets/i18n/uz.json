@@ -102,7 +102,7 @@
     "selectGroup" : "Guruh",
     "selectDirection" : "Yo'nalishni tanlang",
     "selectLanguageofEdu" : "Ta'lim tilini tanlang",
-    "selectCafedra" : "Kafedrangizni tanlang",
+    "selectCafedra" : "Kafedrani tanlang",
     "select" : "Tanlang",
     "computerEnginering" : "Kompyuter injiniring",
     "programmingEnginering" : "Dasturiy injiniring",
@@ -127,7 +127,13 @@
     "dekan" : "Dekan",
     "zamdekan" : "Dekan o'rinbosari",
     "infoCaf" : "Kafedra haqida ma`lumot",
-    "cafBoss" : "Kafedra mudiri"
-
+    "cafBoss" : "Kafedra mudiri",
+    "search" : "Qidiruv",
+    "searchTimeTable" : "Dars jadvalidan qidiruv",
+    "exam" : "Imtihonlar",
+    "groupStudents" : "-Guruh talabalari",
+    "registeredSt" : "Ro'yxatdan o'tgan talabalar",
+    "noExamsYet" : "Imtihonlar hozircha mavjud emas"
+     
     
     }

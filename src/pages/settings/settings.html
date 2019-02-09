@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title>{{'labelSettings' | translate }}</ion-title>
+    <ion-title>{{'labelSettings' | translate }}  {{len}}</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content >
@@ -10,7 +10,9 @@
       {{'lablelChangeLang' | translate}}
     </div>
   </div>
-    <ion-fab right bottom>
-      <button ion-fab color="secondary" (click)="goToHomePage()"><ion-icon name="home"></ion-icon></button>
-    </ion-fab>
+     <!-- <button ion-button (click)="getImages()">Get</button>
+     <div *ngFor="let item of photos">
+     <img src="{{item}}">
+     </div> -->
+     
 </ion-content>

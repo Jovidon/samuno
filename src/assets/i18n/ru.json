@@ -127,6 +127,13 @@
     "dekan" : "Декан",
     "zamdekan" : "Заместитель декана",
     "infoCaf" : "Заведующий кафедрой",
-    "cafBoss" : "Заведующий кафедрой "
+    "cafBoss" : "Заведующий кафедрой ",
+    "search" : "Поиск",
+    "searchTimeTable" : "Поиск по расписание",
+    "exam" : "Imtihonlar",
+    "groupStudents" : "-Guruh talabalari",
+    "registeredSt" : "Ro'yxatdan o'tgan talabalar",
+    "noExamsYet" : "Imtihonlar hozircha mavjud emas"  
+    
 
     }
