@@ -31,11 +31,11 @@
             <ion-icon><img height="35%" width="35%" src="{{p.icon}}"></ion-icon>
            </ion-col>
            <ion-col>
-              {{'btnSettings' | translate }}
+              {{p.title | translate }}
            </ion-col>
          </ion-row>
       </button>
-      <button menuClose ion-item (click)="goToAboutAppPage()">
+      <button menuClose ion-item (click)="logOut()">
         <ion-row style="text-align:start">
           <ion-col >
             <ion-icon><img height="35%" width="35%" src="assets/imgs/logout.png"></ion-icon>

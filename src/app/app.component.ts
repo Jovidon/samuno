@@ -36,7 +36,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Settings', component: 'SettingsPage', icon: 'assets/imgs/set.png'}
+      { title: 'btnSettings', component: 'SettingsPage', icon: 'assets/imgs/set.png'},
+      { title: 'btnContact', component: 'ContactsPage', icon: 'assets/imgs/contact.png'}
     ];
 
   }

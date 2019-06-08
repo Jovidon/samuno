@@ -34,7 +34,7 @@ export class HeaderStaffPage {
       },
       {
           "fullName": "Xaldjigitov Abduvali",
-          "fatherName": "Abdisamatovich",
+          "fatherName": "Abdusamatovich",
           "photo":  "assets/imgs/xoljigitov_a.jpg",
           "bio" : "21.03.1959  Toshkent vil. Piskent tumani",
           "lavozim" : "Muxxamad al-Xorazmiy nomidagi TATU SF direktori",
