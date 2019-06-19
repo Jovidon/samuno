@@ -9,18 +9,19 @@ page-news-announts {
       position: absolute;
       top: 2px;
       right: 2px;
+      padding-top: 0px;
+      margin-top: 0px;
       // transform: translate(-50%, 50%);
       z-index: 1000;
       .button {
         background-color: #174434;
-        border-radius: 50%;
         width: 32px;
         height: 32px;
         overflow: hidden;
       }
       .icon {
         color: #fff;
-        font-size: 16px;
+        font-size: 20px;
       }
     }
     
@@ -41,5 +42,11 @@ page-news-announts {
     .scroll-content {
       overflow-x: visible !important;
       overflow-y: visible !important;
+    }
+
+    .sc {
+      height: 100%;
+      overflow: scroll;
+      padding-top: 1px;
     }
 }

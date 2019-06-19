@@ -37,6 +37,10 @@ ion-app {
     .toast-container{
         background-color: #174434;
         text-align: center;
-        }
+    }
+    
+    ion-scroll {
+        overflow: scroll !important;
+    }
   
 }

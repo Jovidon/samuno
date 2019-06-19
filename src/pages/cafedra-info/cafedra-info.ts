@@ -17,12 +17,12 @@ export class CafedraInfoPage {
     public view : ViewController, 
     public translate : TranslateService) {
     this.getData();
-    this.lang = this.translate.getDefaultLang();
-    if(this.lang == 'uz') {
-      this.current.cafedraName = "Kafedra";
-    }
-    else
-    this.current.cafedraName = "Кафедра";
+    // this.lang = this.translate.getDefaultLang();
+    // if(this.lang == 'uz') {
+    //   this.current.cafedraName = "Kafedra";
+    // }
+    // else
+    // this.current.cafedraName = "Кафедра";
   }
 
   ionViewDidLoad() {

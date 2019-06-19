@@ -6,7 +6,7 @@ import { AuthProvider } from './../../providers/auth/auth';
 @Injectable()
 export class RegisterApiProvider {
 
-  public link = "http://192.168.137.2:3333/";
+  public link = "http://192.168.137.1:3333/";
   constructor(
     public http: HttpClient,
     public authProvider: AuthProvider) { }

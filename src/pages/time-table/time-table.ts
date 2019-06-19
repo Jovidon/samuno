@@ -5,7 +5,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HomePage } from '../home/home';
 import { DbProvider } from './../../providers/db/db';
 import { RestApiProvider } from './../../providers/rest-api/rest-api';
-
+import { AuthProvider } from './../../providers/auth/auth';
+ 
 @IonicPage()
 @Component({
   selector: 'page-time-table',
@@ -29,7 +30,8 @@ export class TimeTablePage {
       private screenOrientation: ScreenOrientation,
       public dbProvider: DbProvider,
       public restApi: RestApiProvider,
-      public modalCtrl: ModalController) {
+      public modalCtrl: ModalController,
+      public authProvider: AuthProvider) {
         this.clearDays();
         this.type = [];
         this.type[1] = "labelLec";
@@ -83,7 +85,12 @@ export class TimeTablePage {
   }
   
   goToHomePage(){
-    this.navCtrl.setRoot(HomePage);
+    this.authProvider.getCurrentUser().then(res => {
+      if(AuthProvider.role!=3)
+        this.navCtrl.setRoot(HomePage);
+      else
+        this.navCtrl.setRoot('GuesthomePage');
+    });
   }
 
   getCurrentTable(day){
@@ -115,20 +122,17 @@ export class TimeTablePage {
     return color;
   }
   
-  showTeacherInfo (id: number, classes: string, val) {
+  showTeacherInfo (id: number, classes: string, val, grName?: string) {
     if(val) {
       let a =   this.modalCtrl.create('HeaderStaffModolPage', {id}, {
         cssClass: classes,
       });
-      console.log(id);
        a.present();
     }
     else {
-      let a =   this.modalCtrl.create('NewsAnnountsPage', {id}, {
+      let a =   this.modalCtrl.create('NewsAnnountsPage', {id,grName}, {
         cssClass: classes,
       });
-      console.log("hey");
-      console.log(id);
        a.present();
     }
   }

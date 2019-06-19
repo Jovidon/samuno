@@ -3,6 +3,7 @@ import { getRepository, Repository } from 'typeorm';
 import { Table } from './../../enteties/timetable';
 import { Badges } from './../../enteties/badges';
 import { Exam } from './../../enteties/exam';
+import { UniversityImages } from './../../enteties/unversityimages';
 
 @Injectable()
 export class DbProvider {
@@ -121,5 +122,21 @@ export class DbProvider {
     else {
       return 0;
     }
+  }
+
+  async insertImage(image: UniversityImages) {
+    const imageRepo = getRepository('UniversityImages') as Repository<UniversityImages>;
+  
+    return await imageRepo.save(image);
+  }
+
+  async getImage(): Promise<UniversityImages>{
+    const imageRepo = getRepository('UniversityImages') as Repository<UniversityImages>;
+    return await imageRepo.findOne();
+  }
+
+  async getAll():Promise<UniversityImages[]> {
+    const imageRepo = getRepository('UniversityImages') as Repository<UniversityImages>;
+    return await imageRepo.find();
   }
 }

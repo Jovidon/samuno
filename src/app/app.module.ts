@@ -22,6 +22,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { RegisterApiProvider } from '../providers/register-api/register-api';
 import { AuthProvider } from '../providers/auth/auth';
 import { DbProvider } from '../providers/db/db';
+import { ImageUtilProvider } from '../providers/image-util/image-util';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DbProvider } from '../providers/db/db';
     Network,
     RegisterApiProvider,
     AuthProvider,
-    DbProvider
+    DbProvider,
+    ImageUtilProvider
 
   ]
 })

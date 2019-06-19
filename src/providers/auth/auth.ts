@@ -8,7 +8,7 @@ export class AuthProvider {
   constructor(public http: HttpClient) {
   }
 
-  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOiJndWVzdCIsImlhdCI6MTUzNTM2ODQwMX0.7YavWSiTxuYdxNyM8rN5fIK_CmqMoWuHuSyny8QJCFg";
+  public static token: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbE5hbWVVeiI6IkFiZHVsbGF5ZXYgWSIsImZ1bGxOYW1lUnUiOiJBYmR1bGxheWV2IFkiLCJiaXJ0aGRheSI6IjIwMTgtMDktMTdUMTk6MDA6MDAuMDAwWiIsIkNhZmVkcmFfaWQiOjIsImlzSGVhZCI6bnVsbCwibG9naW4iOiJhc2QiLCJpbWFnZSI6bnVsbCwiaW5mb1V6IjoiQWJkdWxsYXlldiBZdXN1ZiBOZWdtYXRvdmljaCwgdGFyaXggZmFubGFyaSBkb2t0b3JpIHByb2Zlc3Nvci4iLCJpbmZvUnUiOiJBYmR1bGxheWV2IFl1c3VmIE5lZ21hdG92aWNoLCB0YXJpeCBmYW5sYXJpIGRva3RvcmkgcHJvZmVzc29yLiIsImlhdCI6MTU1OTMyMjg1N30.vbJj-97wuAddAI3sBPBsSVjznASmGFvCl8w6o5j-0d0";
   public static role: number;
   public static user_id: number;
 
@@ -52,5 +52,6 @@ export class AuthProvider {
       user.user_id = null;
       await userRepo.save(user);
       await getRepository('Table').clear();
+      await getRepository('Badges').clear();
     }
 }

@@ -2,28 +2,28 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>{{'labelTUIT' | translate }}</ion-title>
+    <ion-title>University</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-col>
-      <ion-row class="slide-inR" >
-        <ion-col><img src="assets/imgs/sphen.png" (click)="goToStaffPage()"></ion-col>
+      <ion-row class="slide-inR" (click)="goToStaffPage()">
+        <ion-col><img src="assets/imgs/sphen.png"></ion-col>
         <ion-col><ion-label class="labelesp"> {{'btnHeaderStaff' | translate }}</ion-label></ion-col>
       </ion-row>
       <ion-row class="slide-inL"  >
         <ion-col><ion-label class="labelesp"> {{'btnFacult' | translate }}</ion-label></ion-col>
-        <ion-col><img  src="assets/imgs/spfac.png" (click)="goToFacultyPage()"></ion-col>
+        <ion-col><img  src="assets/imgs/spfac.png"></ion-col>
       </ion-row>
-      <ion-row class="slide-inR">
-        <ion-col><img  src="assets/imgs/spkaf.png" (click)="goToCafedraPage()"></ion-col>
+      <ion-row class="slide-inR" (click)="goToCafedraPage()">
+        <ion-col><img  src="assets/imgs/spkaf.png"></ion-col>
         <ion-col><ion-label class="labelesp"> {{'btnCafed' | translate }}</ion-label></ion-col>
       </ion-row>
       <ion-row class="slide-inL" >
-        <ion-col><ion-label class="labelesp">{{'btnTuitInfo' | translate }} </ion-label></ion-col>
-        <ion-col><img  src="assets/imgs/sptuit.png" (click)="goToTatusfPage()"></ion-col>
+        <ion-col><ion-label class="labelesp">University</ion-label></ion-col>
+        <ion-col><img  src="assets/imgs/sptuit.png"></ion-col>
       </ion-row>
     </ion-col>
   </ion-grid>

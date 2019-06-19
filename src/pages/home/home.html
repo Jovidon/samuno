@@ -56,7 +56,7 @@
           </div>
         </ion-col>
         <ion-col col-4  text-center>
-          <div class="item_g" (click)="goToInqueryPage()">
+          <div class="item_g" (click)="goToNotePage()">
               <div *ngIf="badgeCntNotes > 0">
                 <span class="notify-badge">{{badgeCntNotes}}</span>
                </div>
@@ -69,19 +69,19 @@
         <ion-col col-4  text-center>
           <div (click)="goToTuitSbPage()">
               <img width="100%" src="assets/imgs/TATU.png">
-              <ion-label>{{'labelTUIT' | translate }}</ion-label>
+              <ion-label>University</ion-label>
           </div>
         </ion-col>
         <ion-col col-4  text-center>
-          <div (click)="goToStatisticsPage()">
-              <img width="100%" src="assets/imgs/Statnew.png">
-              <ion-label>{{ 'labelStatistics' | translate}}</ion-label>
+          <div (click)="goToSearchPage()">
+              <img width="100%" src="assets/imgs/tablesearch.png">
+              <ion-label>{{ 'search' | translate}}</ion-label>
           </div>
         </ion-col>
         <ion-col col-4  text-center> 
-          <div (click)="goToContactsPage()">
-              <img width="100%" src="assets/imgs/contact.png">
-              <ion-label>{{'labelContacts' | translate }}</ion-label>
+          <div (click)="goToExamPage()">
+              <img width="100%" src="assets/imgs/exam.png">
+              <ion-label>Exams</ion-label>
           </div>
         </ion-col>
       </ion-row>

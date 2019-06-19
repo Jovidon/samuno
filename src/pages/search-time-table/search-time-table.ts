@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterApiProvider } from './../../providers/register-api/register-api';
 import { TranslateService } from '@ngx-translate/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { AuthProvider } from './../../providers/auth/auth';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -22,14 +24,18 @@ export class SearchTimeTablePage {
   group: any;
   cafedra: any;
   teacher: any;
+  lang: string;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public registerProvider: RegisterApiProvider,
     private translate : TranslateService,
-    private screenOrientation: ScreenOrientation) {
+    private screenOrientation: ScreenOrientation,
+    public authProvider: AuthProvider) {
       this.getFaculty();
       this.getCafedra();
+      this.lang = this.translate.getDefaultLang();
+
   }
 
   ionViewWillEnter(){
@@ -90,5 +96,14 @@ export class SearchTimeTablePage {
     .catch((err)=>{
       console.log(err);
     })
+  }
+
+  goToHomePage() {
+    this.authProvider.getCurrentUser().then(res => {
+      if(AuthProvider.role!=3)
+        this.navCtrl.setRoot(HomePage);
+      else
+        this.navCtrl.setRoot('GuesthomePage');
+    });
   }
 }

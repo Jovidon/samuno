@@ -27,7 +27,6 @@ export class MyApp {
   rootPage: any;
 
   pages: Array<{title: string, component: any, icon: string }>;
-
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar,
@@ -37,7 +36,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Settings', component: 'SettingsPage', icon: 'assets/imgs/settings.png'}
+      { title: 'btnSettings', component: 'SettingsPage', icon: 'assets/imgs/set.png'},
+      { title: 'btnContact', component: 'ContactsPage', icon: 'assets/imgs/contact.png'}
     ];
 
   }
@@ -90,7 +90,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 
   async logOut(){
@@ -99,8 +99,8 @@ export class MyApp {
     this.nav.setRoot('StatusPage');
   }
   
-  goToAboutAppPage(){
-    this.nav.push('SearchTimeTablePage');
+  goToStatisticsPage(){
+    this.nav.push('StatisticsPage');
   }
 
 }

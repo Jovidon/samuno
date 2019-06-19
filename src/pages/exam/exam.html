@@ -1,27 +1,37 @@
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>Imtihonlar</ion-title>
+    <ion-title>{{'exam' | translate}}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let item of exams">
-        <ion-row>
-            <ion-col col-3>
-              <img src="assets/icon/exam.png"></ion-col>
-            <ion-col col-9>
-              <h3 text-wrap>Fan: {{item.SubNameUz}}</h3>
-              <h3>O'qituvchi: {{item.TeachNameUz}}</h3>
-              <h3>Imtihon: {{item.examNameUz}}</h3>
-              <h3>Guruh: {{item.GroupName}}</h3>
-              <h3>Auditoriya: {{item.room}}</h3>
-              <h3>Sana: {{item.date}}</h3>
-            </ion-col>
-          </ion-row>
+      <ion-row *ngIf="lang==='uz'">
+        <ion-col col-3>
+          <img src="assets/icon/exam.png">
+        </ion-col>
+        <ion-col col-9>
+          <h3 text-wrap><b>Fan: </b> {{item.SubNameUz}}</h3>
+          <h3 text-wrap><b>O'qituvchi: </b>{{item.TeachNameUz}}</h3>
+          <h3 text-wrap><b>Imtihon: </b>{{item.examNameUz}}</h3>
+          <h3><b>Guruh: </b>{{item.GroupName}}</h3>
+          <h3><b>Auditoriya: </b>{{item.room}}</h3>
+          <h3><b>Sana: </b>{{item.date}}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="lang==='ru'">
+        <ion-col col-3>
+          <img src="assets/icon/exam.png">
+        </ion-col>
+        <ion-col col-9>
+          <h3 text-wrap><b>Fan: </b> {{item.SubNameRu}}</h3>
+          <h3 text-wrap><b>O'qituvchi: </b>{{item.TeachNameRu}}</h3>
+          <h3 text-wrap><b>Imtihon: </b>{{item.examNameRu}}</h3>
+          <h3><b>Guruh: </b>{{item.GroupName}}</h3>
+          <h3><b>Auditoriya: </b>{{item.room}}</h3>
+          <h3><b>Sana: </b>{{item.date}}</h3>
+        </ion-col>
+      </ion-row>
     </ion-item>
   </ion-list>
 </ion-content>
