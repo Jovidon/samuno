@@ -42,9 +42,9 @@ export class HeaderStaffPage {
           "tel" : "(0-366) 232-29-29" 
       },
        {
-          "fullName": "Bekmurodov Qosim",
-          "fatherName": "Allaberdiyevich",
-          "photo":  "assets/imgs/bekmurodov_q.jpg",
+          "fullName": " Qarshiyev Zayniddin",
+          "fatherName": "Abduvaliyevich",
+          "photo":  "assets/imgs/qarshiyev_z.jpg",
           "bio" : "20.11.1958  Jizzax vil. Baxmal tumani",
           "lavozim" : "Muxxamad al-Xorazmiy nomidagi TATU SF o'quv va ilmiy ishlar bo'yicha direktor o`rinbosari ",
           "ilmiyUnvon" : "Fan nomzodi",
@@ -91,9 +91,9 @@ export class HeaderStaffPage {
             "tel" : "(0-366) 232-29-29" 
         },
          {
-            "fullName": "Бекмуратов Қосим",
-            "fatherName": "Аллабердиевич",
-            "photo":  "assets/imgs/bekmurodov_q.jpg",
+            "fullName": "Каршиев Зайнидин ",
+            "fatherName": "Абдувалиевич",
+            "photo":  "assets/imgs/qarshiyev_z.jpg",
             "bio" : "20.11.1958  обл. Жиззах рай. Бахмал ",
             "lavozim" : "Заместитель директора по  СФ ТУИТ по именим Мухаммад ал-Хоразмий",
             "ilmiyUnvon" : "Доцент",

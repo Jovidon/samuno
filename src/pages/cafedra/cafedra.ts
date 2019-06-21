@@ -36,8 +36,8 @@ export class CafedraPage {
          "cafedraName" : "Kompyuter tizimlari kafedrasi",
          "cafedraShortName" : "KT",
          "cafedraPhoto" : "assets/imgs/KT.png",
-         "cafedraPrincipleName" : "Qarshiyev Zayniddin Abduvaliyevich",
-         "photo" : "assets/imgs/qarshiyev_z.jpg",
+         "cafedraPrincipleName" : "Bekmurodov Qosim Allaberdiyevich",
+         "photo" : "assets/imgs/bekmurodov_q.jpg",
          "info" : "‘‘Kompyuter tizimlari” kafedrasi 2013 yil ‘‘Umumkasbiy fanlar” kafedrasi nomi ostida tashkil topgan. Kafedrada jami 19.75 shtat birlikda: 7 nafar dotsent, 9 nafar katta o’qituvchi va 9 nafar assistentlar faoliyat ko’rsatmoqda. Asosiy shtatlarda 16 nafar o’qituvchilar bo’lib, ulardan 4 nafari fan nomzodlari, dotsentlar, 7 nafari katta o’qituvchilar va 5 nafari assistentlardir. O’rindoshlik asosida 3.75 shtat birligi band qilingan, shu jumladan filial xodimlari tomonidan 3.5 shtat birlik va SamDU dan jalb qilingan 1 nafar dotsent tomonidan 0.25 shtat birlik, Kafedrada dars berayotgan 25 nafar professor - o’qituvchilardan 9 nafari ilmiy darajali (9 nafar fan nomzodlari) bo’lib, 36% ni tashkil qiladi. Asosiy shtatlarga nisbatan ilmiy saloxiyat (6/16)*100=37.5 % ni tashkil qiladi. Kafedraning o’rtacha yoshi 38 yoshda.         Kafedrada olib borilayotgan ilmiy ishlar:         Ishlar nomi va sharti: ‘‘Anizotrop elektr o’tkazuvchanlikni hisobga olgan holda to’k tashuvchi anizotrop qobiqlar elektromagnitoelastikligi bog’liqli chiziqlimas masalalarini yechish metodikasi, algoritmi va dasturiy ta’minotini yaratish’‘ (fundamental) – Indiaminov R.Sh. (2012-2016). Informatika va axborot texnologiyalari va kasb ta’limi (Informatika va axborot texnologiyalari) ta’lim yo’nalishlaridagi Intellektual tizimlar fanidan o’quv-uslubiy majmualar yaratish (amaliy) – Bekmurodov Q.A. (2012-2013)"
     
         },
@@ -133,8 +133,8 @@ export class CafedraPage {
          "cafedraName" : "Компьютерные системы",
          "cafedraShortName" : "КС",
          "cafedraPhoto" : "assets/imgs/KT.png",
-         "cafedraPrincipleName" : "Каршиев Зайнидин Абдувалиевич",
-         "photo" : "assets/imgs/qarshiyev_z.jpg",
+         "cafedraPrincipleName" : "Бекмуратов Қосим Аллабердиевич",
+         "photo" : "assets/imgs/bekmurodov_q.jpg",
          "info" : "Кафедра ‘‘Компьютерные системы” была организована в 2013 году на базе кафедры ‘‘Общепрофессиональные дисциплины”. На кафедре ведут деятельность 7 доцентов, 9 старших преподавателей и 9 ассистентов в общей сложности на 19,75 штатных единиц. В основном штате 16 преподавателей, среди них 4 кандидатов наук, доценты, 7 старших преподавателей и 5 ассистентов. Научный потенциал кафедры составляет 36% Научный потенциал по отношению в основном штате составляет (6/16)*100 = 37.5 %. Средний возраст на кафедре составляет 38 лет. Научно-исследовательские работы кафедры. Название проекта: ‘‘Разработка методики, алгоритма и программного средства решение нелинейных связанных задач электро - магнитоупругости токонесущих анизотропных оболочек с учетом анизотропной электро - проводности’‘.Название проекта: ‘‘Разработка учебно-методического комплекса по предмету ‘‘Интеллектуалные системы” для образовательных направлений ‘‘Информатика и информационные технологии” и ‘‘Профессиональное образование (информатика и информационные технологии)’‘‘‘.",
          "tel" : "Телефон: (+99890) 505-42-00"
     
