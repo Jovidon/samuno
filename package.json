@@ -34,7 +34,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "base64-arraybuffer": "^0.1.5",
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.9.4",
     "cordova-android": "7.0.0",
     "cordova-plugin-advanced-http": "^1.10.0",
     "cordova-plugin-badge": "^0.8.7",
